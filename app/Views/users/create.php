@@ -1,66 +1,58 @@
-<?= $this->extend('layouts/main') ?>
-<?= $this->section('content') ?>
-<h3>Tambah Buku</h3>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daftar User</title>
+    <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
+</head>
 
-<form method="post" action="<?= base_url('buku/store') ?>" enctype="multipart/form-data">
+<body class="bg-light">
 
-    Judul:<br>
-    <input type="text" name="judul"><br><br>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow" style="width: 400px;">
 
-    ISBN:<br>
-    <input type="text" name="isbn"><br><br>
+        <h4 class="text-center mb-3">Daftar User</h4>
 
-    Kategori:<br>
-    <select name="id_kategori">
-        <option value="">Pilih</option>
-        <?php foreach ($kategori as $k): ?>
-            <option value="<?= $k['id_kategori'] ?>"><?= $k['nama_kategori'] ?></option>
-        <?php endforeach; ?>
-    </select><br><br>
+        <form method="post" action="<?= base_url('users/store') ?>">
 
-    Penulis:<br>
-    <select name="id_penulis">
-        <option value="">Pilih</option>
-        <?php foreach ($penulis as $p): ?>
-            <option value="<?= $p['id_penulis'] ?>"><?= $p['nama_penulis'] ?></option>
-        <?php endforeach; ?>
-    </select><br><br>
+            <div class="mb-2">
+                <label>Nama</label>
+                <input type="text" name="nama" class="form-control">
+            </div>
 
-    Penerbit:<br>
-    <select name="id_penerbit">
-        <option value="">Pilih</option>
-        <?php foreach ($penerbit as $p): ?>
-            <option value="<?= $p['id_penerbit'] ?>"><?= $p['nama_penerbit'] ?></option>
-        <?php endforeach; ?>
-    </select><br><br>
+            <div class="mb-2">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control">
+            </div>
 
-    Rak:<br>
-    <select name="id_rak">
-        <option value="">Pilih</option>
-        <?php foreach ($rak as $r): ?>
-            <option value="<?= $r['id_rak'] ?>">
-                <?= $r['nama_rak'] ?> - <?= $r['lokasi'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br><br>
+            <div class="mb-2">
+                <label>Username</label>
+                <input type="text" name="username" class="form-control">
+            </div>
 
-    Tahun Terbit:<br>
-    <input type="number" name="tahun_terbit"><br><br>
+            <div class="mb-2">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control">
+            </div>
 
-    Jumlah:<br>
-    <input type="number" name="jumlah"><br><br>
+            <div class="mb-3">
+                <label>Role</label>
+                <select name="role" class="form-control">
+                    <option value="admin">Admin</option>
+                    <option value="petugas">Petugas</option>
+                    <option value="anggota">Anggota</option>
+                </select>
+            </div>
 
-    Tersedia:<br>
-    <input type="number" name="tersedia"><br><br>
+            <button class="btn btn-primary w-100">Daftar</button>
 
-    Deskripsi:<br>
-    <textarea name="deskripsi"></textarea><br><br>
+        </form>
 
-    Cover / file :<br>
-    <input type="file" name="cover"><br><br>
+        <div class="text-center mt-2">
+            <a href="<?= base_url('/') ?>">Kembali ke Login</a>
+        </div>
 
-    <button type="submit">Simpan</button>
-    <a href="<?= base_url('buku') ?>">Kembali</a>
+    </div>
+</div>
 
-</form>
-<?= $this->endSection() ?>
+</body>
+</html>

@@ -1,88 +1,64 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
-<h3>Edit Buku</h3>
 
-<form method="post" action="<?= base_url('buku/update/' . $buku['id_buku']) ?>" enctype="multipart/form-data">
+<div>
+    <div>
+        <div>
+            <h4>Edit User</h4>
+        </div>
 
-    Judul:<br>
-    <input type="text" name="judul" value="<?= $buku['judul'] ?>"><br><br>
+        <div>
 
-    ISBN:<br>
-    <input type="text" name="isbn" value="<?= $buku['isbn'] ?>"><br><br>
+            <form action="<?= base_url('users/update/' . $user['id']) ?>" method="post" enctype="multipart/form-data">
 
-    Kategori:<br>
-    <select name="id_kategori">
-        <?php foreach ($kategori as $k): ?>
-            <option value="<?= $k['id_kategori'] ?>"
-                <?= $buku['id_kategori'] == $k['id_kategori'] ? 'selected' : '' ?>>
-                <?= $k['nama_kategori'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br><br>
+                <div>
+                    <label>Nama Lengkap</label><br>
+                    <input type="text" name="nama" value="<?= $user['nama'] ?>" required>
+                </div>
 
-    Penulis:<br>
-    <select name="id_penulis">
-        <?php foreach ($penulis as $p): ?>
-            <option value="<?= $p['id_penulis'] ?>"
-                <?= $buku['id_penulis'] == $p['id_penulis'] ? 'selected' : '' ?>>
-                <?= $p['nama_penulis'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br><br>
+                <div>
+                    <label>Email</label><br>
+                    <input type="text" name="email" value="<?= $user['email'] ?>" required>
+                </div>
 
-    Penerbit:<br>
-    <select name="id_penerbit">
-        <?php foreach ($penerbit as $p): ?>
-            <option value="<?= $p['id_penerbit'] ?>"
-                <?= $buku['id_penerbit'] == $p['id_penerbit'] ? 'selected' : '' ?>>
-                <?= $p['nama_penerbit'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br><br>
+                <div>
+                    <label>Username</label><br>
+                    <input type="text" name="username" value="<?= $user['username'] ?>" required>
+                </div>
 
-    Rak:<br>
-    <select name="id_rak">
-        <?php foreach ($rak as $r): ?>
-            <option value="<?= $r['id_rak'] ?>">
-                <?= $r['nama_rak'] ?> - <?= $r['lokasi'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br><br>
+                <div>
+                    <label>Password (kosongkan jika tidak diubah)</label><br>
+                    <input type="password" name="password">
+                </div>
 
-    Tahun:<br>
-    <input type="number" name="tahun_terbit" value="<?= $buku['tahun_terbit'] ?>"><br><br>
+                <div>
+                    <label>Role</label><br>
+                    <select name="role">
+                        <option value="admin" <?= $user['role'] == 'admin' ? 'selected' : '' ?>>Admin</option>
+                        <option value="petugas" <?= $user['role'] == 'petugas' ? 'selected' : '' ?>>Petugas</option>
+                        <option value="anggota" <?= $user['role'] == 'anggota' ? 'selected' : '' ?>>Anggota</option>
+                    </select>
+                </div>
 
-    Jumlah:<br>
-    <input type="number" name="jumlah" value="<?= $buku['jumlah'] ?>"><br><br>
+                <div>
+                    <label>Foto</label><br>
+                    <input type="file" name="foto"><br>
+                    <p>Foto sekarang:</p>
 
-    Tersedia:<br>
-    <input type="number" name="tersedia" value="<?= $buku['tersedia'] ?>"><br><br>
+                    <?php if ($user['foto']): ?>
+                        <img src="<?= base_url('uploads/users/' . $user['foto']) ?>" width="80">
+                    <?php else: ?>
+                        <span>-</span>
+                    <?php endif; ?>
+                </div>
 
-    Deskripsi:<br>
-    <textarea name="deskripsi"><?= $buku['deskripsi'] ?></textarea><br><br>
+                <br>
+                <button type="submit">Update</button>
+                <a href="<?= base_url('users') ?>">Kembali</a>
 
-    Cover:<br>
-    <input type="file" name="cover"><br><br>
+            </form>
+        </div>
+    </div>
+</div>
 
-    Cover Saat Ini:<br>
-    <?php if ($buku['cover']): ?>
-
-        <?php
-        $ext = pathinfo($buku['cover'], PATHINFO_EXTENSION);
-        ?>
-
-        <?php if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif'])): ?>
-            <img src="<?= base_url('uploads/buku/' . $buku['cover']) ?>" width="100"><br>
-        <?php else: ?>
-            <a href="<?= base_url('uploads/buku/' . $buku['cover']) ?>" target="_blank">Lihat File</a><br>
-        <?php endif; ?>
-
-    <?php else: ?>
-        -
-    <?php endif; ?>
-
-    <button type="submit">Update</button>
-    <a href="<?= base_url('buku') ?>">Kembali</a>
-
-</form>
 <?= $this->endSection() ?>

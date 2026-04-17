@@ -35,4 +35,32 @@ $routes->get('/users/delete/(:num)', 'Users::delete/$1', $allRole); // aksi hapu
 $routes->get('users/detail/(:num)', 'Users::detail/$1', $allRole); // aksi detail user
 $routes->get('users/print', 'Users::print', $allRole); // aksi print data user
 $routes->get('users/wa/(:num)', 'Users::wa/$1', $allRole); // aksi kirim ke whatsapp
+$routes->get('/buku', 'Buku::index');
+
+$routes->get('buku', 'Buku::index');
+$routes->get('buku/create', 'Buku::create');
+$routes->post('buku/store', 'Buku::store');
+$routes->get('buku/detail/(:num)', 'Buku::detail/$1');
+$routes->get('buku/edit/(:num)', 'Buku::edit/$1');
+$routes->post('buku/update/(:num)', 'Buku::update/$1');
+$routes->get('buku/delete/(:num)', 'Buku::delete/$1');
+$routes->get('buku/print', 'Buku::print');
+$routes->get('buku/wa/(:num)', 'Buku::wa/$1');
+
+$routes->get('/rak', 'Rak::index');
+$routes->get('/peminjaman', 'Peminjaman::index');
+$routes->get('/pengembalian', 'Pengembalian::index');
+$routes->get('/rak', 'Rak::index');
+$routes->get('/rak/create', 'Rak::create');
+$routes->post('/rak/store', 'Rak::store');
+
+$routes->get('/rak/edit/(:num)', 'Rak::edit/$1');
+$routes->post('/rak/update/(:num)', 'Rak::update/$1');
+
+$routes->get('/rak/delete/(:num)', 'Rak::delete/$1');
+$routes->get('/rak/detail/(:num)', 'Rak::detail/$1');
+$routes->get('/peminjaman', 'Peminjaman::index');
+$routes->get('/peminjaman/create', 'Peminjaman::create');
+$routes->post('/peminjaman/store', 'Peminjaman::store');
+$routes->get('/peminjaman/kembali/(:num)', 'Peminjaman::kembali/$1');
 
