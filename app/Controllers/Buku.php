@@ -15,33 +15,35 @@ class Buku extends BaseController
         $this->db = \Config\Database::connect();
     }
 
-    public function index()
-    {
-        $keyword = $this->request->getGet('keyword');
+  public function index()
+{
+    $keyword = $this->request->getGet('keyword');
 
-        $builder = $this->db->table('buku');
-        $builder->select('
-            buku.*,
-            kategori.nama_kategori,
-            penulis.nama_penulis,
-            penerbit.nama_penerbit,
-            rak.nama_rak,
-            rak.lokasi
-        ');
-        $builder->join('kategori', 'kategori.id_kategori = buku.id_kategori', 'left');
-        $builder->join('penulis', 'penulis.id_penulis = buku.id_penulis', 'left');
-        $builder->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit', 'left');
-        $builder->join('buku_rak', 'buku_rak.id_buku = buku.id_buku', 'left');
-        $builder->join('rak', 'rak.id_rak = buku_rak.id_rak', 'left');
+    $builder = $this->db->table('buku');
+    $builder->select('
+        buku.*,
+        kategori.nama_kategori,
+        penulis.nama_penulis,
+        penerbit.nama_penerbit,
+        rak.nama_rak,
+        rak.lokasi
+    ');
 
-        if ($keyword) {
-            $builder->like('buku.judul', $keyword);
-        }
+    $builder->join('kategori', 'kategori.id_kategori = buku.id_kategori', 'left');
+    $builder->join('penulis', 'penulis.id_penulis = buku.id_penulis', 'left');
+    $builder->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit', 'left');
 
-        $data['buku'] = $builder->get()->getResultArray();
+    // ✅ INI YANG BENAR
+    $builder->join('rak', 'rak.id_rak = buku.id_rak', 'left');
 
-        return view('buku/index', $data);
+    if ($keyword) {
+        $builder->like('buku.judul', $keyword);
     }
+
+    $data['buku'] = $builder->get()->getResultArray();
+
+    return view('buku/index', $data);
+}
 
     public function create()
     {

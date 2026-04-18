@@ -47,31 +47,37 @@ table tr:nth-child(even) {
         <th>Tgl Kembali</th>
         <th>Status</th>
         <th>Aksi</th>
+         <th>Denda</th>
     </tr>
 
-    <?php if (!empty($peminjaman)): ?>
-        <?php foreach ($peminjaman as $p): ?>
-            <tr>
-                <td><?= $p['id_anggota'] ?></td>
-                <td><?= $p['judul'] ?></td>
-                <td><?= $p['tanggal_pinjam'] ?></td>
-                <td><?= $p['tanggal_kembali'] ?></td>
-                <td><?= $p['status'] ?></td>
-                <td>
-                    <?php if ($p['status'] == 'dipinjam'): ?>
-                        <a href="<?= base_url('peminjaman/kembali/' . $p['id_peminjaman']) ?>" class="btn">
-                            Kembalikan
-                        </a>
-                    <?php else: ?>
-                        -
-                    <?php endif; ?>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <tr>
-            <td colspan="6">Data peminjaman belum ada</td>
-        </tr>
+    <?php foreach ($peminjaman as $p): ?>
+   <tr>
+    <td><?= $p['id_anggota'] ?></td>
+    <td><?= $p['judul'] ?></td>
+    <td><?= $p['tanggal_pinjam'] ?></td>
+    <td><?= $p['tanggal_kembali'] ?></td>
+    <td><?= $p['status'] ?></td>
+
+    <td>
+        <?php if ($p['denda'] > 0): ?>
+            Rp <?= number_format($p['denda']) ?>
+        <?php else: ?>
+            -
+        <?php endif; ?>
+    </td>
+</tr>
+        <!-- ✅ AKSI -->
+        <td>
+            <?php if ($p['status'] != 'kembali'): ?>
+                <a href="<?= base_url('peminjaman/kembali/' . $p['id_peminjaman']) ?>">
+                    Kembalikan
+                </a>
+            <?php else: ?>
+                -
+            <?php endif; ?>
+        </td>
+    </tr>
+<?php endforeach; ?>
         <?php if ($p['status'] == 'dipinjam'): ?>
     <a href="<?= base_url('peminjaman/kembali/' . $p['id_peminjaman']) ?>" 
        onclick="return confirm('Kembalikan buku ini?')" 
@@ -81,5 +87,4 @@ table tr:nth-child(even) {
 <?php else: ?>
     <span style="color:green;">Selesai</span>
 <?php endif; ?>
-    <?php endif; ?>
 </table>

@@ -84,6 +84,9 @@ table img {
         <div>
             <a href="<?= base_url('buku/create') ?>">Tambah</a>
             <a href="<?= base_url('buku/print') ?>" target="_blank">Print</a>
+
+            <!-- ✅ TOMBOL KEMBALI -->
+            <a href="<?= base_url('/') ?>">Kembali</a>
         </div>
     </div>
 

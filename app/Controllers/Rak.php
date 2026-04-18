@@ -33,22 +33,22 @@ class Rak extends BaseController
     }
 
     // ✅ TAMBAHAN (INI YANG KURANG)
-    public function create()
-    {
-        return view('rak/create');
-    }
+        public function create()
+{
+    return view('rak/create');
+}
 
-    public function store()
-    {
-        $db = \Config\Database::connect();
+public function store()
+{
+    $db = \Config\Database::connect();
 
-        $db->table('rak')->insert([
-            'nama_rak' => $this->request->getPost('nama_rak'),
-            'lokasi'   => $this->request->getPost('lokasi'),
-        ]);
+    $db->table('rak')->insert([
+        'nama_rak' => $this->request->getPost('nama_rak'),
+        'lokasi'   => $this->request->getPost('lokasi')
+    ]);
 
-        return redirect()->to('/rak');
-    }
+    return redirect()->to('/rak');
+}
 
     public function edit($id)
 {
