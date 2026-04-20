@@ -68,4 +68,5 @@ $routes->get('/rak/create', 'Rak::create');
 $routes->post('/rak/store', 'Rak::store');
 $routes->get('/peminjaman/pinjam/(:num)', 'Peminjaman::pinjam/$1');
 $routes->get('/peminjaman', 'Peminjaman::index');
+$routes->get('/peminjaman/pinjam/(:num)', 'Peminjaman::pinjam/$1');
 

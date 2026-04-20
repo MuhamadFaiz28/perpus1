@@ -68,6 +68,7 @@ class Buku extends BaseController
         }
 
         $data = $this->request->getPost();
+        $data['id_rak'] = $this->request->getPost('id_rak');
 
         // HANDLE UPLOAD COVER
         $file = $this->request->getFile('cover');
@@ -104,7 +105,7 @@ class Buku extends BaseController
         $builder->join('penulis', 'penulis.id_penulis = buku.id_penulis', 'left');
         $builder->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit', 'left');
         $builder->join('buku_rak', 'buku_rak.id_buku = buku.id_buku', 'left');
-        $builder->join('rak', 'rak.id_rak = buku_rak.id_rak', 'left');
+       $builder->join('rak', 'rak.id_rak = buku.id_rak', 'left');
         $builder->where('buku.id_buku', $id);
 
         $data['buku'] = $builder->get()->getRowArray();
@@ -135,6 +136,7 @@ class Buku extends BaseController
             return redirect()->back()->withInput()->with('error', 'Validasi gagal');
         }
         $data = $this->request->getPost();
+        $data['id_rak'] = $this->request->getPost('id_rak');
 
         $file = $this->request->getFile('cover');
 

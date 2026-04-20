@@ -138,6 +138,16 @@ table img {
                     <a href="<?= base_url('buku/edit/' . $b['id_buku']) ?>">Edit</a>
                     <a href="<?= base_url('buku/delete/' . $b['id_buku']) ?>">Hapus</a>
                     <a href="<?= base_url('buku/wa/' . $b['id_buku']) ?>" target="_blank">WA</a>
+                    <?php if (session()->get('role') == 'anggota'): ?>
+    <a href="<?= base_url('peminjaman/pinjam/' . $b['id_buku']) ?>">
+        Pinjam
+    </a>
+    <?php if (session()->getFlashdata('success')): ?>
+    <div style="color: green;">
+        <?= session()->getFlashdata('success') ?>
+    </div>
+<?php endif; ?>
+<?php endif; ?>
                 </td>
             </tr>
         <?php endforeach; ?>

@@ -5,43 +5,42 @@ namespace App\Controllers;
 class Peminjaman extends BaseController
 {
     public function index()
-{
-    $db = \Config\Database::connect();
+    {
+        $db = \Config\Database::connect();
 
-    $query = $db->query("
-        SELECT p.*, b.judul
-        FROM peminjaman p
-        LEFT JOIN buku b ON b.id_buku = p.id_buku
-    ");
+        $query = $db->query("
+            SELECT p.*, b.judul
+            FROM peminjaman p
+            LEFT JOIN buku b ON b.id_buku = p.id_buku
+        ");
 
-    $data['peminjaman'] = $query->getResultArray();
+        $data['peminjaman'] = $query->getResultArray();
 
-    // 🔥 LOGIKA DENDA
-    foreach ($data['peminjaman'] as &$p) {
+        // 🔥 LOGIKA DENDA
+        foreach ($data['peminjaman'] as &$p) {
 
-        if ($p['status'] == 'dipinjam') {
+            if ($p['status'] == 'dipinjam') {
 
-            $hari_ini = date('Y-m-d');
+                $hari_ini = date('Y-m-d');
 
-            if ($hari_ini > $p['tanggal_kembali']) {
+                if (!empty($p['tanggal_kembali']) && $hari_ini > $p['tanggal_kembali']) {
 
-                $telat = (strtotime($hari_ini) - strtotime($p['tanggal_kembali'])) / (60 * 60 * 24);
+                    $telat = (strtotime($hari_ini) - strtotime($p['tanggal_kembali'])) / (60 * 60 * 24);
+                    $denda = $telat * 1000;
 
-                $denda = $telat * 1000;
+                    $p['status'] = 'terlambat';
+                    $p['denda'] = $denda;
 
-                $p['status'] = 'terlambat';
-                $p['denda'] = $denda;
-
-                $db->table('peminjaman')->update([
-                    'status' => 'terlambat',
-                    'denda'  => $denda
-                ], ['id_peminjaman' => $p['id_peminjaman']]);
+                    $db->table('peminjaman')->update([
+                        'status' => 'terlambat',
+                        'denda'  => $denda
+                    ], ['id_peminjaman' => $p['id_peminjaman']]);
+                }
             }
         }
-    }
 
-    return view('peminjaman/index', $data);
-}
+        return view('peminjaman/index', $data);
+    }
 
     public function create()
     {
@@ -61,6 +60,11 @@ class Peminjaman extends BaseController
         $buku = $db->table('buku')
             ->getWhere(['id_buku' => $id_buku])
             ->getRowArray();
+
+        // 🔥 VALIDASI
+        if (!$buku) {
+            return redirect()->back()->with('error', 'Buku tidak ditemukan!');
+        }
 
         if ($buku['tersedia'] <= 0) {
             return redirect()->back()->with('error', 'Stok buku habis!');
@@ -82,7 +86,7 @@ class Peminjaman extends BaseController
         return redirect()->to('/peminjaman');
     }
 
-    // ✅ SATU SAJA (FIX)
+    // ✅ KEMBALI
     public function kembali($id)
     {
         $db = \Config\Database::connect();
@@ -91,18 +95,19 @@ class Peminjaman extends BaseController
             ->getWhere(['id_peminjaman' => $id])
             ->getRowArray();
 
-        // ❌ kalau sudah kembali
+        if (!$p) {
+            return redirect()->to('/peminjaman');
+        }
+
         if ($p['status'] == 'kembali') {
             return redirect()->to('/peminjaman');
         }
 
-        // ✅ tambah stok
         $db->table('buku')
             ->set('tersedia', 'tersedia+1', false)
             ->where('id_buku', $p['id_buku'])
             ->update();
 
-        // ✅ update status
         $db->table('peminjaman')->update([
             'status' => 'kembali',
             'tanggal_kembali' => date('Y-m-d')
@@ -110,31 +115,48 @@ class Peminjaman extends BaseController
 
         return redirect()->to('/peminjaman');
     }
+
+    // ✅ PINJAM USER (FIX TANPA DUPLIKAT)
     public function pinjam($id_buku)
-{
-    $db = \Config\Database::connect();
+    {
+        $db = \Config\Database::connect();
 
-    $buku = $db->table('buku')
-        ->getWhere(['id_buku' => $id_buku])
-        ->getRowArray();
+        $buku = $db->table('buku')
+            ->getWhere(['id_buku' => $id_buku])
+            ->getRowArray();
 
-    if ($buku['tersedia'] <= 0) {
-        return redirect()->back()->with('error', 'Stok habis!');
+        if (!$buku) {
+            return redirect()->back()->with('error', 'Buku tidak ditemukan!');
+        }
+
+        if ($buku['tersedia'] <= 0) {
+            return redirect()->back()->with('error', 'Stok buku habis!');
+        }
+
+        $cek = $db->table('peminjaman')
+            ->where('id_anggota', session('id'))
+            ->where('id_buku', $id_buku)
+            ->where('status', 'dipinjam')
+            ->get()->getRowArray();
+
+        if ($cek) {
+            return redirect()->back()->with('error', 'Buku sudah dipinjam!');
+        }
+
+        $db->table('peminjaman')->insert([
+            'id_anggota'      => session('id'),
+            'id_petugas'      => null,
+            'id_buku'         => $id_buku,
+            'tanggal_pinjam'  => date('Y-m-d'),
+            'tanggal_kembali' => date('Y-m-d', strtotime('+7 days')),
+            'status'          => 'dipinjam'
+        ]);
+
+        $db->table('buku')
+            ->set('tersedia', 'tersedia-1', false)
+            ->where('id_buku', $id_buku)
+            ->update();
+
+        return redirect()->to('/buku')->with('success', 'Buku berhasil dipinjam!');
     }
-
-    $db->table('peminjaman')->insert([
-        'id_anggota'      => 1, // bisa diganti session nanti
-        'id_petugas'      => session('id'),
-        'id_buku'         => $id_buku,
-        'tanggal_pinjam'  => date('Y-m-d'),
-        'tanggal_kembali' => date('Y-m-d', strtotime('+7 days')),
-        'status'          => 'dipinjam'
-    ]);
-
-    $db->table('buku')->set('tersedia', 'tersedia-1', false)
-        ->where('id_buku', $id_buku)
-        ->update();
-
-    return redirect()->to('/peminjaman');
-}
 }
