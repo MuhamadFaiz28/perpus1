@@ -1,74 +1,79 @@
 <?= $this->extend('layouts/main') ?>
+
 <?= $this->section('content') ?>
-<h3>Detail Buku</h3>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                <div class="row g-0">
 
-<table border="1">
-    <tr>
-        <td>ID</td>
-        <td><?= $buku['id_buku'] ?></td>
-    </tr>
-    <tr>
-        <td>Judul</td>
-        <td><?= $buku['judul'] ?></td>
-    </tr>
-    <tr>
-        <td>ISBN</td>
-        <td><?= $buku['isbn'] ?></td>
-    </tr>
-    <tr>
-        <td>Kategori</td>
-        <td><?= $buku['nama_kategori'] ?></td>
-    </tr>
-    <tr>
-        <td>Penulis</td>
-        <td><?= $buku['nama_penulis'] ?></td>
-    </tr>
-    <tr>
-        <td>Penerbit</td>
-        <td><?= $buku['nama_penerbit'] ?></td>
-    </tr>
-    <tr>
-        <td>Rak</td>
-        <td><?= $buku['nama_rak'] ?> - <?= $buku['lokasi'] ?></td>
-    </tr>
-    <tr>
-        <td>Tahun</td>
-        <td><?= $buku['tahun_terbit'] ?></td>
-    </tr>
-    <tr>
-        <td>Jumlah</td>
-        <td><?= $buku['jumlah'] ?></td>
-    </tr>
-    <tr>
-        <td>Tersedia</td>
-        <td><?= $buku['tersedia'] ?></td>
-    </tr>
-    <tr>
-        <td>Deskripsi</td>
-        <td><?= $buku['deskripsi'] ?></td>
-    </tr>
-    <tr>
-        <td>Cover</td>
-        <td>
-            <?php if ($buku['cover']): ?>
+                    <!-- ICON -->
+                    <div class="col-md-4 bg-light text-center p-4 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-file-earmark-pdf text-primary" style="font-size: 8rem; opacity: 0.5;"></i>
+                    </div>
 
-                <?php $ext = pathinfo($buku['cover'], PATHINFO_EXTENSION); ?>
+                    <!-- DETAIL -->
+                    <div class="col-md-8">
+                        <div class="card-body p-4 p-lg-5">
 
-                <?php if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif'])): ?>
-                    <img src="<?= base_url('uploads/buku/' . $buku['cover']) ?>" width="150">
-                <?php else: ?>
-                    <a href="<?= base_url('uploads/buku/' . $buku['cover']) ?>" target="_blank">Lihat File</a>
-                <?php endif; ?>
+                            <nav>
+                                <a href="<?= base_url('/') ?>">Home</a> / Detail Buku
+                            </nav>
 
-            <?php else: ?>
-                -
-            <?php endif; ?>
-        </td>
-    </tr>
-</table>
+                            <h1 class="fw-bold text-dark">
+                                <?= esc($buku['judul'] ?? 'Tanpa Judul') ?>
+                            </h1>
 
-<br>
+                            <p class="text-muted mb-4">
+                                Ditulis oleh 
+                                <span class="fw-bold text-primary">
+                                    <?= esc($buku['id_penulis'] ?? '-') ?>
+                                </span>
+                            </p>
 
-<a href="<?= base_url('buku') ?>">Kembali</a>
-<a href="<?= base_url('buku/wa/' . $buku['id_buku']) ?>" target="_blank">Kirim WA</a>
+                            <div class="mb-4">
+                                <h6 class="fw-bold">Tentang Buku:</h6>
+                                <p class="text-secondary small">
+                                    Buku ini tersedia dalam format PDF dan siap diunduh untuk belajar mandiri.
+                                </p>
+                            </div>
+
+                            <hr class="my-4 opacity-50">
+
+                            <div class="d-flex gap-2 flex-wrap">
+
+                                <!-- DOWNLOAD -->
+                                <?php if (!empty($buku['file'])): ?>
+                                    <a href="<?= base_url('uploads/ebooks/' . $buku['file']) ?>" 
+                                       class="btn btn-primary btn-lg rounded-pill px-4 shadow-sm" download>
+                                        <i class="bi bi-download me-2"></i> Download
+                                    </a>
+                                <?php else: ?>
+                                    <button class="btn btn-secondary btn-lg rounded-pill px-4" disabled>
+                                        File tidak tersedia
+                                    </button>
+                                <?php endif; ?>
+
+                                <!-- PINJAM -->
+                                <a href="<?= base_url('buku/pinjam/' . $buku['id_buku']) ?>" 
+                                   class="btn btn-success btn-lg rounded-pill px-4">
+                                    📚 Pinjam
+                                </a>
+
+                                <!-- KEMBALI -->
+                                <a href="<?= base_url('/') ?>" 
+                                   class="btn btn-outline-secondary btn-lg rounded-pill px-4">
+                                    Kembali
+                                </a>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <?= $this->endSection() ?>

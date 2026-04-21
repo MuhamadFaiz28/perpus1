@@ -1,84 +1,38 @@
-<style>
-/* HILANGKAN MARGIN DEFAULT */
-body {
-    margin: 0;
-    padding: 0;
-}
+<ul class="nav flex-column mt-3">
+    <li class="nav-item">
+        <div class="text-center mb-3">
+            <img src="<?= base_url('uploads/users/' . session()->get('foto')) ?>" height="80" width="80" class="rounded-circle border border-primary" style="object-fit: cover;" />
+            <br>
+            <span class="bg-info text-dark mt-2">
+                <?= session('nama'); ?> (<?= session('role'); ?>)
+            </span>
+        </div>
+    </li>
 
-/* BIKIN SIDEBAR FULL HEIGHT & NEMPEL */
-.sidebar {
-    width: 220px;
-    height: 100vh; /* penuh ke bawah */
-    position: fixed; /* nempel kiri */
-    top: 0;
-    left: 0;
-    background: #d8d3a3;
-    padding: 15px;
-    font-family: Arial, sans-serif;
-    overflow-y: auto;
-}
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('/') ?>">
+            <i class="bi bi-house"></i> <span>Dashboard</span>
+        </a>
+    </li>
 
-/* KONTEN SUPAYA TIDAK KETUTUP SIDEBAR */
-.content {
-    margin-left: 220px;
-    padding: 20px;
-}
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('/users') ?>">
+            <i class="bi bi-people"></i> <span>Users</span>
+        </a>
+    </li>
 
-.sidebar a {
-    display: block;
-    padding: 8px 10px;
-    margin: 4px 0;
-    text-decoration: none;
-    color: #000;
-    border-radius: 5px;
-}
-
-.sidebar a:hover {
-    background: #bfb97a;
-}
-
-.sidebar b {
-    font-size: 18px;
-}
-
-.profile {
-    margin-top: 15px;
-    font-size: 14px;
-}
-
-.profile img {
-    margin-top: 8px;
-    border-radius: 5px;
-}
-</style>
-
-<div class="sidebar">
-
-    <a href="#">
-        <b>App</b>
-    </a>
-
-    <a href="<?= base_url('/') ?>">Dashboard</a>
-    <a href="<?= base_url('/buku') ?>">Buku</a>
-    <a href="<?= base_url('/rak') ?>">Rak Buku</a>
-
-    <!-- TAMBAHAN TRANSAKSI -->
-    <a href="<?= base_url('/peminjaman') ?>">Transaksi Peminjaman</a>
-    <a href="<?= base_url('/pengembalian') ?>">Transaksi Pengembalian</a>
-    <!-- END -->
-
-    <a href="<?= base_url('/users') ?>">Data Users</a>
-
-    <?php $idu = session('id'); ?>
-    <a href="<?= base_url('users/edit/' . $idu) ?>">Setting</a>
-
-    <a href="<?= base_url('/logout') ?>">Log Out</a>
-
-    <div class="profile">
-        <p>Masuk sebagai:</p>
-        <b><?= session('nama'); ?> (<?= session('role'); ?>)</b><br>
-
-        <img src="<?= base_url('uploads/users/' . session()->get('foto')) ?>" height="80" />
-    </div>
-
-</div>
+    <?php $idu = session('id_user'); ?>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('users/edit/' . $idu) ?>">
+            <i class="bi bi-person-gear"></i> <span>Pengaturan</span>
+        </a>
+    </li>
+<li class="nav-item">
+    <a class="nav-link" href="<?= base_url('buku') ?>">Katalog Buku</a>
+</li>
+    <li class="nav-item mt-2">
+        <a href="<?= site_url('/logout') ?>" class="nav-link text-danger">
+            <i class="bi bi-box-arrow-left"></i> Keluar
+        </a>
+    </li>
+</ul>

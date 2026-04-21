@@ -7,8 +7,8 @@ use CodeIgniter\Model;
 class UsersModel extends Model
 {
     protected $table = 'users';
-    protected $primaryKey = 'id';
-    protected $allowedFields = ['nama', 'email', 'username', 'password', 'role', 'foto','status'];
+    protected $primaryKey = 'id'; // ✅ FIX (hapus huruf x)
+    protected $allowedFields = ['nama', 'username', 'password', 'role', 'foto'];
 
     public function getUsersByUsername($username)
     {

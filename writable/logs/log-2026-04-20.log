@@ -142,3 +142,1035 @@ DEBUG - 2026-04-20 04:26:44 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2026-04-20 04:27:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-20 04:27:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-20 04:27:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 04:53:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 04:54:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 04:54:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 05:14:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 05:15:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 05:15:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 05:15:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 05:57:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 05:57:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 05:57:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 06:00:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 06:00:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 06:00:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 06:00:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 06:00:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 06:00:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 06:54:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:07:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:07:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:08:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:08:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:08:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:08:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:08:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:08:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:08:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:08:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:08:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:08:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:08:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:08:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:08:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:08:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:08:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:14:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:14:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:14:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:14:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:14:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:14:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:14:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:14:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:14:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:14:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:14:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:18:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:19:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:19:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:19:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:19:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:24:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:24:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:24:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:24:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:24:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:24:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:24:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:25:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:25:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:25:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:25:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:25:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:25:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:25:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:25:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:26:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:26:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:26:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:26:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:26:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-20 15:31:23 --> mysqli_sql_exception: Not unique table/alias: 'rak' in C:\xampp\htdocs\perpus1\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\perpus1\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `buku`.*...', 0)
+#1 C:\xampp\htdocs\perpus1\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*...')
+#2 C:\xampp\htdocs\perpus1\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*...')
+#3 C:\xampp\htdocs\perpus1\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*...', Array, false)
+#4 C:\xampp\htdocs\perpus1\app\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\perpus1\system\CodeIgniter.php(933): App\Controllers\Buku->index()
+#6 C:\xampp\htdocs\perpus1\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#7 C:\xampp\htdocs\perpus1\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\perpus1\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\perpus1\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\perpus1\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-20 15:31:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'rak'
+[Method: GET, Route: buku]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', [], false)
+ 2 APPPATH\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 15:31:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', [], false)
+ 4 APPPATH\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 15:31:23 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', [], false)
+ 5 APPPATH\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 15:34:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:34:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:34:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:34:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:38:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:38:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:38:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:38:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:38:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:42:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:42:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:42:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:42:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:42:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:42:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:42:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:43:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:43:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:49:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:49:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 15:49:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:33:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:33:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:34:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:34:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:34:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:34:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:44:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 17:44:54 --> ParseError: syntax error, unexpected token "if", expecting ";" or "{"
+[Method: GET, Route: buku]
+in APPPATH\Controllers\Buku.php on line 19.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\perpus1\\app\\Controllers\\Buku.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Buku')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Buku')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Buku', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 17:44:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:44:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:45:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 17:45:01 --> ParseError: syntax error, unexpected token "if", expecting ";" or "{"
+[Method: GET, Route: buku]
+in APPPATH\Controllers\Buku.php on line 19.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\perpus1\\app\\Controllers\\Buku.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Buku')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Buku')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Buku', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 17:45:04 --> ParseError: syntax error, unexpected token "if", expecting ";" or "{"
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 8.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\perpus1\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 17:45:30 --> ParseError: syntax error, unexpected token "if", expecting ";" or "{"
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 49.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\perpus1\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 17:45:32 --> ParseError: syntax error, unexpected token "if", expecting ";" or "{"
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 49.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\perpus1\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-20 17:46:15 --> mysqli_sql_exception: Not unique table/alias: 'rak' in C:\xampp\htdocs\perpus1\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\perpus1\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `buku`.*...', 0)
+#1 C:\xampp\htdocs\perpus1\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*...')
+#2 C:\xampp\htdocs\perpus1\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*...')
+#3 C:\xampp\htdocs\perpus1\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*...', Array, false)
+#4 C:\xampp\htdocs\perpus1\app\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\perpus1\system\CodeIgniter.php(933): App\Controllers\Buku->index()
+#6 C:\xampp\htdocs\perpus1\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#7 C:\xampp\htdocs\perpus1\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\perpus1\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\perpus1\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\perpus1\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-20 17:46:15 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'rak'
+[Method: GET, Route: buku]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', [], false)
+ 2 APPPATH\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 17:46:15 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', [], false)
+ 4 APPPATH\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 17:46:15 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', [], false)
+ 5 APPPATH\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 17:46:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-20 17:46:50 --> mysqli_sql_exception: Not unique table/alias: 'rak' in C:\xampp\htdocs\perpus1\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\perpus1\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `buku`.*...', 0)
+#1 C:\xampp\htdocs\perpus1\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*...')
+#2 C:\xampp\htdocs\perpus1\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*...')
+#3 C:\xampp\htdocs\perpus1\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*...', Array, false)
+#4 C:\xampp\htdocs\perpus1\app\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\perpus1\system\CodeIgniter.php(933): App\Controllers\Buku->index()
+#6 C:\xampp\htdocs\perpus1\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#7 C:\xampp\htdocs\perpus1\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\perpus1\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\perpus1\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\perpus1\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-20 17:46:50 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'rak'
+[Method: GET, Route: buku]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', [], false)
+ 2 APPPATH\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 17:46:50 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', [], false)
+ 4 APPPATH\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 17:46:50 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', [], false)
+ 5 APPPATH\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-20 17:46:58 --> mysqli_sql_exception: Not unique table/alias: 'rak' in C:\xampp\htdocs\perpus1\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\perpus1\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `buku`.*...', 0)
+#1 C:\xampp\htdocs\perpus1\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*...')
+#2 C:\xampp\htdocs\perpus1\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*...')
+#3 C:\xampp\htdocs\perpus1\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*...', Array, false)
+#4 C:\xampp\htdocs\perpus1\app\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\perpus1\system\CodeIgniter.php(933): App\Controllers\Buku->index()
+#6 C:\xampp\htdocs\perpus1\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#7 C:\xampp\htdocs\perpus1\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\perpus1\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\perpus1\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\perpus1\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-20 17:46:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'rak'
+[Method: GET, Route: buku]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', [], false)
+ 2 APPPATH\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 17:46:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', [], false)
+ 4 APPPATH\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 17:46:58 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', [], false)
+ 5 APPPATH\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-20 17:47:07 --> mysqli_sql_exception: Not unique table/alias: 'rak' in C:\xampp\htdocs\perpus1\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\perpus1\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `buku`.*...', 0)
+#1 C:\xampp\htdocs\perpus1\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*...')
+#2 C:\xampp\htdocs\perpus1\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*...')
+#3 C:\xampp\htdocs\perpus1\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*...', Array, false)
+#4 C:\xampp\htdocs\perpus1\app\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\perpus1\system\CodeIgniter.php(933): App\Controllers\Buku->index()
+#6 C:\xampp\htdocs\perpus1\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#7 C:\xampp\htdocs\perpus1\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\perpus1\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\perpus1\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\perpus1\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-20 17:47:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'rak'
+[Method: GET, Route: buku]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', [], false)
+ 2 APPPATH\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 17:47:07 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', [], false)
+ 4 APPPATH\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 17:47:07 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'rak'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, GROUP_CONCAT(rak.nama_rak SEPARATOR ", ") as nama_rak, GROUP_CONCAT(rak.lokasi SEPARATOR ", ") as lokasi
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku`.`id_rak`
+GROUP BY `buku`.`id_buku`', [], false)
+ 5 APPPATH\Controllers\Buku.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 17:50:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:50:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:53:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:53:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:54:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:54:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:54:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:54:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:54:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:54:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:54:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:54:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-20 17:57:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 17:57:41 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 57.
+ 1 APPPATH\Views\layouts\main.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 57)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:00:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:00:02 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 57.
+ 1 APPPATH\Views\layouts\main.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 57)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:00:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:00:03 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 57.
+ 1 APPPATH\Views\layouts\main.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 57)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:00:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:00:04 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 57.
+ 1 APPPATH\Views\layouts\main.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 57)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:02:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:02:01 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 57.
+ 1 APPPATH\Views\layouts\main.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 57)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:02:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:02:02 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 57.
+ 1 APPPATH\Views\layouts\main.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 57)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:02:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:02:03 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 57.
+ 1 APPPATH\Views\layouts\main.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 57)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:04:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:04:38 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 57.
+ 1 APPPATH\Views\layouts\main.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 57)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:04:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:04:39 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 57.
+ 1 APPPATH\Views\layouts\main.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 57)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:04:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:04:40 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 57.
+ 1 APPPATH\Views\layouts\main.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 57)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:05:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:05:18 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 57.
+ 1 APPPATH\Views\layouts\main.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 57)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:09:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:09:29 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 57.
+ 1 APPPATH\Views\layouts\main.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 57)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:09:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:09:31 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 57.
+ 1 APPPATH\Views\layouts\main.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 57)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:09:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:09:32 --> ErrorException: Undefined variable $bulan
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 57.
+ 1 APPPATH\Views\layouts\main.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bulan', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 57)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:09:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:09:47 --> ErrorException: Undefined variable $total
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 60.
+ 1 APPPATH\Views\layouts\main.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 60)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:14:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:14:44 --> ErrorException: Undefined variable $total
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 60.
+ 1 APPPATH\Views\layouts\main.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 60)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:14:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:14:45 --> ErrorException: Undefined variable $total
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 60.
+ 1 APPPATH\Views\layouts\main.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 60)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-20 18:14:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-20 18:14:46 --> ErrorException: Undefined variable $total
+[Method: GET, Route: /]
+in APPPATH\Views\layouts\main.php on line 60.
+ 1 APPPATH\Views\layouts\main.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total', 'C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php', 60)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus1\\app\\Views\\layouts\\main.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/main', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('layouts/dashboard', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('layouts/dashboard')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

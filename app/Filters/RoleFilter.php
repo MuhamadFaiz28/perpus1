@@ -10,23 +10,23 @@ class RoleFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        $role = session()->get('role');
+        $session = session();
+        $role = $session->get('role');
 
-        // kalau belum login
-        if (!$role) {
-            return redirect()->to('/login');
+        if (!$session->get('logged_in')) {
+            return redirect()->to('/login')->with('error', 'Silakan login terlebih dahulu.');
         }
 
-        // kalau role tidak sesuai
+        // Periksa hak akses berdasarkan role
         if ($arguments) {
             if (!in_array($role, $arguments)) {
-                return redirect()->to('/');
+                return redirect()->to('/dashboard')->with('error', 'Anda tidak memiliki akses ke halaman ini.');
             }
         }
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        // tidak dipakai
+        // Tidak perlu diubah
     }
 }

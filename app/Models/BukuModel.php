@@ -6,19 +6,20 @@ use CodeIgniter\Model;
 
 class BukuModel extends Model
 {
-    protected $table = 'buku';
+    protected $table      = 'buku';
     protected $primaryKey = 'id_buku';
 
-    protected $allowedFields = [
-        'isbn',
-        'judul',
-        'id_kategori',
-        'id_penulis',
-        'id_penerbit',
-        'tahun_terbit',
-        'jumlah',
-        'tersedia',
-        'deskripsi',
-        'cover'
-    ];
+   protected $allowedFields = [
+    'judul',
+    'isbn',
+    'id_kategori',
+    'id_penulis',
+    'id_penerbit',
+    'id_rak',
+    'tahun_terbit',
+    'jumlah',
+    'tersedia',
+    'deskripsi',
+    'file'
+];
 }

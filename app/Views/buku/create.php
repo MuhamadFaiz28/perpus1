@@ -60,21 +60,25 @@
 
     <div class="form-group">
         <label>Judul:</label>
-        <input type="text" name="judul">
+        <input type="text" name="judul" required>
     </div>
 
     <div class="form-group">
         <label>ISBN:</label>
-        <input type="text" name="isbn">
+        <input type="text" name="isbn" required>
     </div>
 
     <div class="form-group">
         <label>Kategori:</label>
         <select name="id_kategori">
             <option value="">Pilih</option>
-            <?php foreach ($kategori as $k): ?>
-                <option value="<?= $k['id_kategori'] ?>"><?= $k['nama_kategori'] ?></option>
-            <?php endforeach; ?>
+            <?php if (!empty($kategori)) : ?>
+                <?php foreach ($kategori as $k): ?>
+                    <option value="<?= $k['id_kategori'] ?>">
+                        <?= $k['nama_kategori'] ?>
+                    </option>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </select>
     </div>
 
@@ -82,9 +86,13 @@
         <label>Penulis:</label>
         <select name="id_penulis">
             <option value="">Pilih</option>
-            <?php foreach ($penulis as $p): ?>
-                <option value="<?= $p['id_penulis'] ?>"><?= $p['nama_penulis'] ?></option>
-            <?php endforeach; ?>
+            <?php if (!empty($penulis)) : ?>
+                <?php foreach ($penulis as $p): ?>
+                    <option value="<?= $p['id_penulis'] ?>">
+                        <?= $p['nama_penulis'] ?>
+                    </option>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </select>
     </div>
 
@@ -92,9 +100,13 @@
         <label>Penerbit:</label>
         <select name="id_penerbit">
             <option value="">Pilih</option>
-            <?php foreach ($penerbit as $p): ?>
-                <option value="<?= $p['id_penerbit'] ?>"><?= $p['nama_penerbit'] ?></option>
-            <?php endforeach; ?>
+            <?php if (!empty($penerbit)) : ?>
+                <?php foreach ($penerbit as $p): ?>
+                    <option value="<?= $p['id_penerbit'] ?>">
+                        <?= $p['nama_penerbit'] ?>
+                    </option>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </select>
     </div>
 
@@ -102,27 +114,29 @@
         <label>Rak:</label>
         <select name="id_rak">
             <option value="">Pilih</option>
-            <?php foreach ($rak as $r): ?>
-                <option value="<?= $r['id_rak'] ?>">
-                    <?= $r['nama_rak'] ?> - <?= $r['lokasi'] ?>
-                </option>
-            <?php endforeach; ?>
+            <?php if (!empty($rak)) : ?>
+                <?php foreach ($rak as $r): ?>
+                    <option value="<?= $r['id_rak'] ?>">
+                        <?= $r['nama_rak'] ?> - <?= $r['lokasi'] ?>
+                    </option>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </select>
     </div>
 
     <div class="form-group">
         <label>Tahun Terbit:</label>
-        <input type="number" name="tahun_terbit">
+        <input type="number" name="tahun_terbit" required>
     </div>
 
     <div class="form-group">
         <label>Jumlah:</label>
-        <input type="number" name="jumlah">
+        <input type="number" name="jumlah" required>
     </div>
 
     <div class="form-group">
         <label>Tersedia:</label>
-        <input type="number" name="tersedia">
+        <input type="number" name="tersedia" required>
     </div>
 
     <div class="form-group">
@@ -132,7 +146,7 @@
 
     <div class="form-group">
         <label>Cover / File:</label>
-        <input type="file" name="cover">
+        <input type="file" name="file">
     </div>
 
     <button type="submit" class="btn">Simpan</button>

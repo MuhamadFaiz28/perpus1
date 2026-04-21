@@ -3,212 +3,183 @@
 namespace App\Controllers;
 
 use App\Models\BukuModel;
+use App\Models\PeminjamanModel;
 
 class Buku extends BaseController
 {
-    protected $buku;
-    protected $db;
+    protected $bukuModel;
+    protected $peminjamanModel;
 
     public function __construct()
     {
-        $this->buku = new BukuModel();
-        $this->db = \Config\Database::connect();
+        $this->bukuModel = new BukuModel();
+        $this->peminjamanModel = new PeminjamanModel();
     }
 
-  public function index()
-{
-    $keyword = $this->request->getGet('keyword');
-
-    $builder = $this->db->table('buku');
-    $builder->select('
-        buku.*,
-        kategori.nama_kategori,
-        penulis.nama_penulis,
-        penerbit.nama_penerbit,
-        rak.nama_rak,
-        rak.lokasi
-    ');
-
-    $builder->join('kategori', 'kategori.id_kategori = buku.id_kategori', 'left');
-    $builder->join('penulis', 'penulis.id_penulis = buku.id_penulis', 'left');
-    $builder->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit', 'left');
-
-    // ✅ INI YANG BENAR
-    $builder->join('rak', 'rak.id_rak = buku.id_rak', 'left');
-
-    if ($keyword) {
-        $builder->like('buku.judul', $keyword);
-    }
-
-    $data['buku'] = $builder->get()->getResultArray();
-
-    return view('buku/index', $data);
-}
-
-    public function create()
+    // 1. Tampilkan Semua Buku
+    public function index()
     {
-        $data['kategori'] = $this->db->table('kategori')->get()->getResultArray();
-        $data['penulis'] = $this->db->table('penulis')->get()->getResultArray();
-        $data['penerbit'] = $this->db->table('penerbit')->get()->getResultArray();
-        $data['rak'] = $this->db->table('rak')->get()->getResultArray();
-
-        return view('buku/create', $data);
+        $data['semua_buku'] = $this->bukuModel->findAll();
+        return view('buku/index', $data);
     }
 
-    public function store()
-    {
-        // VALIDASI
-        $rules = [
-            'judul' => 'required',
-            'cover' => 'max_size[cover,2048]|ext_in[cover,jpg,jpeg,png,pdf]'
-        ];
-
-        if (!$this->validate($rules)) {
-            return redirect()->back()->withInput()->with('error', 'Validasi gagal');
-        }
-
-        $data = $this->request->getPost();
-        $data['id_rak'] = $this->request->getPost('id_rak');
-
-        // HANDLE UPLOAD COVER
-        $file = $this->request->getFile('cover');
-
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-            $namaFile = $file->getRandomName();
-            $file->move('uploads/buku/', $namaFile);
-            $data['cover'] = $namaFile;
-        }
-
-        $this->buku->insert($data);
-        $id_buku = $this->buku->getInsertID();
-
-        $this->db->table('buku_rak')->insert([
-            'id_buku' => $id_buku,
-            'id_rak' => $data['id_rak']
-        ]);
-
-        return redirect()->to('/buku');
-    }
-
+    // 2. Detail Buku
     public function detail($id)
     {
-        $builder = $this->db->table('buku');
-        $builder->select('
-            buku.*,
-            kategori.nama_kategori,
-            penulis.nama_penulis,
-            penerbit.nama_penerbit,
-            rak.nama_rak,
-            rak.lokasi
-        ');
-        $builder->join('kategori', 'kategori.id_kategori = buku.id_kategori', 'left');
-        $builder->join('penulis', 'penulis.id_penulis = buku.id_penulis', 'left');
-        $builder->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit', 'left');
-        $builder->join('buku_rak', 'buku_rak.id_buku = buku.id_buku', 'left');
-       $builder->join('rak', 'rak.id_rak = buku.id_rak', 'left');
-        $builder->where('buku.id_buku', $id);
+        $data['buku'] = $this->bukuModel->find($id);
 
-        $data['buku'] = $builder->get()->getRowArray();
+        if (!$data['buku']) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Buku tidak ditemukan!");
+        }
 
         return view('buku/detail', $data);
     }
 
-    public function edit($id)
+    // 3. Cari Buku
+    public function cari()
     {
-        $data['buku'] = $this->buku->find($id);
-        $data['kategori'] = $this->db->table('kategori')->get()->getResultArray();
-        $data['penulis'] = $this->db->table('penulis')->get()->getResultArray();
-        $data['penerbit'] = $this->db->table('penerbit')->get()->getResultArray();
-        $data['rak'] = $this->db->table('rak')->get()->getResultArray();
+        $keyword = $this->request->getGet('keyword');
 
-        return view('buku/edit', $data);
+        if ($keyword) {
+            $hasil = $this->bukuModel
+                ->like('judul', $keyword)
+                ->orLike('id_penulis', $keyword)
+                ->findAll();
+        } else {
+            $hasil = [];
+        }
+
+        return view('buku/hasil_pencarian', [
+            'buku' => $hasil,
+            'keyword' => $keyword
+        ]);
     }
 
-    public function update($id)
+    // 4. Download Buku
+    public function download($id)
     {
+        $db = \Config\Database::connect();
 
-        $rules = [
-            'judul' => 'required',
-            'cover' => 'max_size[cover,2048]|ext_in[cover,jpg,jpeg,png,pdf]'
-        ];
+        $buku = $this->bukuModel->find($id);
+        $id_user = session()->get('id_users');
 
-        if (!$this->validate($rules)) {
-            return redirect()->back()->withInput()->with('error', 'Validasi gagal');
+        if ($buku) {
+
+            $db->table('log_download')->insert([
+                'id_buku'        => $id,
+                'id_user'        => $id_user,
+                'waktu_download' => date('Y-m-d H:i:s')
+            ]);
+
+            $path = FCPATH . 'assets/pdf/' . $buku['file_buku'];
+
+            if (file_exists($path)) {
+                return $this->response->download($path, null);
+            }
         }
-        $data = $this->request->getPost();
-        $data['id_rak'] = $this->request->getPost('id_rak');
 
-        $file = $this->request->getFile('cover');
+        return redirect()->back()->with('error', 'File tidak ditemukan!');
+    }
+
+    // 5. Histori Download
+    public function histori_download()
+    {
+        $db = \Config\Database::connect();
+
+        $data['histori'] = $db->table('log_download')
+            ->select('log_download.*, buku.judul')
+            ->join('buku', 'buku.id_buku = log_download.id_buku')
+            ->orderBy('waktu_download', 'DESC')
+            ->get()
+            ->getResultArray();
+
+        return view('admin/histori_download', $data);
+    }
+
+    // ==========================
+    // 📚 PEMINJAMAN
+    // ==========================
+
+    public function pinjam($id_buku)
+    {
+        $this->peminjamanModel->save([
+            'id_anggota' => session()->get('id_users'),
+            'id_petugas' => session()->get('id_users'),
+            'id_buku' => $id_buku,
+            'tanggal_pinjam' => date('Y-m-d'),
+            'tanggal_kembali' => date('Y-m-d', strtotime('+7 days')),
+            'status' => 'dipinjam',
+            'denda' => 0
+        ]);
+
+        return redirect()->back()->with('success', 'Buku berhasil dipinjam');
+    }
+
+    public function kembalikan($id)
+    {
+        $data = $this->peminjamanModel->find($id);
+
+        $today = date('Y-m-d');
+        $denda = 0;
+
+        if ($today > $data['tanggal_kembali']) {
+            $telat = (strtotime($today) - strtotime($data['tanggal_kembali'])) / 86400;
+            $denda = $telat * 1000;
+            $status = 'terlambat';
+        } else {
+            $status = 'kembali';
+        }
+
+        $this->peminjamanModel->update($id, [
+            'status' => $status,
+            'denda' => $denda
+        ]);
+
+        return redirect()->back()->with('success', 'Buku dikembalikan');
+    }
+
+    public function peminjaman()
+    {
+        $data['pinjam'] = $this->peminjamanModel
+            ->join('buku', 'buku.id_buku = peminjaman.id_buku')
+            ->where('id_anggota', session()->get('id_users'))
+            ->findAll();
+
+        return view('buku/peminjaman', $data);
+    }
+
+    public function create()
+    {
+        return view('buku/create');
+    }
+
+    public function store()
+    {
+        $file = $this->request->getFile('file');
+
+        $namaFile = null;
 
         if ($file && $file->isValid() && !$file->hasMoved()) {
-
-            // hapus file lama
-            $buku = $this->buku->find($id);
-            if ($buku['cover'] && file_exists('uploads/buku/' . $buku['cover'])) {
-                unlink('uploads/buku/' . $buku['cover']);
-            }
-
-            // upload baru
             $namaFile = $file->getRandomName();
-            $file->move('uploads/buku/', $namaFile);
-
-            $data['cover'] = $namaFile;
+            $file->move('uploads', $namaFile);
         }
 
-        $this->buku->update($id, $data);
+        $data = [
+            'judul'        => $this->request->getPost('judul'),
+            'isbn'         => $this->request->getPost('isbn'),
+            'id_kategori'  => $this->request->getPost('id_kategori'),
+            'id_penulis'   => $this->request->getPost('id_penulis'),
+            'id_penerbit'  => $this->request->getPost('id_penerbit'),
+            'id_rak'       => $this->request->getPost('id_rak'),
+            'tahun_terbit' => $this->request->getPost('tahun_terbit'),
+            'jumlah'       => $this->request->getPost('jumlah'),
+            'tersedia'     => $this->request->getPost('tersedia'),
+            'deskripsi'    => $this->request->getPost('deskripsi'),
+            'file'         => $namaFile
+        ];
 
-        $this->db->table('buku_rak')
-            ->where('id_buku', $id)
-            ->update(['id_rak' => $data['id_rak']]);
+        $this->bukuModel->insert($data);
 
         return redirect()->to('/buku');
-    }
-
-    public function delete($id)
-    {
-        $buku = $this->buku->find($id);
-
-        if ($buku['cover'] && file_exists('uploads/buku/' . $buku['cover'])) {
-            unlink('uploads/buku/' . $buku['cover']);
-        }
-
-        $this->buku->delete($id);
-
-        return redirect()->to('/buku');
-    }
-
-    public function print()
-    {
-        $data['buku'] = $this->db->table('buku')
-            ->select('buku.*, kategori.nama_kategori, penulis.nama_penulis, penerbit.nama_penerbit')
-            ->join('kategori', 'kategori.id_kategori = buku.id_kategori', 'left')
-            ->join('penulis', 'penulis.id_penulis = buku.id_penulis', 'left')
-            ->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit', 'left')
-            ->get()->getResultArray();
-
-        return view('buku/print', $data);
-    }
-
-    public function wa($id)
-    {
-        $buku = $this->detailData($id);
-
-        $pesan = "DATA BUKU\n\n";
-        foreach ($buku as $key => $value) {
-            $pesan .= strtoupper($key) . ": " . $value . "\n";
-        }
-
-        return redirect()->to("https://wa.me/6285175017991?text=" . urlencode($pesan));
-    }
-
-    private function detailData($id)
-    {
-        return $this->db->table('buku')
-            ->select('buku.*, kategori.nama_kategori, penulis.nama_penulis, penerbit.nama_penerbit')
-            ->join('kategori', 'kategori.id_kategori = buku.id_kategori', 'left')
-            ->join('penulis', 'penulis.id_penulis = buku.id_penulis', 'left')
-            ->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit', 'left')
-            ->where('buku.id_buku', $id)
-            ->get()->getRowArray();
     }
 }

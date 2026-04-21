@@ -2,71 +2,54 @@
 
 use CodeIgniter\Router\RouteCollection;
 
-/**
- * @var RouteCollection $routes
- */
+$routes->get('/', 'Home::index');
 
-// Variabel Filter
+// FILTER
 $authFilter = ['filter' => 'auth'];
+$admin      = ['filter' => 'role:admin'];
+$allRole    = ['filter' => 'role:admin,user'];
 
-// Variabel Role
-$admin     = ['filter' => 'role:admin'];
-$petugas     = ['filter' => 'role:petugas'];
-$anggota     = ['filter' => 'role:anggota'];
-$allRole   = ['filter' => 'role:admin, petugas, anggota'];
-$intRole   = ['filter' => 'role:admin, petugas'];
-
-// Login
+// LOGIN
 $routes->get('/login', 'Auth::login');
 $routes->post('/proses-login', 'Auth::prosesLogin');
 $routes->get('/logout', 'Auth::logout');
 
-// Halaman utama
-$routes->get('/', 'Home::index', $authFilter);
+// DASHBOARD
 $routes->get('/dashboard', 'Home::index', $authFilter);
 
-$routes->get('/users/create', 'Users::create'); // form tambah user
-$routes->post('/users/store', 'Users::store'); // aksi simpan user
+// ================= USERS =================
+$routes->get('/users', 'Users::index', $allRole);
+$routes->get('/users/create', 'Users::create', $admin);
+$routes->post('/users/store', 'Users::store', $admin);
 
-$routes->get('/users', 'Users::index', $intRole); // menampilkan data user hanya untuk admin dan petugas
-$routes->get('/users/edit/(:num)', 'Users::edit/$1', $allRole); // form edit user
-$routes->post('/users/update/(:num)', 'Users::update/$1', $allRole); // aksi update user
-$routes->get('/users/delete/(:num)', 'Users::delete/$1', $allRole); // aksi hapus user
-$routes->get('users/detail/(:num)', 'Users::detail/$1', $allRole); // aksi detail user
-$routes->get('users/print', 'Users::print', $allRole); // aksi print data user
-$routes->get('users/wa/(:num)', 'Users::wa/$1', $allRole); // aksi kirim ke whatsapp
-$routes->get('/buku', 'Buku::index');
+$routes->get('/users/detail/(:num)', 'Users::detail/$1', $allRole);
+$routes->get('/users/edit/(:num)', 'Users::edit/$1', $allRole);
+$routes->post('/users/update/(:num)', 'Users::update/$1', $allRole);
+$routes->get('/users/delete/(:num)', 'Users::delete/$1', $admin);
 
+$routes->get('/users/print', 'Users::print', $allRole);
+$routes->get('/users/wa/(:num)', 'Users::wa/$1', $allRole);
+
+// ================= PENGATURAN =================
+$routes->get('/pengaturan', 'Pengaturan::index', $allRole);
+
+// ================= BUKU =================
 $routes->get('buku', 'Buku::index');
 $routes->get('buku/create', 'Buku::create');
 $routes->post('buku/store', 'Buku::store');
+
 $routes->get('buku/detail/(:num)', 'Buku::detail/$1');
-$routes->get('buku/edit/(:num)', 'Buku::edit/$1');
-$routes->post('buku/update/(:num)', 'Buku::update/$1');
-$routes->get('buku/delete/(:num)', 'Buku::delete/$1');
-$routes->get('buku/print', 'Buku::print');
-$routes->get('buku/wa/(:num)', 'Buku::wa/$1');
+$routes->get('buku/(:num)', 'Buku::detail/$1');
 
-$routes->get('/rak', 'Rak::index');
-$routes->get('/peminjaman', 'Peminjaman::index');
-$routes->get('/pengembalian', 'Pengembalian::index');
-$routes->get('/rak', 'Rak::index');
-$routes->get('/rak/create', 'Rak::create');
-$routes->post('/rak/store', 'Rak::store');
+$routes->get('buku/cari', 'Buku::cari');
 
-$routes->get('/rak/edit/(:num)', 'Rak::edit/$1');
-$routes->post('/rak/update/(:num)', 'Rak::update/$1');
+$routes->get('buku/unduh/(:num)', 'Buku::unduh/$1');
+$routes->get('buku/baca/(:num)', 'Buku::baca/$1');
 
-$routes->get('/rak/delete/(:num)', 'Rak::delete/$1');
-$routes->get('/rak/detail/(:num)', 'Rak::detail/$1');
-$routes->get('/peminjaman', 'Peminjaman::index');
-$routes->get('/peminjaman/create', 'Peminjaman::create');
-$routes->post('/peminjaman/store', 'Peminjaman::store');
-$routes->get('/peminjaman/kembali/(:num)', 'Peminjaman::kembali/$1');
+$routes->get('buku/pinjam/(:num)', 'Buku::pinjam/$1');
+$routes->get('buku/kembalikan/(:num)', 'Buku::kembalikan/$1');
 
-$routes->get('/rak/create', 'Rak::create');
-$routes->post('/rak/store', 'Rak::store');
-$routes->get('/peminjaman/pinjam/(:num)', 'Peminjaman::pinjam/$1');
-$routes->get('/peminjaman', 'Peminjaman::index');
-$routes->get('/peminjaman/pinjam/(:num)', 'Peminjaman::pinjam/$1');
+$routes->get('buku/peminjaman', 'Buku::peminjaman');
 
+$routes->get('buku/histori_download', 'Buku::histori_download');
+$routes->get('admin/histori', 'Buku::histori_download');

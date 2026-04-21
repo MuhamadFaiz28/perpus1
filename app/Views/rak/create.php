@@ -25,6 +25,7 @@
     border-radius: 4px;
     text-decoration: none;
     color: #000;
+    cursor: pointer;
 }
 </style>
 
@@ -32,16 +33,17 @@
 
     <h3>Tambah Rak Buku</h3>
 
-    <form method="post" action="<?= base_url('rak/store') ?>">
+    <!-- 🔥 FIX DI SINI (novalidate) -->
+    <form method="post" action="<?= base_url('rak/store') ?>" novalidate>
 
         <div class="form-group">
             <label>Nama Rak:</label>
-            <input type="text" name="nama_rak" required>
+            <input type="text" name="nama_rak">
         </div>
 
         <div class="form-group">
             <label>Lokasi:</label>
-            <input type="text" name="lokasi" required>
+            <input type="text" name="lokasi">
         </div>
 
         <button type="submit" class="btn">Simpan</button>
@@ -51,4 +53,4 @@
 
 </div>
 
-<?= $this->endSection() ?>
+<?= $this->endSection() ?>  

@@ -1,158 +1,127 @@
 <?= $this->extend('layouts/main') ?>
+
 <?= $this->section('content') ?>
+<div class="container py-5">
 
-<style>
-.card {
-    background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
+    <!-- HEADER -->
+<div class="row mb-4 align-items-center">
+    <div class="col-md-6">
+        <h2 class="fw-bold text-dark">📚 Koleksi Buku Digital</h2>
+        <p class="text-muted">Pilih dan baca buku di Dadan Library.</p>
+    </div>
 
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
+    <div class="col-md-6 text-md-end d-flex justify-content-md-end gap-2 flex-wrap">
 
-.top-bar form input {
-    padding: 5px;
-}
+        <!-- TOMBOL TAMBAH BUKU -->
+        <?php if (session()->get('role') == 'admin'): ?>
+            <a href="<?= base_url('buku/create') ?>" class="btn btn-success rounded-pill px-4">
+                ➕ Tambah Buku
+            </a>
+        <?php endif; ?>
 
-.top-bar a {
-    padding: 6px 10px;
-    background: #bfb97a;
-    color: #000;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-left: 5px;
-}
+        <!-- HISTORI -->
+        <a href="<?= base_url('buku/histori_download') ?>" class="btn btn-dark rounded-pill px-4">
+            Panel Histori
+        </a>
 
-.top-bar a:hover {
-    background: #a8a25f;
-}
+    </div>
+</div>
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-}
+    <!-- LIST BUKU -->
+    <div class="row">
+        <?php if (!empty($semua_buku)) : ?>
+            <?php foreach ($semua_buku as $b) : ?>
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100 shadow-sm border-0 rounded-4">
 
-table th, table td {
-    border: 1px solid #ccc;
-    padding: 6px;
-    text-align: center;
-}
+                        <!-- COVER -->
+                        <div class="bg-primary text-white d-flex align-items-center justify-content-center" style="height: 200px;">
+                            <i class="bi bi-book" style="font-size: 4rem;"></i>
+                        </div>
 
-table th {
-    background: #d8d3a3;
-}
+                        <!-- ISI -->
+                        <div class="card-body text-center">
+                            <h6 class="fw-bold mb-1 text-truncate">
+                                <?= esc($b['judul'] ?? 'Tanpa Judul') ?>
+                            </h6>
 
-table tr:nth-child(even) {
-    background: #f9f9f9;
-}
+                            <p class="small text-muted mb-3">
+                                Penulis: <?= esc($b['id_penulis'] ?? '-') ?>
+                            </p>
 
-table img {
-    border-radius: 5px;
-}
+                            <div class="d-grid gap-2">
 
-.aksi a {
-    display: inline-block;
-    margin: 2px;
-    padding: 3px 6px;
-    background: #d8d3a3;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 12px;
-}
+                                <!-- PINJAM -->
+                                <a href="<?= base_url('buku/pinjam/' . $b['id_buku']) ?>" 
+                                class="btn btn-primary btn-sm rounded-pill">
+                                📚 Pinjam Buku
+                                </a>
 
-.aksi a:hover {
-    background: #bfb97a;
-}
-</style>
+                                <!-- DETAIL -->
+                                <a href="<?= base_url('buku/detail/' . $b['id_buku']) ?>" 
+                                class="btn btn-outline-primary btn-sm rounded-pill">
+                                Detail
+                                </a>
 
-<div class="card">
+                            </div>
+                        </div>
 
-    <h3>Data Buku</h3>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <div class="col-12 text-center">
+                <div class="alert alert-info">
+                    Belum ada data buku.
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
 
-    <div class="top-bar">
-        <form method="get">
-            <input type="text" name="keyword" placeholder="Cari judul">
-            <button type="submit">Cari</button>
-        </form>
+    <hr class="my-5">
 
-        <div>
-            <a href="<?= base_url('buku/create') ?>">Tambah</a>
-            <a href="<?= base_url('buku/print') ?>" target="_blank">Print</a>
+    <!-- HISTORI DOWNLOAD -->
+    <div class="card shadow-sm rounded-4">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">📊 Histori Download</h5>
+        </div>
 
-            <!-- ✅ TOMBOL KEMBALI -->
-            <a href="<?= base_url('/') ?>">Kembali</a>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Judul</th>
+                            <th>User</th>
+                            <th>Waktu</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php if (!empty($histori)) : ?>
+                            <?php $no = 1; foreach ($histori as $h) : ?>
+                                <tr>
+                                    <td><?= $no++ ?></td>
+                                    <td><?= esc($h['judul']) ?></td>
+                                    <td>User #<?= $h['id_user'] ?></td>
+                                    <td><?= date('d M Y H:i', strtotime($h['waktu_download'])) ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else : ?>
+                            <tr>
+                                <td colspan="4" class="text-center text-muted">
+                                    Belum ada histori
+                                </td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+
+                </table>
+            </div>
         </div>
     </div>
 
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>ISBN</th>
-            <th>Judul</th>
-            <th>Kategori</th>
-            <th>Penulis</th>
-            <th>Penerbit</th>
-            <th>Rak</th>
-            <th>Tahun</th>
-            <th>Jumlah</th>
-            <th>Tersedia</th>
-            <th>Cover</th>
-            <th>Aksi</th>
-        </tr>
-
-        <?php foreach ($buku as $b): ?>
-            <tr>
-                <td><?= $b['id_buku'] ?></td>
-                <td><?= $b['isbn'] ?></td>
-                <td><?= $b['judul'] ?></td>
-                <td><?= $b['nama_kategori'] ?></td>
-                <td><?= $b['nama_penulis'] ?></td>
-                <td><?= $b['nama_penerbit'] ?></td>
-                <td><?= $b['nama_rak'] ?></td>
-                <td><?= $b['tahun_terbit'] ?></td>
-                <td><?= $b['jumlah'] ?></td>
-                <td><?= $b['tersedia'] ?></td>
-                <td>
-                    <?php if ($b['cover']): ?>
-
-                        <?php $ext = pathinfo($b['cover'], PATHINFO_EXTENSION); ?>
-
-                        <?php if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif'])): ?>
-                            <img src="<?= base_url('uploads/buku/' . $b['cover']) ?>" width="60">
-                        <?php else: ?>
-                            <a href="<?= base_url('uploads/buku/' . $b['cover']) ?>" target="_blank">File</a>
-                        <?php endif; ?>
-
-                    <?php else: ?>
-                        -
-                    <?php endif; ?>
-                </td>
-                <td class="aksi">
-                    <a href="<?= base_url('buku/detail/' . $b['id_buku']) ?>">Detail</a>
-                    <a href="<?= base_url('buku/edit/' . $b['id_buku']) ?>">Edit</a>
-                    <a href="<?= base_url('buku/delete/' . $b['id_buku']) ?>">Hapus</a>
-                    <a href="<?= base_url('buku/wa/' . $b['id_buku']) ?>" target="_blank">WA</a>
-                    <?php if (session()->get('role') == 'anggota'): ?>
-    <a href="<?= base_url('peminjaman/pinjam/' . $b['id_buku']) ?>">
-        Pinjam
-    </a>
-    <?php if (session()->getFlashdata('success')): ?>
-    <div style="color: green;">
-        <?= session()->getFlashdata('success') ?>
-    </div>
-<?php endif; ?>
-<?php endif; ?>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
-
 </div>
-
 <?= $this->endSection() ?>

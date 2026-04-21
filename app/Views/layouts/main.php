@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Maldin17App </title>
+    <title> dadan </title>
 
     <!-- Bootstrap CSS Lokal -->
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
@@ -30,7 +30,21 @@
         }
     </style>
 </head>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dadan Library</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <style>
+        body { background-color: #f8f9fa; font-family: 'sans-serif'; }
+        .bg-hover:focus-within { background-color: #f0f7ff !important; border-color: #0d6efd !important; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
 <body>
     <!-- Sidebar -->
     <div id="sidebar" class="sidebar">
