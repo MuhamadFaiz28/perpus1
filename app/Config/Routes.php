@@ -53,3 +53,15 @@ $routes->get('buku/peminjaman', 'Buku::peminjaman');
 
 $routes->get('buku/histori_download', 'Buku::histori_download');
 $routes->get('admin/histori', 'Buku::histori_download');
+
+$routes->get('users/edit/(:num)', 'Users::edit/$1');
+$routes->post('users/update/(:num)', 'Users::update/$1');
+
+$routes->get('users', 'Users::index');
+$routes->get('users/detail/(:num)', 'Users::detail/$1');
+$routes->get('users/edit/(:num)', 'Users::edit/$1');
+$routes->post('users/update/(:num)', 'Users::update/$1');
+$routes->get('users/delete/(:num)', 'Users::delete/$1');
+
+$routes->get('buku/edit/(:num)', 'Buku::edit/$1'); 
+$routes->post('buku/update/(:num)', 'Buku::update/$1'); // Untuk proses simpan perubahan

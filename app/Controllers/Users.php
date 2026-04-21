@@ -159,5 +159,26 @@ class Users extends BaseController
     $data['users'] = $builder->findAll();
 
     return view('users/print', $data);
+
+
+
+    $data['user'] = $this->users->find($id);
+
+    if (!$data['user']) {
+        return redirect()->to('/users')->with('error', 'Data tidak ditemukan');
+    }
+
+    return view('users/edit', $data);
+
+
+
+    $this->users->update($id, [
+        'nama'     => $this->request->getPost('nama'),
+        'email'    => $this->request->getPost('email'),
+        'username' => $this->request->getPost('username'),
+        'role'     => $this->request->getPost('role'),
+    ]);
+
+    return redirect()->to('/users')->with('success', 'Data berhasil diupdate');
 }
 }

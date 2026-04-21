@@ -1,127 +1,99 @@
 <?= $this->extend('layouts/main') ?>
 
 <?= $this->section('content') ?>
-<div class="container py-5">
+<style>
+    .book-wrapper { position: relative; }
+    .cover-buku {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, #2680eb, #1a5bb8);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0,0,0,0.05);
+        overflow: hidden;
+    }
+    .cover-buku:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    .btn-edit-floating {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 10;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .book-wrapper:hover .btn-edit-floating { opacity: 1; }
+    .judul-fallback {
+        font-size: 0.75rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 10px;
+        text-align: center;
+    }
+</style>
 
-    <!-- HEADER -->
-<div class="row mb-4 align-items-center">
-    <div class="col-md-6">
-        <h2 class="fw-bold text-dark">📚 Koleksi Buku Digital</h2>
-        <p class="text-muted">Pilih dan baca buku di Dadan Library.</p>
-    </div>
-
-    <div class="col-md-6 text-md-end d-flex justify-content-md-end gap-2 flex-wrap">
-
-        <!-- TOMBOL TAMBAH BUKU -->
-        <?php if (session()->get('role') == 'admin'): ?>
-            <a href="<?= base_url('buku/create') ?>" class="btn btn-success rounded-pill px-4">
-                ➕ Tambah Buku
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">📚 Koleksi Buku</h2>
+        <div>
+            <?php if (session()->get('role') == 'admin'): ?>
+                <a href="<?= base_url('buku/create') ?>" class="btn btn-primary rounded-pill">
+                    <i class="bi bi-plus-lg"></i> Tambah Buku
+                </a>
+            <?php endif; ?>
+            <a href="<?= base_url('buku/peminjaman') ?>" class="btn btn-outline-primary rounded-pill">
+                <i class="bi bi-journal-bookmark"></i> Pinjaman Saya
             </a>
-        <?php endif; ?>
-
-        <!-- HISTORI -->
-        <a href="<?= base_url('buku/histori_download') ?>" class="btn btn-dark rounded-pill px-4">
-            Panel Histori
-        </a>
-
+        </div>
     </div>
-</div>
 
-    <!-- LIST BUKU -->
-    <div class="row">
-        <?php if (!empty($semua_buku)) : ?>
-            <?php foreach ($semua_buku as $b) : ?>
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 shadow-sm border-0 rounded-4">
+    <?php if (session()->getFlashdata('success')) : ?>
+        <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
+    <?php endif; ?>
 
-                        <!-- COVER -->
-                        <div class="bg-primary text-white d-flex align-items-center justify-content-center" style="height: 200px;">
-                            <i class="bi bi-book" style="font-size: 4rem;"></i>
-                        </div>
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
+        <?php if (!empty($buku)): ?>
+            <?php foreach ($buku as $b) : ?>
+                <div class="col">
+                    <div class="book-wrapper">
+                        <?php if (session()->get('role') == 'admin'): ?>
+                            <a href="<?= base_url('buku/edit/' . $b['id_buku']) ?>" class="btn btn-light btn-sm rounded-circle btn-edit-floating shadow">
+                                <i class="bi bi-pencil-square text-primary"></i>
+                            </a>
+                        <?php endif; ?>
 
-                        <!-- ISI -->
-                        <div class="card-body text-center">
-                            <h6 class="fw-bold mb-1 text-truncate">
-                                <?= esc($b['judul'] ?? 'Tanpa Judul') ?>
-                            </h6>
-
-                            <p class="small text-muted mb-3">
-                                Penulis: <?= esc($b['id_penulis'] ?? '-') ?>
-                            </p>
-
-                            <div class="d-grid gap-2">
-
-                                <!-- PINJAM -->
-                                <a href="<?= base_url('buku/pinjam/' . $b['id_buku']) ?>" 
-                                class="btn btn-primary btn-sm rounded-pill">
-                                📚 Pinjam Buku
-                                </a>
-
-                                <!-- DETAIL -->
-                                <a href="<?= base_url('buku/detail/' . $b['id_buku']) ?>" 
-                                class="btn btn-outline-primary btn-sm rounded-pill">
-                                Detail
-                                </a>
-
+                        <a href="<?= base_url('buku/detail/' . $b['id_buku']) ?>" class="text-decoration-none">
+                            <div class="cover-buku">
+                                <?php if (!empty($b['cover']) && file_exists('uploads/buku/' . $b['cover'])): ?>
+                                    <img src="<?= base_url('uploads/buku/' . $b['cover']) ?>" class="w-100 h-100" style="object-fit: cover;">
+                                <?php else: ?>
+                                    <i class="bi bi-book fa-2x mb-2" style="font-size: 2rem;"></i>
+                                    <div class="judul-fallback"><?= esc($b['judul']) ?></div>
+                                <?php endif; ?>
                             </div>
-                        </div>
-
+                            <div class="mt-2">
+                                <p class="text-dark fw-bold mb-0 text-truncate"><?= esc($b['judul']) ?></p>
+                                <small class="text-muted">Tersedia: <?= $b['tersedia'] ?></small>
+                            </div>
+                        </a>
                     </div>
                 </div>
             <?php endforeach; ?>
-        <?php else : ?>
-            <div class="col-12 text-center">
-                <div class="alert alert-info">
-                    Belum ada data buku.
-                </div>
+        <?php else: ?>
+            <div class="col-12 text-center py-5">
+                <i class="bi bi-emoji-frown display-1 text-muted"></i>
+                <p class="text-muted mt-3">Data buku belum tersedia.</p>
             </div>
         <?php endif; ?>
     </div>
-
-    <hr class="my-5">
-
-    <!-- HISTORI DOWNLOAD -->
-    <div class="card shadow-sm rounded-4">
-        <div class="card-header bg-primary text-white">
-            <h5 class="mb-0">📊 Histori Download</h5>
-        </div>
-
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-hover">
-
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Judul</th>
-                            <th>User</th>
-                            <th>Waktu</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <?php if (!empty($histori)) : ?>
-                            <?php $no = 1; foreach ($histori as $h) : ?>
-                                <tr>
-                                    <td><?= $no++ ?></td>
-                                    <td><?= esc($h['judul']) ?></td>
-                                    <td>User #<?= $h['id_user'] ?></td>
-                                    <td><?= date('d M Y H:i', strtotime($h['waktu_download'])) ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php else : ?>
-                            <tr>
-                                <td colspan="4" class="text-center text-muted">
-                                    Belum ada histori
-                                </td>
-                            </tr>
-                        <?php endif; ?>
-                    </tbody>
-
-                </table>
-            </div>
-        </div>
-    </div>
-
 </div>
 <?= $this->endSection() ?>

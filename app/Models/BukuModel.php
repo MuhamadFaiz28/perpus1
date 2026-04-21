@@ -20,6 +20,7 @@ class BukuModel extends Model
     'jumlah',
     'tersedia',
     'deskripsi',
-    'file'
+    'file',
+    'cover'
 ];
 }

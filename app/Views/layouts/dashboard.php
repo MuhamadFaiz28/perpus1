@@ -1,125 +1,96 @@
 <?= $this->extend('layouts/main') ?>
 
 <?= $this->section('content') ?>
-<div class="container py-4">
 
-    <!-- HEADER -->
-    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-        <div>
-            <h3 class="fw-bold mb-1">Halo, 👋</h3>
-            <small class="text-muted">
-                Siap membaca di <span class="fw-semibold text-primary">Perpus</span> hari ini?
-            </small>
-        </div>
-
-        <div class="px-3 py-2 rounded-3 shadow-sm bg-light border">
-            <i class="bi bi-calendar3 me-1 text-primary"></i>
-            <?= date('d M Y') ?>
-            <span class="mx-2">|</span>
-            <i class="bi bi-clock text-primary"></i>
-            <span id="clock"></span>
-        </div>
-    </div>
-
-    <div class="row g-4">
-
-        <!-- LEFT -->
-        <div class="col-lg-8">
-
-            <!-- SEARCH CARD -->
-            <div class="card border-0 shadow rounded-4">
-                <div class="card-body p-4">
-                    <h6 class="fw-bold mb-3">🔍 Cari Buku</h6>
-
-                    <form action="<?= base_url('buku/cari') ?>" method="get">
-                        <div class="input-group">
-                            <span class="input-group-text bg-white border-end-0">
-                                <i class="bi bi-search"></i>
-                            </span>
-                            <input type="text" name="keyword" 
-                                class="form-control border-start-0"
-                                placeholder="Judul, penulis, genre..." required>
-
-                            <button class="btn btn-primary px-4">
-                                Cari
-                            </button>
-                        </div>
-                    </form>
-
-                    <!-- TOMBOL LIHAT BUKU -->
-                    <div class="mt-3">
-                        <a href="<?= base_url('buku') ?>" class="btn btn-outline-primary rounded-pill px-4">
-                            📚 Lihat Semua Buku
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- INFO CARD (KLIKABLE) -->
-            <a href="<?= base_url('buku') ?>" style="text-decoration: none;">
-                <div class="card mt-4 border-0 shadow rounded-4 bg-primary text-white hover-card">
-                    <div class="card-body d-flex justify-content-between align-items-center">
-                        <div>
-                            <h5 class="fw-bold mb-1">📚 Lihat Daftar Buku</h5>
-                            <small class="opacity-75">
-                                Klik untuk melihat semua koleksi buku
-                            </small>
-                        </div>
-                        <i class="bi bi-book display-5 opacity-50"></i>
-                    </div>
-                </div>
-            </a>
-
-        </div>
-
-        <!-- RIGHT -->
-        <div class="col-lg-4">
-            
-            <!-- QUOTE -->
-            <div class="mt-4 p-3 rounded-4 bg-light border-start border-4 border-primary">
-                <small class="fst-italic text-dark">
-                    nothing is imposible
-                </small>
-                <div class="text-end mt-1">
-                    <small class="text-muted">- Muhamad Faiz</small>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-<!-- STYLE -->
 <style>
-.card {
-    transition: 0.3s;
-}
+    .cover-buku {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, #2680eb, #1a5bb8);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0,0,0,0.05);
+        overflow: hidden;
+        text-decoration: none;
+    }
 
-.card:hover {
-    transform: translateY(-3px);
-}
+    .cover-buku:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        filter: brightness(1.1);
+    }
 
-.hover-card {
-    cursor: pointer;
-}
-
-.hover-card:hover {
-    transform: translateY(-5px) scale(1.01);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-}
+    .judul-fallback {
+        font-size: 0.75rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 10px;
+        text-align: center;
+    }
 </style>
 
-<!-- CLOCK -->
-<script>
-function updateClock() {
-    const now = new Date();
-    document.getElementById('clock').textContent =
-        now.toLocaleTimeString('id-ID', { hour12: false });
-}
-setInterval(updateClock, 1000);
-updateClock();
-</script>
+<div class="container py-5">
 
-<?= $this->endSection() ?>
+    <div class="row mb-5 align-items-center bg-white p-4 rounded-4 shadow-sm border">
+        <div class="col-md-7">
+            <div class="d-flex align-items-center mb-2">
+                <div class="bg-primary text-white rounded-3 p-2 me-3 shadow-sm">
+                    <i class="fas fa-book-open fa-lg"></i>
+                </div>
+                <h2 class="fw-bold text-dark m-0">Koleksi Buku Digital</h2>
+            </div>
+            <p class="text-muted mb-0 ps-1">Pilih dan baca koleksi terbaik di <strong>Jago Maca</strong>.</p>
+        </div>
+
+        <div class="col-md-5 mt-4 mt-md-0 text-md-end">
+            <div class="d-flex justify-content-md-end gap-2 flex-wrap">
+                <a href="<?= base_url('buku/histori_download') ?>" class="btn btn-outline-dark rounded-pill px-4 fw-medium">
+                    <i class="fas fa-history me-1"></i> Histori
+                </a>
+                <?php if (session()->get('role') == 'admin'): ?>
+                    <a href="<?= base_url('buku/create') ?>" class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm">
+                        <i class="fas fa-plus me-1"></i> Tambah
+                    </a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
+        <?php if (isset($buku) && !empty($buku)): ?>
+            <?php foreach ($buku as $b) : ?>
+                <?php 
+                    // Mengatasi error 'id' atau 'id_buku'
+                    $id_key = $b['id_buku'] ?? $b['id'] ?? null; 
+                ?>
+                <div class="col">
+                    <a href="<?= base_url('buku/detail/' . $id_key) ?>" class="text-decoration-none">
+                        <div class="cover-buku">
+                            <?php if (!empty($b['cover']) && file_exists('uploads/' . $b['cover'])): ?>
+                                <img src="<?= base_url('uploads/' . $b['cover']) ?>" class="w-100 h-100" style="object-fit: cover;">
+                            <?php else: ?>
+                                <i class="fas fa-book fa-2x mb-2"></i>
+                                <div class="judul-fallback"><?= esc($b['judul']) ?></div>
+                            <?php endif; ?>
+                        </div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <div class="col-12 text-center py-5">
+                <p class="text-muted"></p>
+            </div>
+        <?php endif; ?>
+    </div>
+
+</div>
+
+<?= $this->endSection() ?> 
