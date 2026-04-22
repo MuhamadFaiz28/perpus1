@@ -4,9 +4,7 @@
 
 <style>
     /* Custom Background & Smooth Scroll */
-    body {
-        background-color: #f8fafc;
-    }
+    body { background-color: #f8fafc; }
 
     /* Hero Gradient Section */
     .hero-section {
@@ -28,10 +26,7 @@
     }
 
     /* Modern Book Card */
-    .book-item {
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
+    .book-item { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     .cover-wrapper {
         position: relative;
         border-radius: 16px;
@@ -46,9 +41,7 @@
         transition: transform 0.5s ease;
     }
 
-    .book-item:hover .cover-buku {
-        transform: scale(1.1);
-    }
+    .book-item:hover .cover-buku { transform: scale(1.1); }
 
     .book-overlay {
         position: absolute;
@@ -62,9 +55,7 @@
         padding-bottom: 15px;
     }
 
-    .book-item:hover .book-overlay {
-        opacity: 1;
-    }
+    .book-item:hover .book-overlay { opacity: 1; }
 
     /* Quick Action Cards */
     .action-card {
@@ -119,7 +110,7 @@
                     <a href="<?= base_url('buku/peminjaman') ?>" class="btn btn-light btn-lg rounded-pill fw-bold shadow-sm">
                         <i class="fas fa-history me-2 text-primary"></i> Histori Pinjam
                     </a>
-                    <?php if (session()->get('role') == 'admin'): ?>
+                    <?php if (strtolower(session()->get('role')) == 'admin'): ?>
                         <a href="<?= base_url('buku/create') ?>" class="btn btn-warning btn-lg rounded-pill fw-bold shadow-sm">
                             <i class="fas fa-plus-circle me-2"></i> Tambah Koleksi
                         </a>
@@ -130,66 +121,58 @@
     </div>
 
     <div class="row g-4 mb-5">
-    <div class="col-md-3">
-        <div class="card border-0 shadow-sm h-100" style="background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%); border-radius: 20px;">
-            <div class="card-body p-4 text-white position-relative overflow-hidden">
-                <div class="position-relative" style="z-index: 2;">
-                    <h6 class="text-uppercase fw-bold opacity-75 small mb-1">Total Buku</h6>
-                    <h2 class="display-6 fw-bold mb-0"><?= $total_buku ?? '0'; ?></h2>
-                    <p class="small mb-0 opacity-75 mt-2">Unit terdaftar di sistem</p>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100" style="background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%); border-radius: 20px;">
+                <div class="card-body p-4 text-white position-relative overflow-hidden">
+                    <div class="position-relative" style="z-index: 2;">
+                        <h6 class="text-uppercase fw-bold opacity-75 small mb-1">Total Buku</h6>
+                        <h2 class="display-6 fw-bold mb-0"><?= $total_buku ?? '0'; ?></h2>
+                        <p class="small mb-0 opacity-75 mt-2">Unit terdaftar</p>
+                    </div>
+                    <i class="fas fa-box position-absolute opacity-25" style="font-size: 5rem; right: -10px; bottom: -10px;"></i>
                 </div>
-                <i class="fas fa-box position-absolute opacity-25" style="font-size: 5rem; right: -10px; bottom: -10px;"></i>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-3">
-    <div class="card border-0 shadow-sm h-100" style="background: linear-gradient(45deg, #43e97b 0%, #38f9d7 100%); border-radius: 20px;">
-        <div class="card-body p-4 text-white position-relative overflow-hidden">
-            <div class="position-relative" style="z-index: 2;">
-                <h6 class="text-uppercase fw-bold opacity-75 small mb-1">Tersedia</h6>
-                <h2 class="display-6 fw-bold mb-0">
-                    <?php 
-                        // Cek apakah variabel ada, jika tidak set ke 0 agar tidak error matematika
-                        $total = $total_buku ?? 0;
-                        $aktif = $sirkulasi_aktif ?? 0;
-                        echo ($total - $aktif);
-                    ?>
-                </h2>
-                <p class="small mb-0 opacity-75 mt-2">Siap untuk dipinjamkan</p>
-            </div>
-            <i class="fas fa-check-circle position-absolute opacity-25" style="font-size: 5rem; right: -10px; bottom: -10px;"></i>
-        </div>
-    </div>
-</div>
-
-    <div class="col-md-3">
-        <div class="card border-0 shadow-sm h-100" style="background: linear-gradient(45deg, #f9d423 0%, #ff4e50 100%); border-radius: 20px;">
-            <div class="card-body p-4 text-white position-relative overflow-hidden">
-                <div class="position-relative" style="z-index: 2;">
-                    <h6 class="text-uppercase fw-bold opacity-75 small mb-1">Sedang Dipinjam</h6>
-                    <h2 class="display-6 fw-bold mb-0"><?= $sirkulasi_aktif ?? '0'; ?></h2>
-                    <p class="small mb-0 opacity-75 mt-2">Menunggu pengembalian</p>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100" style="background: linear-gradient(45deg, #43e97b 0%, #38f9d7 100%); border-radius: 20px;">
+                <div class="card-body p-4 text-white position-relative overflow-hidden">
+                    <div class="position-relative" style="z-index: 2;">
+                        <h6 class="text-uppercase fw-bold opacity-75 small mb-1">Tersedia</h6>
+                        <h2 class="display-6 fw-bold mb-0"><?= $tersedia ?? '0'; ?></h2>
+                        <p class="small mb-0 opacity-75 mt-2">Siap dipinjam</p>
+                    </div>
+                    <i class="fas fa-check-circle position-absolute opacity-25" style="font-size: 5rem; right: -10px; bottom: -10px;"></i>
                 </div>
-                <i class="fas fa-clock position-absolute opacity-25" style="font-size: 5rem; right: -10px; bottom: -10px;"></i>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-3">
-        <div class="card border-0 shadow-sm h-100" style="background: linear-gradient(45deg, #f85032 0%, #e73827 100%); border-radius: 20px;">
-            <div class="card-body p-4 text-white position-relative overflow-hidden">
-                <div class="position-relative" style="z-index: 2;">
-                    <h6 class="text-uppercase fw-bold opacity-75 small mb-1">Terlambat</h6>
-                    <h2 class="display-6 fw-bold mb-0"><?= $total_terlambat ?? '0'; ?></h2>
-                    <p class="small mb-0 opacity-75 mt-2">Melebihi batas waktu</p>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100" style="background: linear-gradient(45deg, #f9d423 0%, #ff4e50 100%); border-radius: 20px;">
+                <div class="card-body p-4 text-white position-relative overflow-hidden">
+                    <div class="position-relative" style="z-index: 2;">
+                        <h6 class="text-uppercase fw-bold opacity-75 small mb-1">Dipinjam</h6>
+                        <h2 class="display-6 fw-bold mb-0"><?= $sedang_dipinjam ?? '0'; ?></h2>
+                        <p class="small mb-0 opacity-75 mt-2">Menunggu kembali</p>
+                    </div>
+                    <i class="fas fa-clock position-absolute opacity-25" style="font-size: 5rem; right: -10px; bottom: -10px;"></i>
                 </div>
-                <i class="fas fa-exclamation-triangle position-absolute opacity-25" style="font-size: 5rem; right: -10px; bottom: -10px;"></i>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100" style="background: linear-gradient(45deg, #f85032 0%, #e73827 100%); border-radius: 20px;">
+                <div class="card-body p-4 text-white position-relative overflow-hidden">
+                    <div class="position-relative" style="z-index: 2;">
+                        <h6 class="text-uppercase fw-bold opacity-75 small mb-1">Terlambat</h6>
+                        <h2 class="display-6 fw-bold mb-0"><?= $total_terlambat ?? '0'; ?></h2>
+                        <p class="small mb-0 opacity-75 mt-2">Lewat jatuh tempo</p>
+                    </div>
+                    <i class="fas fa-exclamation-triangle position-absolute opacity-25" style="font-size: 5rem; right: -10px; bottom: -10px;"></i>
+                </div>
             </div>
         </div>
     </div>
-</div>
-    
 
     <div class="d-flex justify-content-between align-items-center mb-4 px-2">
         <h4 class="fw-bold m-0"><i class="fas fa-th-large me-2 text-primary"></i>Jelajahi Buku</h4>
@@ -199,10 +182,13 @@
     <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4 mb-5">
         <?php if (!empty($buku)): ?>
             <?php foreach ($buku as $b) : ?>
-                <?php $id_key = $b['id_buku'] ?? $b['id'] ?? null; ?>
+                <?php 
+                    $id_key = $b['id_buku'] ?? $b['id'] ?? null; 
+                    $is_available = ($b['stok'] ?? 1) > 0; 
+                ?>
                 <div class="col book-item">
                     <div class="cover-wrapper mb-3">
-                        <?php if ($b['tersedia'] <= 0): ?>
+                        <?php if (!$is_available): ?>
                             <span class="badge bg-danger position-absolute top-0 end-0 m-3 shadow" style="z-index: 3;">Habis</span>
                         <?php endif; ?>
                         
@@ -213,30 +199,22 @@
                         <?php if (!empty($b['cover']) && file_exists('uploads/buku/' . $b['cover'])): ?>
                             <img src="<?= base_url('uploads/buku/' . $b['cover']) ?>" class="cover-buku">
                         <?php else: ?>
-                            <div class="cover-buku d-flex flex-column align-items-center justify-content-center bg-secondary text-white">
+                            <div class="cover-buku d-flex flex-column align-items-center justify-content-center bg-secondary text-white p-2">
                                 <i class="fas fa-book fa-3x mb-2"></i>
-                                <span class="small fw-bold px-2 text-center"><?= esc($b['judul']) ?></span>
+                                <span class="small fw-bold text-center"><?= esc($b['judul']) ?></span>
                             </div>
                         <?php endif; ?>
                     </div>
-                    
                     <h6 class="text-dark fw-bold text-truncate mb-1"><?= esc($b['judul']) ?></h6>
-                    <p class="text-muted small mb-3"><?= ($b['tersedia'] > 0) ? 'Tersedia: '.$b['tersedia'] : 'Stok Kosong' ?></p>
+                    <p class="text-muted small mb-3"><?= ($is_available) ? 'Tersedia' : 'Stok Kosong' ?></p>
                     
-                    <?php if ($b['tersedia'] > 0) : ?>
-                        <a href="<?= base_url('buku/konfirmasi_pinjam/' . $id_key) ?>" class="btn btn-outline-primary btn-sm rounded-pill w-100 fw-bold">
-                            Pinjam Buku
-                        </a>
+                    <?php if ($is_available) : ?>
+                        <a href="<?= base_url('buku/konfirmasi_pinjam/' . $id_key) ?>" class="btn btn-outline-primary btn-sm rounded-pill w-100 fw-bold">Pinjam</a>
                     <?php else : ?>
                         <button class="btn btn-sm btn-light border rounded-pill w-100 disabled text-muted">Habis</button>
                     <?php endif; ?>
                 </div>
             <?php endforeach; ?>
-        <?php else: ?>
-            <div class="col-12 text-center py-5 bg-white rounded-4 border border-dashed">
-                <img src="https://cdn-icons-png.flaticon.com/512/7486/7486744.png" width="80" class="opacity-25 mb-3">
-                <p class="text-muted fw-bold">Belum ada koleksi buku yang tersedia.</p>
-            </div>
         <?php endif; ?>
     </div>
 
@@ -244,7 +222,7 @@
         <div class="col-12">
             <h4 class="fw-bold mb-4 px-2"><i class="fas fa-bolt me-2 text-warning"></i>Akses Cepat</h4>
             <div class="row g-3">
-                <?php if (strtolower(session()->get('role')) !== 'anggota') : ?>
+                <?php if (strtolower(session()->get('role')) == 'admin') : ?>
                 <div class="col-md-3">
                     <a href="<?= base_url('buku/create'); ?>" class="action-card p-4 d-block text-center h-100">
                         <div class="bg-primary bg-opacity-10 rounded-circle p-3 d-inline-block mb-3">
@@ -262,7 +240,6 @@
                     </a>
                 </div>
                 <?php endif; ?>
-                
                 <div class="col-md-3">
                     <a href="<?= base_url('buku'); ?>" class="action-card p-4 d-block text-center h-100">
                         <div class="bg-info bg-opacity-10 rounded-circle p-3 d-inline-block mb-3">
@@ -271,7 +248,6 @@
                         <h6 class="fw-bold text-dark mb-0">Cari Katalog</h6>
                     </a>
                 </div>
-                
                 <div class="col-md-3">
                     <a href="<?= base_url('users/edit/' . session()->get('id_users')); ?>" class="action-card p-4 d-block text-center h-100">
                         <div class="bg-secondary bg-opacity-10 rounded-circle p-3 d-inline-block mb-3">
@@ -284,7 +260,7 @@
         </div>
     </div>
 
-    <?php if (strtolower(session()->get('role')) !== 'anggota') : ?>
+    <?php if (strtolower(session()->get('role')) == 'admin') : ?>
     <div class="row">
         <div class="col-12">
             <div class="card custom-table-card shadow-sm border-0">
@@ -299,6 +275,7 @@
                                 <th class="ps-0">Nama Peminjam</th>
                                 <th>Judul Buku</th>
                                 <th>Batas Kembali</th>
+                                <th>Denda</th>
                                 <th class="text-end pe-0">Status</th>
                             </tr>
                         </thead>
@@ -311,20 +288,34 @@
                                             <div class="bg-light rounded-circle p-2 me-3">
                                                 <i class="fas fa-user text-muted"></i>
                                             </div>
-                                            <span class="fw-bold text-dark"><?= $p['nama_peminjam']; ?></span>
+                                            <span class="fw-bold text-dark"><?= $p['nama_peminjam'] ?? 'User'; ?></span>
                                         </div>
                                     </td>
-                                    <td><span class="text-muted"><?= $p['judul']; ?></span></td>
+                                    <td><span class="text-muted"><?= $p['judul'] ?? '-'; ?></span></td>
                                     <td><span class="fw-medium"><?= date('d M Y', strtotime($p['tanggal_kembali'])); ?></span></td>
+                                    <td>
+                                        <?php 
+                                            $denda = 0;
+                                            $tgl_kembali = strtotime($p['tanggal_kembali']);
+                                            $tgl_skrg = strtotime(date('Y-m-d'));
+                                            if ($p['status'] == 'dipinjam' && $tgl_skrg > $tgl_kembali) {
+                                                $selisih = ($tgl_skrg - $tgl_kembali) / (60 * 60 * 24);
+                                                $denda = $selisih * 1000;
+                                            }
+                                        ?>
+                                        <span class="<?= $denda > 0 ? 'text-danger fw-bold' : 'text-muted'; ?>">
+                                            Rp <?= number_format($denda, 0, ',', '.'); ?>
+                                        </span>
+                                    </td>
                                     <td class="text-end pe-0">
-                                        <span class="badge-status bg-warning bg-opacity-10 text-warning">Sedang Dipinjam</span>
+                                        <span class="badge-status <?= $p['status'] == 'dipinjam' ? 'bg-warning text-warning' : 'bg-success text-success'; ?> bg-opacity-10">
+                                            <?= ucfirst($p['status']); ?>
+                                        </span>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
                             <?php else: ?>
-                                <tr>
-                                    <td colspan="4" class="text-center py-5 text-muted">Belum ada transaksi peminjaman hari ini.</td>
-                                </tr>
+                                <tr><td colspan="5" class="text-center py-4">Tidak ada data sirkulasi.</td></tr>
                             <?php endif; ?>
                         </tbody>
                     </table>
