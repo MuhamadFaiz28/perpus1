@@ -1,69 +1,101 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
-<div class="container mt-5">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white py-3 border-bottom">
+                    <h5 class="mb-0 fw-bold text-dark">
+                        <i class="bi bi-person-gear me-2 text-primary"></i>Edit Profile User
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    
+                    <?php 
+                        // Ambil ID dengan aman untuk action form
+                        $id_user = $user['id_user'] ?? $user['id'] ?? ''; 
+                    ?>
 
-    <h3 class="mb-4">Data Users</h3>
+                    <form action="<?= base_url('users/update/' . $id_user) ?>" method="post" enctype="multipart/form-data">
+                        <?= csrf_field(); ?>
 
-    <?php if (session()->getFlashdata('success')): ?>
-        <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
-    <?php endif; ?>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Nama Lengkap</label>
+                            <input type="text" name="nama" class="form-control" value="<?= old('nama', $user['nama'] ?? '') ?>" required>
+                        </div>
 
-    <table class="table table-bordered table-striped">
-        <thead class="table-dark">
-            <tr class="text-center">
-                <th width="50">No</th>
-                <th>Nama</th>
-                <th>Username</th>
-                <th>Role</th>
-                <th>Foto</th>
-                <?php if (session()->get('role') == 'admin') : ?>
-                    <th width="150">Aksi</th>
-                <?php endif; ?>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Email</label>
+                            <input type="email" name="email" class="form-control" value="<?= old('email', $user['email'] ?? '') ?>" required>
+                        </div>
 
-            </tr>
-        </thead>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Username</label>
+                            <input type="text" name="username" class="form-control" value="<?= old('username', $user['username'] ?? '') ?>" required>
+                        </div>
 
-        <tbody>
-            <?php if (!empty($users)): ?>
-                <?php $no = 1;
-                foreach ($users as $u): ?>
-                    <tr>
-                        <td class="text-center"><?= $no++ ?></td>
-                        <td><?= $u['nama'] ?></td>
-                        <td><?= $u['username'] ?></td>
-                        <td><?= ucfirst($u['role']) ?></td>
-                        <td class="text-center">
-                            <?php if ($u['foto']): ?>
-                                <img src="<?= base_url('uploads/users/' . $u['foto']) ?>" width="60" class="rounded">
-                            <?php else: ?>
-                                <span class="text-muted">-</span>
-                            <?php endif; ?>
-                        </td>
-                        <?php if (session()->get('role') == 'admin') : ?>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="Kosongkan jika tidak ingin mengubah password">
+                            <div class="form-text text-info small">
+                                <i class="bi bi-info-circle me-1"></i> Biarkan kosong jika password tetap sama.
+                            </div>
+                        </div>
 
-                            <td class="text-center">
-                                <a href="<?= base_url('users/edit/' . $u['id_user']) ?>" class="btn btn-warning btn-sm">
-                                    <i class="bi bi-pencil-square"></i> Edit
-                                </a>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Role</label>
+                            <select name="role" class="form-select" required>
+                                <?php $role_sekarang = strtolower($user['role'] ?? ''); ?>
+                                <option value="Admin" <?= ($role_sekarang == 'admin') ? 'selected' : '' ?>>Admin</option>
+                                <option value="Petugas" <?= ($role_sekarang == 'petugas') ? 'selected' : '' ?>>Petugas</option>
+                                 <option value="Anggota" <?= ($role_sekarang == 'anggota') ? 'selected' : '' ?>>Anggota</option>
+                            </select>
+                        </div>
 
-                                <a href="<?= base_url('users/delete/' . $u['id_user']) ?>"
-                                    onclick="return confirm('Hapus user ini?')"
-                                    class="btn btn-danger btn-sm">
-                                    <i class="bi bi-trash"></i> Hapus
-                                </a>
-                            </td>
-                        <?php endif; ?>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Foto Profil</label>
+                            <input type="file" name="foto" class="form-control mb-2" accept="image/*">
+                            
+                            <div class="mt-3">
+                                <p class="text-muted small mb-1">Foto saat ini:</p>
+                                <?php 
+                                    $namaFoto = $user['foto'] ?? '';
+                                    if ($namaFoto != '' && file_exists('uploads/users/' . $namaFoto)) {
+                                        $urlFoto = base_url('uploads/users/' . $namaFoto);
+                                    } else {
+                                        $urlFoto = base_url('uploads/users/default.png');
+                                    }
+                                ?>
+                                <img src="<?= $urlFoto ?>" width="120" height="120" class="rounded shadow-sm border object-fit-cover">
+                            </div>
+                        </div>
 
-                    </tr>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <tr>
-                    <td colspan="6" class="text-center text-muted">Belum ada data user</td>
-                </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+                        <hr class="my-4">
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="<?= base_url('users') ?>" class="btn btn-light border px-4">
+                                <i class="bi bi-arrow-left me-1"></i> Batal
+                            </a>
+                            <button type="submit" class="btn btn-primary px-4 shadow-sm">
+                                <i class="bi bi-check-circle me-1"></i> Simpan Perubahan
+                            </button>
+                        </div>
+                    </form>
 
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<style>
+    .object-fit-cover {
+        object-fit: cover;
+    }
+    .card {
+        border-radius: 12px;
+    }
+</style>
+
 <?= $this->endSection() ?>

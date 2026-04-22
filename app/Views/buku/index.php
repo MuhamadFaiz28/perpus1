@@ -23,15 +23,20 @@
         transform: translateY(-8px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
-    .btn-edit-floating {
+    /* Group tombol aksi agar rapi */
+    .action-buttons {
         position: absolute;
         top: 10px;
         right: 10px;
         z-index: 10;
         opacity: 0;
         transition: opacity 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
     }
-    .book-wrapper:hover .btn-edit-floating { opacity: 1; }
+    .book-wrapper:hover .action-buttons { opacity: 1; }
+    
     .judul-fallback {
         font-size: 0.75rem;
         font-weight: bold;
@@ -57,7 +62,10 @@
     </div>
 
     <?php if (session()->getFlashdata('success')) : ?>
-        <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('success') ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     <?php endif; ?>
 
     <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
@@ -65,10 +73,19 @@
             <?php foreach ($buku as $b) : ?>
                 <div class="col">
                     <div class="book-wrapper">
+                        
                         <?php if (session()->get('role') == 'admin'): ?>
-                            <a href="<?= base_url('buku/edit/' . $b['id_buku']) ?>" class="btn btn-light btn-sm rounded-circle btn-edit-floating shadow">
-                                <i class="bi bi-pencil-square text-primary"></i>
-                            </a>
+                            <div class="action-buttons">
+                                <a href="<?= base_url('buku/edit/' . $b['id_buku']) ?>" class="btn btn-light btn-sm rounded-circle shadow" title="Edit Buku">
+                                    <i class="bi bi-pencil-square text-primary"></i>
+                                </a>
+                                <a href="<?= base_url('buku/delete/' . $b['id_buku']) ?>" 
+                                   class="btn btn-danger btn-sm rounded-circle shadow" 
+                                   onclick="return confirm('Apakah Anda yakin ingin menghapus buku ini?')" 
+                                   title="Hapus Buku">
+                                    <i class="bi bi-trash text-white"></i>
+                                </a>
+                            </div>
                         <?php endif; ?>
 
                         <a href="<?= base_url('buku/detail/' . $b['id_buku']) ?>" class="text-decoration-none">

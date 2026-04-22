@@ -25,32 +25,29 @@ class Auth extends Controller
         $users = $usersModel->getUsersByUsername($username);
 
         if ($users) {
-
             if (password_verify($password, $users['password'])) {
-
+                
+                // PERBAIKAN DI SINI:
+                // Gunakan 'id_users' agar sinkron dengan pemanggilan di Controller Users.php
+                // Pastikan '$users['id']' sesuai dengan nama kolom primary key di tabel database kamu
                 $session->set([
-                   'id' => $users['id'],
-                    'nama' => $users['nama'],
-                    'username' => $users['username'],
-                    'role' => $users['role'],
-                    'foto' => $users['foto'],
+                    'id_users'  => $users['id'], // Sebelumnya hanya 'id', ini yang bikin kepental
+                    'nama'      => $users['nama'],
+                    'username'  => $users['username'],
+                    'role'      => $users['role'],
+                    'foto'      => $users['foto'],
                     'logged_in' => true
                 ]);
 
-                return redirect()->to('/dashboard'); // ✅ pindah ke dalam if sukses
+                return redirect()->to('/dashboard');
 
             } else {
-
                 $session->setFlashdata('salahpw', 'Password salah');
                 return redirect()->to('/login');
-
             }
-
         } else {
-
             $session->setFlashdata('error', 'Nama tidak ditemukan');
             return redirect()->to('/login');
-
         }
     }
 

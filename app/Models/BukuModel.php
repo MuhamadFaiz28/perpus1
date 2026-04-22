@@ -8,6 +8,7 @@ class BukuModel extends Model
 {
     protected $table      = 'buku';
     protected $primaryKey = 'id_buku';
+    protected $returnType = 'array';
 
    protected $allowedFields = [
     'judul',

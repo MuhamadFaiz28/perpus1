@@ -181,4 +181,22 @@ class Users extends BaseController
 
     return redirect()->to('/users')->with('success', 'Data berhasil diupdate');
 }
+public function profile()
+{
+    // Sekarang sudah sinkron menggunakan 'id_users'
+    $id = session()->get('id_users'); 
+
+    if (!$id) {
+        return redirect()->to('/login')->with('error', 'Silakan login ulang.');
+    }
+
+    $user = $this->users->find($id);
+
+    if (!$user) {
+        return redirect()->to('/login')->with('error', 'User tidak ditemukan.');
+    }
+
+    // Arahkan ke view edit
+    return view('users/edit', ['user' => $user]);
+}
 }

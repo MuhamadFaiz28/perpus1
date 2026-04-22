@@ -25,10 +25,23 @@
             <a href="<?= base_url('buku/kembalikan/' . $p['id_peminjaman']) ?>" class="btn btn-success btn-sm">
                 Kembalikan
             </a>
+
+            <div class="mt-3">
+    <a href="<?= base_url('buku') ?>" class="btn btn-secondary shadow-sm">
+        <i class="fas fa-arrow-left"></i> Kembali ke Katalog
+    </a>
+</div>
+
         <?php endif; ?>
     </td>
 </tr>
 <?php endforeach; ?>
+
+<?php if (session()->get('role') == 'admin') : ?>
+    <?php if ($p['status'] == 'pending') : ?>
+        <a href="<?= base_url('buku/setujui/' . $p['id_peminjaman']) ?>" class="btn btn-success btn-sm">Setujui</a>
+    <?php endif; ?>
+<?php endif; ?>
 
 </table>
 

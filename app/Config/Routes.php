@@ -65,3 +65,22 @@ $routes->get('users/delete/(:num)', 'Users::delete/$1');
 
 $routes->get('buku/edit/(:num)', 'Buku::edit/$1'); 
 $routes->post('buku/update/(:num)', 'Buku::update/$1'); // Untuk proses simpan perubahan
+
+// Tambahkan baris ini
+$routes->get('users/edit', 'Users::profile');
+
+// Route update yang sudah ada (pastikan ini ada untuk memproses simpan)
+$routes->post('users/update/(:num)', 'Users::update/$1');
+
+$routes->get('users/edit', 'Users::profile'); // Mengarah ke fungsi profile
+$routes->post('users/update/(:num)', 'Users::update/$1'); // Untuk proses simpan
+
+// Route untuk menampilkan halaman pilih tanggal (GET)
+$routes->get('buku/konfirmasi_pinjam/(:num)', 'Buku::konfirmasi_pinjam/$1');
+
+// Route untuk memproses penyimpanan data pinjam (POST)
+$routes->post('buku/proses_pinjam/(:num)', 'Buku::proses_pinjam/$1');
+
+$routes->get('buku/delete/(:num)', 'Buku::delete/$1');
+$routes->get('denda', 'Denda::index');
+$routes->get('denda/bayar/(:num)', 'Denda::bayar/$1');
