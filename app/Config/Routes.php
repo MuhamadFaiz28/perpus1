@@ -84,3 +84,14 @@ $routes->post('buku/proses_pinjam/(:num)', 'Buku::proses_pinjam/$1');
 $routes->get('buku/delete/(:num)', 'Buku::delete/$1');
 $routes->get('denda', 'Denda::index');
 $routes->get('denda/bayar/(:num)', 'Denda::bayar/$1');
+
+$routes->get('login', 'Auth::login');
+$routes->post('auth/prosesLogin', 'Auth::prosesLogin');
+$routes->get('logout', 'Auth::logout');
+
+// Rute Pendaftaran
+$routes->get('daftar', 'Auth::daftar');
+$routes->get('register', 'Auth::daftar'); // Agar URL /register juga lari ke fungsi daftar
+$routes->post('auth/save_daftar', 'Auth::save_daftar');
+
+$routes->get('peminjaman/saya', 'Peminjaman::saya');
