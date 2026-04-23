@@ -82,4 +82,17 @@ class Peminjaman extends BaseController
 
         return redirect()->back()->with('success', 'Buku dikembalikan. Denda: Rp ' . number_format($denda));
     }
+    public function index()
+{
+    $pinjamModel = new \App\Models\PeminjamanModel();
+    
+    // Ambil semua data sirkulasi dengan join ke tabel buku dan users
+    $data['peminjaman'] = $pinjamModel->select('peminjaman.*, buku.judul, users.nama')
+                                      ->join('buku', 'buku.id_buku = peminjaman.id_buku')
+                                      ->join('users', 'users.id = peminjaman.id_anggota')
+                                      ->orderBy('id_peminjaman', 'DESC')
+                                      ->findAll();
+
+    return view('peminjaman/index', $data); // Pastikan file view ini ada
+}
 }

@@ -4,58 +4,39 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
+    // SEMUA LOGIKA HARUS DI DALAM SINI
     public function index()
     {
         $db = \Config\Database::connect();
         $today = date('Y-m-d');
 
-        // 1. Statistik
-        $total_buku = $db->table('buku')->countAllResults();
+        // 1. Ambil Statistik
+        $total_stok_query = $db->table('buku')->selectSum('stok', 'total')->get()->getRowArray();
+        $total_fisik = (int)($total_stok_query['total'] ?? 0);
 
-        // Pastikan 'dipinjam' huruf kecil sesuai gambar database kamu sebelumnya
-        $sedang_dipinjam = $db->table('peminjaman')
-                              ->where('status', 'dipinjam')
-                              ->countAllResults();
+        // Mengambil kolom 'tersedia' langsung dari database sesuai keinginan Anda
+        $tersedia_query = $db->table('buku')->selectSum('tersedia', 'total')->get()->getRowArray();
+        $buku_tersedia = (int)($tersedia_query['total'] ?? 0);
 
-        // Hitung terlambat (status dipinjam DAN tanggal kembali < hari ini)
+        $sedang_dipinjam = $db->table('peminjaman')->where('status', 'dipinjam')->countAllResults();
+        
         $total_terlambat = $db->table('peminjaman')
                                 ->where('status', 'dipinjam')
                                 ->where('tanggal_kembali <', $today)
                                 ->countAllResults();
 
-        $tersedia = $total_buku - $sedang_dipinjam;
-
-        // 2. Ambil List Buku untuk Katalog
-        $buku = $db->table('buku')->limit(10)->get()->getResultArray();
-
-        // 3. Ambil Sirkulasi Terbaru (Hanya jika Admin yang login)
-        $pinjam_terbaru = [];
-        if (session()->get('role') == 'admin') {
-            try {
-                $pinjam_terbaru = $db->table('peminjaman')
-                    ->select('peminjaman.*, buku.judul, users.username as nama_peminjam')
-                    ->join('buku', 'buku.id_buku = peminjaman.id_buku', 'left')
-                    ->join('users', 'users.id_users = peminjaman.id_users', 'left')
-                    ->orderBy('peminjaman.id_peminjaman', 'DESC')
-                    ->limit(5)
-                    ->get()
-                    ->getResultArray();
-            } catch (\Exception $e) {
-                $pinjam_terbaru = []; 
-            }
-        }
-
+        // 2. Bungkus ke dalam array $data (DI DALAM FUNGSI)
         $data = [
-            'total_buku'      => $total_buku,
-            'tersedia'        => $tersedia,
+            'total_buku'      => $total_fisik,
+            'buku_tersedia'   => $buku_tersedia, 
             'sedang_dipinjam' => $sedang_dipinjam,
             'total_terlambat' => $total_terlambat,
-            'buku'            => $buku,
-            'pinjam_terbaru'  => $pinjam_terbaru,
-            'today'           => $today // Kita kirim variabel hari ini ke view
+            'buku'            => $db->table('buku')->orderBy('id_buku', 'DESC')->get()->getResultArray(),
+            'today'           => $today 
         ];
 
-        // Memanggil view dashboard di dalam folder layouts
+        // 3. Kirim ke View
         return view('layouts/dashboard', $data);
-    }
+    } 
+    // AKHIR FUNGSI
 }

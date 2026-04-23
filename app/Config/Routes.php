@@ -94,4 +94,12 @@ $routes->get('daftar', 'Auth::daftar');
 $routes->get('register', 'Auth::daftar'); // Agar URL /register juga lari ke fungsi daftar
 $routes->post('auth/save_daftar', 'Auth::save_daftar');
 
+// Tambahkan baris ini di bawah rute 'peminjaman/saya' yang tadi
+$routes->get('peminjaman/kembalikan/(:num)', 'Peminjaman::kembalikan/$1');
 $routes->get('peminjaman/saya', 'Peminjaman::saya');
+$routes->get('buku/tambah_stok/(:num)', 'Dashboard::tambah_stok/$1');
+$routes->get('peminjaman', 'Peminjaman::index');
+// Rute untuk fitur Dashboard
+$routes->get('dashboard', 'Dashboard::index');
+$routes->get('dashboard/tambah_stok/(:num)', 'Dashboard::tambah_stok/$1');
+$routes->get('dashboard/delete/(:num)', 'Dashboard::delete/$1');

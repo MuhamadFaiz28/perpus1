@@ -6,12 +6,12 @@ use CodeIgniter\Model;
 
 class BukuModel extends Model
 {
-    protected $table      = 'buku';
-    protected $primaryKey = 'id_buku';
-    protected $returnType = 'array';
+    protected $table          = 'buku';
+    protected $primaryKey     = 'id_buku';
+    protected $returnType     = 'array';
+    protected $useAutoIncrement = true;
 
-    // Pastikan 'stok' atau 'jumlah' konsisten. 
-    // Berdasarkan gambar dashboard Anda sebelumnya, kita akan gunakan 'stok'.
+    // Field yang diizinkan untuk diisi/diupdate (CRUD)
     protected $allowedFields = [
         'judul',
         'isbn',
@@ -20,26 +20,38 @@ class BukuModel extends Model
         'id_penerbit',
         'id_rak',
         'tahun_terbit',
-        'stok', // Menambahkan/mengubah dari 'jumlah' menjadi 'stok' agar sinkron dengan Controller
-        'tersedia',
+        'stok',        // Wajib ada agar query selectSum di Controller jalan
+        'tersedia',    // Bisa digunakan sebagai cadangan stok real-time
         'deskripsi',
         'file',
         'cover'
     ];
 
     /**
-     * Fungsi bantuan untuk mengambil total seluruh stok buku di perpustakaan
+     * Mengambil total seluruh stok fisik buku
+     * Menggunakan query builder CI4 agar lebih bersih
      */
     public function getTotalStok()
     {
-        return $this->selectSum('stok')->get()->getRow()->stok ?? 0;
+        $result = $this->selectSum('stok', 'total')->first();
+        return (int)($result['total'] ?? 0);
     }
 
     /**
-     * Fungsi untuk mengambil buku yang stoknya hampir habis (misal sisa 2)
+     * Mengambil daftar buku yang stoknya menipis (Stok di bawah 3)
      */
     public function getStokKritis()
     {
-        return $this->where('stok <=', 2)->where('stok >', 0)->findAll();
+        return $this->where('stok <', 3)
+                    ->where('stok >', 0)
+                    ->findAll();
+    }
+
+    /**
+     * Mengambil buku yang benar-benar habis
+     */
+    public function getStokKosong()
+    {
+        return $this->where('stok', 0)->findAll();
     }
 }
