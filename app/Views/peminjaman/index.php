@@ -85,21 +85,29 @@
                                     <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 me-2" style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">
                                         <i class="fas fa-user-tag fa-sm"></i>
                                     </div>
-                                    <span class="fw-bold text-dark"><?= esc($p['id_anggota']); ?></span>
+                                    <span class="fw-bold text-dark"><?= esc($p['nama'] ?? $p['id_anggota']); ?></span>
                                 </div>
                             </td>
                             <td>
                                 <div class="fw-bold text-dark text-truncate" style="max-width: 200px;"><?= esc($p['judul']); ?></div>
                                 <small class="text-muted">ID Buku: <?= $p['id_buku']; ?></small>
                             </td>
-                            <td><span class="badge bg-light text-dark border"><?= date('d M Y', strtotime($p['tanggal_pinjam'])); ?></span></td>
                             <td>
-                                <span class="badge bg-light text-dark border <?= (strtotime($p['tanggal_kembali']) < strtotime(date('Y-m-d')) && $p['status'] == 'dipinjam') ? 'border-danger text-danger' : '' ?>">
-                                    <?= date('d M Y', strtotime($p['tanggal_kembali'])); ?>
+                                <span class="badge bg-light text-dark border">
+                                    <?= $p['tanggal_pinjam'] ? date('d M Y', strtotime($p['tanggal_pinjam'])) : '-' ?>
                                 </span>
                             </td>
                             <td>
-                                <?php if ($p['status'] == 'dipinjam'): ?>
+                                <span class="badge bg-light text-dark border <?= (isset($p['tanggal_kembali']) && strtotime($p['tanggal_kembali']) < strtotime(date('Y-m-d')) && $p['status'] == 'dipinjam') ? 'border-danger text-danger' : '' ?>">
+                                    <?= $p['tanggal_kembali'] ? date('d M Y', strtotime($p['tanggal_kembali'])) : '-' ?>
+                                </span>
+                            </td>
+                            <td>
+                                <?php if ($p['status'] == 'menunggu'): ?>
+                                    <span class="badge-status bg-info text-info bg-opacity-10">
+                                        <i class="fas fa-hourglass-half me-1"></i> Menunggu
+                                    </span>
+                                <?php elseif ($p['status'] == 'dipinjam'): ?>
                                     <span class="badge-status bg-warning text-warning bg-opacity-10">
                                         <i class="fas fa-clock me-1"></i> Dipinjam
                                     </span>
@@ -116,15 +124,21 @@
                             </td>
                             <td class="text-end pe-4">
                                 <div class="d-flex justify-content-end gap-2">
-                                    <?php if ($p['status'] == 'dipinjam'): ?>
-                                        <a href="<?= base_url('peminjaman/kembalikan/' . $p['id_peminjaman']) ?>" 
+                                    <?php if ($p['status'] == 'menunggu'): ?>
+                                        <a href="<?= base_url('peminjaman/konfirmasi/' . $p['id_peminjaman']) ?>" 
                                            class="btn btn-primary btn-sm rounded-pill px-3 fw-bold shadow-sm"
+                                           onclick="return confirm('Konfirmasi peminjaman buku ini?')">
+                                            <i class="fas fa-check me-1"></i> Konfirmasi
+                                        </a>
+                                    <?php elseif ($p['status'] == 'dipinjam'): ?>
+                                        <a href="<?= base_url('peminjaman/kembalikan/' . $p['id_peminjaman']) ?>" 
+                                           class="btn btn-success btn-sm rounded-pill px-3 fw-bold shadow-sm"
                                            onclick="return confirm('Konfirmasi pengembalian buku?')">
                                             <i class="fas fa-undo me-1"></i> Kembalikan
                                         </a>
                                     <?php else: ?>
                                         <button class="btn btn-outline-secondary btn-sm rounded-pill px-3 fw-bold" disabled>
-                                            <i class="fas fa-check me-1"></i> Selesai
+                                            <i class="fas fa-check-double me-1"></i> Selesai
                                         </button>
                                     <?php endif; ?>
                                 </div>
@@ -145,4 +159,4 @@
     </div>
 </div>
 
-<?= $this->endSection() ?>
+<?= $this->endSection() ?>      

@@ -70,22 +70,22 @@
                 </div>
 
                 <div class="col-md-5">
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-primary px-4 btn-action">
-                            <i class="bi bi-filter"></i> Terapkan
-                        </button>
-                        <a href="<?= base_url('users') ?>" class="btn btn-light px-4 border btn-action">
-                            <i class="bi bi-arrow-counterclockwise"></i> Reset
-                        </a>
-                        <a href="<?= base_url('users/print?' . http_build_query($_GET)) ?>" 
-                           target="_blank" class="btn btn-success px-4 btn-action ms-auto">
-                            <i class="bi bi-printer"></i> Print
-                        </a>
-                    </div>
-                </div>
-            </form>
-        </div>
+    <div class="d-flex gap-2">
+        <button class="btn btn-primary px-4 btn-action">
+            <i class="bi bi-filter"></i> Terapkan
+        </button>
+        <a href="<?= base_url('users') ?>" class="btn btn-light px-4 border btn-action">
+            <i class="bi bi-arrow-counterclockwise"></i> Reset
+        </a>
+        <a href="<?= base_url('users/print?' . http_build_query($_GET)) ?>" 
+           target="_blank" class="btn btn-success px-4 btn-action ms-auto">
+            <i class="bi bi-printer"></i> Print
+        </a>
+        <a href="<?= base_url('users/tambah') ?>" class="btn btn-primary px-4 btn-action ms-2">
+    <i class="bi bi-plus-circle"></i> Tambah User
+</a>    
     </div>
+</div>
 
     <?php if (session()->getFlashdata('success')): ?>
         <div class="alert alert-success border-0 shadow-sm rounded-3 d-flex align-items-center mb-4">

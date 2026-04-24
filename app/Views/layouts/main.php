@@ -13,6 +13,16 @@
     </style>
 </head>
 <body>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+  <div id="liveToast" class="toast align-items-center text-white bg-primary border-0 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true" style="border-radius: 12px;">
+    <div class="d-flex">
+      <div class="toast-body">
+        <i class="bi bi-info-circle me-2"></i> <span id="toastMessage">Pesan notifikasi di sini.</span>
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
     <div class="sidebar">
         <?php include(APPPATH . 'Views/layouts/menu.php'); ?>
     </div>

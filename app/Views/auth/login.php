@@ -145,6 +145,9 @@
                          Daftar Baru Sekarang
                     </a>
                 </div>
+                <a href="<?= base_url('restore') ?>" class="btn btn-outline-danger btn-sm">
+                <i class="bi bi-database"></i> Restore DB
+                </a>
 
             </div>
         </div>

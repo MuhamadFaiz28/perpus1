@@ -105,3 +105,27 @@ $routes->get('dashboard/tambah_stok/(:num)', 'Dashboard::tambah_stok/$1');
 $routes->get('dashboard/delete/(:num)', 'Dashboard::delete/$1');
 $routes->get('users/detail/(:any)', 'Users::detail/$1');
 $routes->get('users/wa/(:any)', 'Users::wa/$1');
+$routes->get('/backup', 'Backup::index');
+$routes->get('peminjaman/laporan', 'Peminjaman::laporan');
+$routes->get('peminjaman/konfirmasi/(:num)', 'Peminjaman::konfirmasi/$1');
+
+$routes->get('/restore', 'Restore::index');
+$routes->post('/restore/auth', 'Restore::auth');
+$routes->get('/restore/form', 'Restore::form');
+$routes->post('/restore/process', 'Restore::process');
+
+$routes->get('profile', 'Users::profile');
+// app/Config/Routes.php
+$routes->get('peminjaman/denda', 'Peminjaman::denda');
+// Ubah dari 'User' menjadi 'Users'
+$routes->get('user/tambah', 'Users::tambah');
+$routes->post('user/simpan', 'Users::simpan');
+// Tambahkan ini agar URL 'user' (tanpa s) tidak error 404
+$routes->get('user', 'Users::index');
+$routes->get('user/tambah', 'Users::tambah');
+$routes->post('user/simpan', 'Users::simpan');
+
+// Pastikan rute 'users' (dengan s) juga tetap ada
+$routes->get('users', 'Users::index');
+$routes->get('users/tambah', 'Users::tambah');
+$routes->post('users/simpan', 'Users::simpan');
