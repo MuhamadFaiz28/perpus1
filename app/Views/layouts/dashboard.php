@@ -217,7 +217,7 @@
                         </tr>
                         <?php endforeach; ?>
                     <?php else: ?>
-                        <tr><td colspan="4" class="text-center py-4 text-muted small">Belum ada aktifitas hari ini.</td></tr>
+                        <tr><td colspan="4" class="text-center py-4 text-muted small"></td></tr>
                     <?php endif; ?>
                 </tbody>
             </table>

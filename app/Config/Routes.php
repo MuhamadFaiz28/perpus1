@@ -103,3 +103,5 @@ $routes->get('peminjaman', 'Peminjaman::index');
 $routes->get('dashboard', 'Dashboard::index');
 $routes->get('dashboard/tambah_stok/(:num)', 'Dashboard::tambah_stok/$1');
 $routes->get('dashboard/delete/(:num)', 'Dashboard::delete/$1');
+$routes->get('users/detail/(:any)', 'Users::detail/$1');
+$routes->get('users/wa/(:any)', 'Users::wa/$1');

@@ -13,6 +13,21 @@ class Users extends BaseController
         $this->users = new UsersModel();
     }
 
+    public function index()
+    {
+        // Fitur pencarian sederhana agar Index lebih fungsional
+        $keyword = $this->request->getGet('keyword');
+        if ($keyword) {
+            $this->users->like('nama', $keyword)->orLike('username', $keyword);
+        }
+
+        $data['users'] = $this->users->paginate(10, 'users');
+        $data['pager'] = $this->users->pager;
+        $data['keyword'] = $keyword;
+
+        return view('users/index', $data);
+    }
+
     public function create()
     {
         return view('users/create');
@@ -29,12 +44,11 @@ class Users extends BaseController
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {
-            return redirect()->back()->with('error', implode('<br>', $validation->getErrors()));
+            return redirect()->back()->withInput()->with('error', implode('<br>', $validation->getErrors()));
         }
 
-        // Upload Foto
         $foto = $this->request->getFile('foto');
-        $namaFoto = null;
+        $namaFoto = 'default.png'; // Default foto jika tidak upload
 
         if ($foto && $foto->isValid() && !$foto->hasMoved()) {
             $namaFoto = $foto->getRandomName();
@@ -52,46 +66,27 @@ class Users extends BaseController
         return redirect()->to('/login')->with('success', 'User berhasil ditambahkan!');
     }
 
-    // ✅ INDEX + PAGINATION
-    public function index()
-    {
-        $data['users'] = $this->users->paginate(10);
-        $data['pager'] = $this->users->pager;
-
-        return view('users/index', $data);
-    }
-
-    // ✅ DETAIL (FIX 404)
-    public function detail($id)
-    {
-        $user = $this->users->find($id);
-
-        if (!$user) {
-            return redirect()->to('/users')->with('error', 'User tidak ditemukan');
-        }
-
-        return view('users/detail', ['user' => $user]);
-    }
-
     public function edit($id)
     {
         $data['user'] = $this->users->find($id);
+        if (!$data['user']) {
+            return redirect()->to('/users')->with('error', 'User tidak ditemukan');
+        }
         return view('users/edit', $data);
     }
 
     public function update($id)
     {
         $user = $this->users->find($id);
+        if (!$user) return redirect()->to('/users')->with('error', 'Data tidak ditemukan');
 
         $fotoBaru = $this->request->getFile('foto');
         $namaFoto = $user['foto'];
 
-        if ($fotoBaru && $fotoBaru->isValid() && $fotoBaru->getName() != '') {
-
-            if (!empty($user['foto']) && file_exists(FCPATH . 'uploads/users/' . $user['foto'])) {
+        if ($fotoBaru && $fotoBaru->isValid() && !$fotoBaru->hasMoved()) {
+            if (!empty($user['foto']) && $user['foto'] != 'default.png' && file_exists(FCPATH . 'uploads/users/' . $user['foto'])) {
                 unlink(FCPATH . 'uploads/users/' . $user['foto']);
             }
-
             $namaFoto = $fotoBaru->getRandomName();
             $fotoBaru->move(FCPATH . 'uploads/users', $namaFoto);
         }
@@ -108,95 +103,65 @@ class Users extends BaseController
         }
 
         $this->users->update($id, $data);
-
         return redirect()->to('/users')->with('success', 'Data user berhasil diupdate!');
     }
 
     public function delete($id)
     {
         $user = $this->users->find($id);
-
-        if ($user && $user['foto'] && file_exists(FCPATH . 'uploads/users/' . $user['foto'])) {
+        if ($user && $user['foto'] && $user['foto'] != 'default.png' && file_exists(FCPATH . 'uploads/users/' . $user['foto'])) {
             unlink(FCPATH . 'uploads/users/' . $user['foto']);
         }
 
         $this->users->delete($id);
-
         return redirect()->to('/users')->with('success', 'User berhasil dihapus!');
     }
 
-    // ✅ WHATSAPP
-    public function wa($id)
-    {
-        $user = $this->users->find($id);
-
-        if (!$user) {
-            return redirect()->to('/users')->with('error', 'User tidak ditemukan');
-        }
-
-        $nomor = $user['no_hp'] ?? '628123456789';
-        $pesan = "Halo " . $user['nama'] . ", ini dari sistem perpustakaan.";
-
-        return redirect()->to("https://wa.me/$nomor?text=" . urlencode($pesan));
-    }
     public function print()
+    {
+        $keyword = $this->request->getGet('keyword');
+        $role    = $this->request->getGet('role');
+        $builder = $this->users;
+
+        if ($keyword) $builder->like('nama', $keyword);
+        if ($role) $builder->where('role', $role);
+
+        $data['users'] = $builder->findAll();
+        return view('users/print', $data);
+    }
+
+    public function profile()
+    {
+        $id = session()->get('id_users'); 
+        if (!$id) return redirect()->to('/login')->with('error', 'Silakan login ulang.');
+
+        $user = $this->users->find($id);
+        return view('users/edit', ['user' => $user]);
+    }
+    // Pastikan method ini ada di dalam class Users
+public function detail($id)
 {
-    $model = new \App\Models\UsersModel();
-
-    $keyword = $this->request->getGet('keyword');
-    $role    = $this->request->getGet('role');
-
-    $builder = $model;
-
-    if ($keyword) {
-        $builder = $builder->like('nama', $keyword);
-    }
-
-    if ($role) {
-        $builder = $builder->where('role', $role);
-    }
-
-    $data['users'] = $builder->findAll();
-
-    return view('users/print', $data);
-
-
-
-    $data['user'] = $this->users->find($id);
-
-    if (!$data['user']) {
-        return redirect()->to('/users')->with('error', 'Data tidak ditemukan');
-    }
-
-    return view('users/edit', $data);
-
-
-
-    $this->users->update($id, [
-        'nama'     => $this->request->getPost('nama'),
-        'email'    => $this->request->getPost('email'),
-        'username' => $this->request->getPost('username'),
-        'role'     => $this->request->getPost('role'),
-    ]);
-
-    return redirect()->to('/users')->with('success', 'Data berhasil diupdate');
-}
-public function profile()
-{
-    // Sekarang sudah sinkron menggunakan 'id_users'
-    $id = session()->get('id_users'); 
-
-    if (!$id) {
-        return redirect()->to('/login')->with('error', 'Silakan login ulang.');
-    }
-
     $user = $this->users->find($id);
 
     if (!$user) {
-        return redirect()->to('/login')->with('error', 'User tidak ditemukan.');
+        return redirect()->to('/users')->with('error', 'User tidak ditemukan');
     }
 
-    // Arahkan ke view edit
-    return view('users/edit', ['user' => $user]);
+    return view('users/detail', ['user' => $user]);
+}
+public function wa($id)
+{
+    $user = $this->users->find($id);
+
+    if (!$user) {
+        return redirect()->to('/users')->with('error', 'User tidak ditemukan');
+    }
+
+    // Mengambil nomor HP, jika kosong gunakan nomor default
+    // Pastikan di database ada kolom 'no_hp'
+    $nomor = $user['no_hp'] ?? '628123456789'; 
+    $pesan = "Halo " . $user['nama'] . ", ini dari sistem perpustakaan Paos28App.";
+
+    return redirect()->to("https://wa.me/$nomor?text=" . urlencode($pesan));
 }
 }
