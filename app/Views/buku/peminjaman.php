@@ -1,75 +1,50 @@
 <?= $this->extend('layouts/main') ?>
+
 <?= $this->section('content') ?>
+<div class="container-fluid py-4">
+    <h2 class="fw-bold mb-4">Riwayat Peminjaman Saya</h2>
 
-<div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3>📚 Data Peminjaman</h3>
-        <a href="<?= base_url('buku') ?>" class="btn btn-secondary btn-sm">
-            <i class="fas fa-arrow-left"></i> Kembali ke Katalog
-        </a>
-    </div>
-
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark text-center">
-                <tr>
-                    <th>Judul Buku</th>
-                    <th>Tgl Pinjam</th>
-                    <th>Jatuh Tempo</th>
-                    <th>Status</th>
-                    <th>Denda</th>
-                    <th>Aksi / Verifikasi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($pinjam as $p) : ?>
-                <tr>
-                    <td><strong><?= $p['judul'] ?></strong></td>
-                    <td class="text-center"><?= $p['tanggal_pinjam'] ?: '-' ?></td>
-                    <td class="text-center"><?= $p['tanggal_kembali'] ?: '-' ?></td>
-                    <td class="text-center">
-                        <?php 
-                            $badge = 'badge-secondary';
-                            if ($p['status'] == 'pending') $badge = 'badge-warning text-dark';
-                            if ($p['status'] == 'disetujui') $badge = 'badge-info';
-                            if ($p['status'] == 'dipinjam') $badge = 'badge-primary';
-                            if ($p['status'] == 'kembali') $badge = 'badge-success';
-                        ?>
-                        <span class="badge <?= $badge ?>"><?= ucfirst($p['status']) ?></span>
-                    </td>
-                    <td>Rp <?= number_format($p['denda'], 0, ',', '.') ?></td>
-
-                    <td class="text-center">
-                        <?php if (session()->get('role') == 'admin') : ?>
-                            
-                            <?php if ($p['status'] == 'pending') : ?>
-                                <a href="<?= base_url('buku/setujui/' . $p['id_peminjaman']) ?>" class="btn btn-warning btn-sm shadow-sm">
-                                    <i class="fas fa-check"></i> Setujui (Tahap 1)
-                                </a>
-
-                            <?php elseif ($p['status'] == 'disetujui') : ?>
-                                <a href="<?= base_url('buku/serah_terima/' . $p['id_peminjaman']) ?>" class="btn btn-success btn-sm shadow-sm">
-                                    <i class="fas fa-hand-holding"></i> Konfirmasi Serah Terima (Tahap 2)
-                                </a>
-
-                            <?php elseif ($p['status'] == 'dipinjam') : ?>
-                                <a href="<?= base_url('buku/kembalikan/' . $p['id_peminjaman']) ?>" class="btn btn-primary btn-sm shadow-sm" onclick="return confirm('Konfirmasi pengembalian buku?')">
-                                    <i class="fas fa-undo"></i> Kembalikan Buku
-                                </a>
-
-                            <?php else : ?>
-                                <span class="text-muted small">Selesai</span>
-                            <?php endif; ?>
-
-                        <?php else : ?>
-                            <small class="text-muted italic">Proses Petugas</small>
-                        <?php endif; ?>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+    <div class="card shadow-sm border-0" style="border-radius: 15px;">
+        <div class="table-responsive p-3">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Buku</th>
+                        <th>Tanggal Pinjam</th>
+                        <th>Batas/Tanggal Kembali</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (!empty($pinjaman)): ?>
+                        <?php foreach ($pinjaman as $p): ?>
+                            <tr>
+                                <td>
+                                    <div class="fw-bold"><?= esc($p['judul']) ?></div>
+                                </td>
+                                <td><?= date('d/m/Y', strtotime($p['tgl_pinjam'])) ?></td>
+                                <td>
+                                    <?= ($p['status'] == 'Kembali') ? date('d/m/Y', strtotime($p['tgl_kembali'])) : '<span class="text-danger">Belum Kembali</span>' ?>
+                                </td>
+                                <td>
+                                    <?php if ($p['status'] == 'Kembali'): ?>
+                                        <span class="badge bg-success rounded-pill">Selesai</span>
+                                    <?php else: ?>
+                                        <span class="badge bg-warning text-dark rounded-pill">Masih Dipinjam</span>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="4" class="text-center py-5 text-muted">
+                                Tidak ada riwayat peminjaman ditemukan.
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+                    </tbody>
+            </table>
+        </div>
     </div>
 </div>
-
 <?= $this->endSection() ?>

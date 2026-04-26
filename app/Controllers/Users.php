@@ -212,5 +212,30 @@ class Users extends BaseController
         $this->users->insert($data);
         return redirect()->to('/users')->with('success', 'User baru berhasil ditambahkan!');
     }
+    public function dataDenda()
+{
+    $db = \Config\Database::connect();
+    
+    // Query untuk mengambil data denda dari tabel peminjaman
+    $denda = $db->table('peminjaman')
+        ->select('peminjaman.*, users.nama as nama_peminjam, buku.judul as judul_buku')
+        ->join('users', 'users.id_users = peminjaman.id_anggota')
+        ->join('buku', 'buku.id_buku = peminjaman.id_buku')
+        ->where('peminjaman.denda >', 0)
+        ->orderBy('peminjaman.id_peminjaman', 'DESC')
+        ->get()
+        ->getResultArray();
+
+    // Hitung total denda
+    $total = $db->table('peminjaman')->selectSum('denda')->get()->getRow()->denda ?? 0;
+
+    $data = [
+        'title'            => 'Laporan Denda - Paos28App',
+        'denda'            => $denda,
+        'total_pendapatan' => $total
+    ];
+
+    return view('users/denda_anggota', $data);
+}
 
 }

@@ -10,8 +10,8 @@ class Home extends BaseController
         $today = date('Y-m-d');
 
         // 1. Ambil Statistik Dashboard
-        $total_stok_query = $db->table('buku')->selectSum('stok', 'total')->get()->getRowArray();
-        $total_fisik = (int)($total_stok_query['total'] ?? 0);
+        // Menghitung jumlah record/judul di katalog agar sesuai dengan tampilan visual
+        $total_buku = $db->table('buku')->countAllResults(); 
 
         $tersedia_query = $db->table('buku')->selectSum('tersedia', 'total')->get()->getRowArray();
         $buku_tersedia = (int)($tersedia_query['total'] ?? 0);
@@ -23,25 +23,24 @@ class Home extends BaseController
                                 ->where('tanggal_kembali <', $today)
                                 ->countAllResults();
 
-        // 2. Tambahan: Ambil Aktivitas Terakhir (Log Peminjaman)
-        // Kita join ke tabel buku dan users agar tampil nama & judulnya
+        // 2. Ambil Aktivitas Terakhir
         $aktivitas = $db->table('peminjaman')
                         ->select('peminjaman.*, buku.judul, users.nama as nama_peminjam')
                         ->join('buku', 'buku.id_buku = peminjaman.id_buku')
                         ->join('users', 'users.id = peminjaman.id_anggota')
                         ->orderBy('id_peminjaman', 'DESC')
-                        ->limit(5) // Ambil 5 aktivitas terbaru saja
+                        ->limit(5)
                         ->get()
                         ->getResultArray();
 
         // 3. Bungkus semua ke dalam array $data
         $data = [
-            'total_buku'      => $total_fisik,
+            'total_buku'      => $total_buku, 
             'buku_tersedia'   => $buku_tersedia, 
             'sedang_dipinjam' => $sedang_dipinjam,
             'total_terlambat' => $total_terlambat,
             'buku'            => $db->table('buku')->orderBy('id_buku', 'DESC')->get()->getResultArray(),
-            'aktivitas'       => $aktivitas, // Data aktivitas masuk ke sini
+            'aktivitas'       => $aktivitas,
             'today'           => $today 
         ];
 

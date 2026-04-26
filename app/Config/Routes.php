@@ -129,3 +129,17 @@ $routes->post('user/simpan', 'Users::simpan');
 $routes->get('users', 'Users::index');
 $routes->get('users/tambah', 'Users::tambah');
 $routes->post('users/simpan', 'Users::simpan');
+// Jika Anda menggunakan auto-routing false (default CI4 baru)
+$routes->get('peminjaman/lunas_denda/(:num)', 'Peminjaman::lunas_denda/$1');
+
+$routes->get('peminjaman', 'Peminjaman::index');
+$routes->get('peminjaman/tambah', 'Peminjaman::tambah');
+$routes->get('peminjaman/konfirmasi/(:num)', 'Peminjaman::konfirmasi/$1');
+$routes->get('peminjaman/kembalikan/(:num)', 'Peminjaman::kembalikan/$1');
+$routes->get('peminjaman/lunas_denda/(:num)', 'Peminjaman::lunas_denda/$1');
+// Route khusus untuk riwayat pinjam anggota
+$routes->get('peminjaman/riwayat_saya', 'Peminjaman::saya');
+// Tambahkan ini agar sistem mengenali aksi POST dari form tambah
+$routes->post('peminjaman/simpan', 'Peminjaman::simpan');
+$routes->get('peminjaman/hapusSemua', 'Peminjaman::hapusSemua');
+$routes->get('buku/kembalikan/(:num)', 'Buku::kembalikan/$1');

@@ -89,7 +89,7 @@
         <div class="col-md-3 col-6">
             <div class="card border-0 shadow-sm h-100" style="background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%); border-radius: 20px;">
                 <div class="card-body p-4 text-white position-relative overflow-hidden">
-                    <h6 class="text-uppercase fw-bold opacity-75 small">Total Stok</h6>
+                    <h6 class="text-uppercase fw-bold opacity-75 small">Total Buku</h6>
                     <h2 class="display-6 fw-bold mb-0"><?= $total_buku; ?></h2>
                     <i class="fas fa-book position-absolute opacity-25" style="font-size: 3.5rem; right: -5px; bottom: -5px;"></i>
                 </div>
@@ -131,7 +131,7 @@
         <div class="col-lg-8">
             <div class="d-flex justify-content-between align-items-center mb-4 px-2">
                 <h4 class="fw-bold m-0"><i class="fas fa-th-large me-2 text-primary"></i>Katalog Koleksi</h4>
-                <a href="<?= base_url('buku') ?>" class="text-primary text-decoration-none fw-bold">Lihat Semua <i class="fas fa-arrow-right ms-1"></i></a>
+                <a href="<?= base_url('buku') ?>" class="text-primary text-decoration-none fw-bold small">Lihat Semua <i class="fas fa-arrow-right ms-1"></i></a>
             </div>
 
             <div class="row row-cols-2 row-cols-md-3 g-4 mb-5">
@@ -181,7 +181,7 @@
         <div class="col-lg-4">
             <div class="card border-0 shadow-sm rounded-4 mb-4">
                 <div class="card-header bg-white border-0 py-3">
-                    <h5 class="fw-bold mb-0"><i class="fas fa-history me-2 text-primary"></i>Aktivitas Terbaru</h5>
+                    <h5 class="fw-bold mb-0"><i class="fas fa-history me-2 text-primary"></i>Aktivitas</h5>
                 </div>
                 <div class="card-body p-4 pt-0">
                     <?php if (!empty($aktivitas)) : ?>
@@ -196,7 +196,7 @@
                                     </div>
 
                                     <div class="flex-grow-1">
-                                        <h6 class="mb-1 fw-bold" style="font-size: 0.9rem;">
+                                        <h6 class="mb-1 fw-bold" style="font-size: 0.85rem;">
                                             <?= esc($ak['nama_peminjam']) ?> 
                                             <span class="text-muted fw-normal"><?= $ak['status'] == 'kembali' ? 'mengembalikan' : 'meminjam' ?></span>
                                             "<?= esc($ak['judul']) ?>"
@@ -208,20 +208,20 @@
 
                                         <?php if ($ak['status'] == 'dipinjam') : ?>
                                             <a href="<?= base_url('peminjaman/kembalikan/' . $ak['id_peminjaman']) ?>" 
-                                               class="btn btn-xs btn-outline-warning py-0 px-2 rounded-pill fw-bold mb-2" style="font-size: 0.7rem;"
+                                               class="btn btn-xs btn-outline-warning py-0 px-2 rounded-pill fw-bold mb-2" style="font-size: 0.65rem;"
                                                onclick="return confirm('Konfirmasi pengembalian buku?')">
-                                               Kembalikan Sekarang
+                                               Kembalikan
                                             </a>
                                         <?php endif; ?>
 
-                                        <div class="text-muted small"><i class="far fa-clock me-1"></i> <?= date('d M Y, H:i', strtotime($ak['tanggal_pinjam'] ?? date('Y-m-d H:i'))) ?> WIB</div>
+                                        <div class="text-muted" style="font-size: 0.7rem;"><i class="far fa-clock me-1"></i> <?= date('d M Y, H:i', strtotime($ak['tanggal_pinjam'] ?? date('Y-m-d H:i'))) ?> WIB</div>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
                         </div>
                     <?php else : ?>
-                        <div class="text-center py-4 text-muted">
-                            <small>Belum ada aktivitas sirkulasi.</small>
+                        <div class="text-center py-4 text-muted small">
+                            Belum ada aktivitas sirkulasi.
                         </div>
                     <?php endif; ?>
                 </div>

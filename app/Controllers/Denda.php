@@ -6,21 +6,25 @@ use App\Models\DendaModel;
 
 class Denda extends BaseController
 {
-    public function index()
-    {
-        $db = \Config\Database::connect();
-        
-        // Mengambil data denda digabung dengan info peminjaman dan user
-        $data['semua_denda'] = $db->table('denda')
-            ->select('denda.*, peminjaman.tanggal_pinjam, buku.judul, users.nama')
-            ->join('peminjaman', 'peminjaman.id_peminjaman = denda.id_pengembalian')
-            ->join('buku', 'buku.id_buku = peminjaman.id_buku')
-            ->join('users', 'users.id = peminjaman.id_anggota')
-            ->orderBy('status', 'ASC')
-            ->get()->getResultArray();
+    ppublic function index()
+{
+    $db = \Config\Database::connect();
+    
+    // Query untuk mengambil data yang hanya memiliki denda
+    $data['denda_anggota'] = $db->table('peminjaman')
+        ->select('peminjaman.*, users.nama, buku.judul')
+        ->join('users', 'users.id_users = peminjaman.id_anggota')
+        ->join('buku', 'buku.id_buku = peminjaman.id_buku')
+        ->where('denda >', 0) // HANYA ambil yang ada dendanya
+        ->get()
+        ->getResultArray();
 
-        return view('admin/denda/index', $data);
-    }
+    // Hitung total pendapatan denda untuk ditampilkan di header
+    $queryTotal = $db->table('peminjaman')->selectSum('denda')->get()->getRow();
+    $data['total_pendapatan'] = $queryTotal->denda ?? 0;
+
+    return view('denda/index', $data);
+}
 
     public function bayar($id)
     {

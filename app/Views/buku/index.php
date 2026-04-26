@@ -2,113 +2,135 @@
 
 <?= $this->section('content') ?>
 <style>
-    .book-wrapper { position: relative; }
+    /* Styling Card Buku agar rapi */
+    .book-card {
+        border: none;
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+        background: #fff;
+    }
+    .book-card:hover {
+        transform: translateY(-5px);
+    }
+    .book-wrapper { position: relative; border-radius: 15px; overflow: hidden; }
+    
     .cover-buku {
         width: 100%;
         aspect-ratio: 3/4;
         object-fit: cover;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         background: linear-gradient(135deg, #2680eb, #1a5bb8);
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
         color: white;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(0,0,0,0.05);
-        overflow: hidden;
     }
-    .cover-buku:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    }
-    /* Group tombol aksi agar rapi */
-    .action-buttons {
+
+    /* Tombol Aksi (Edit/Hapus) - Muncul saat Hover */
+    .action-overlay {
         position: absolute;
-        top: 10px;
-        right: 10px;
-        z-index: 10;
-        opacity: 0;
-        transition: opacity 0.3s ease;
+        top: 8px;
+        right: 8px;
         display: flex;
         flex-direction: column;
         gap: 5px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 5;
     }
-    .book-wrapper:hover .action-buttons { opacity: 1; }
-    
-    .judul-fallback {
-        font-size: 0.75rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        padding: 10px;
-        text-align: center;
+    .book-wrapper:hover .action-overlay { opacity: 1; }
+
+    /* Search Container agar tidak tumpang tindih */
+    .filter-section {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid #eee;
+        margin-bottom: 30px;
     }
 </style>
 
-<div class="container py-4">
+<div class="container-fluid py-3">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold">📚 Koleksi Buku</h2>
-        <div>
+        <h2 class="fw-bold m-0">📚 Koleksi Buku</h2>
+        <div class="d-flex gap-2">
             <?php if (session()->get('role') == 'admin'): ?>
-                <a href="<?= base_url('buku/create') ?>" class="btn btn-primary rounded-pill">
+                <a href="<?= base_url('buku/create') ?>" class="btn btn-primary rounded-pill px-4">
                     <i class="bi bi-plus-lg"></i> Tambah Buku
                 </a>
             <?php endif; ?>
-            <a href="<?= base_url('buku/peminjaman') ?>" class="btn btn-outline-primary rounded-pill">
+            <a href="<?= base_url('buku/peminjaman') ?>" class="btn btn-outline-primary rounded-pill px-4">
                 <i class="bi bi-journal-bookmark"></i> Pinjaman Saya
             </a>
         </div>
     </div>
 
-    <?php if (session()->getFlashdata('success')) : ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <?= session()->getFlashdata('success') ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif; ?>
+    <div class="filter-section shadow-sm">
+        <form action="<?= base_url('buku') ?>" method="get" class="row g-2">
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
+                    <input type="text" name="keyword" class="form-control border-start-0" placeholder="Cari judul atau ISBN..." value="<?= request()->getGet('keyword') ?>">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <select name="kategori" class="form-select">
+                    <option value="">Semua Kategori</option>
+                    <?php if(!empty($kategori)): foreach($kategori as $k): ?>
+                        <option value="<?= $k['id_kategori'] ?>"><?= $k['nama_kategori'] ?></option>
+                    <?php endforeach; endif; ?>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-dark w-100">
+                    <i class="bi bi-filter"></i> Filter
+                </button>
+            </div>
+        </form>
+    </div>
 
     <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
-        <?php if (!empty($buku)): ?>
-            <?php foreach ($buku as $b) : ?>
-                <div class="col">
+        <?php if (!empty($buku)): foreach ($buku as $b) : ?>
+            <div class="col">
+                <div class="book-card shadow-sm">
                     <div class="book-wrapper">
-                        
                         <?php if (session()->get('role') == 'admin'): ?>
-                            <div class="action-buttons">
-                                <a href="<?= base_url('buku/edit/' . $b['id_buku']) ?>" class="btn btn-light btn-sm rounded-circle shadow" title="Edit Buku">
+                            <div class="action-overlay">
+                                <a href="<?= base_url('buku/edit/' . $b['id_buku']) ?>" class="btn btn-white btn-sm rounded-circle shadow-sm bg-white">
                                     <i class="bi bi-pencil-square text-primary"></i>
                                 </a>
-                                <a href="<?= base_url('buku/delete/' . $b['id_buku']) ?>" 
-                                   class="btn btn-danger btn-sm rounded-circle shadow" 
-                                   onclick="return confirm('Apakah Anda yakin ingin menghapus buku ini?')" 
-                                   title="Hapus Buku">
-                                    <i class="bi bi-trash text-white"></i>
+                                <a href="<?= base_url('buku/delete/' . $b['id_buku']) ?>" class="btn btn-white btn-sm rounded-circle shadow-sm bg-white" onclick="return confirm('Hapus buku?')">
+                                    <i class="bi bi-trash text-danger"></i>
                                 </a>
                             </div>
                         <?php endif; ?>
 
-                        <a href="<?= base_url('buku/detail/' . $b['id_buku']) ?>" class="text-decoration-none">
+                        <a href="<?= base_url('buku/detail/' . $b['id_buku']) ?>">
                             <div class="cover-buku">
                                 <?php if (!empty($b['cover']) && file_exists('uploads/buku/' . $b['cover'])): ?>
                                     <img src="<?= base_url('uploads/buku/' . $b['cover']) ?>" class="w-100 h-100" style="object-fit: cover;">
                                 <?php else: ?>
-                                    <i class="bi bi-book fa-2x mb-2" style="font-size: 2rem;"></i>
-                                    <div class="judul-fallback"><?= esc($b['judul']) ?></div>
+                                    <div class="text-center px-2">
+                                        <i class="bi bi-book fs-1"></i><br>
+                                        <small><?= esc($b['judul']) ?></small>
+                                    </div>
                                 <?php endif; ?>
-                            </div>
-                            <div class="mt-2">
-                                <p class="text-dark fw-bold mb-0 text-truncate"><?= esc($b['judul']) ?></p>
-                                <small class="text-muted">Tersedia: <?= $b['tersedia'] ?></small>
                             </div>
                         </a>
                     </div>
+                    <div class="p-2">
+                        <p class="fw-bold mb-1 text-truncate" title="<?= esc($b['judul']) ?>"><?= esc($b['judul']) ?></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">Stok: <?= $b['tersedia'] ?></small>
+                            <span class="badge rounded-pill <?= $b['tersedia'] > 0 ? 'bg-success' : 'bg-danger' ?>" style="font-size: 0.7rem;">
+                                <?= $b['tersedia'] > 0 ? 'Tersedia' : 'Habis' ?>
+                            </span>
+                        </div>
+                    </div>
                 </div>
-            <?php endforeach; ?>
-        <?php else: ?>
+            </div>
+        <?php endforeach; else: ?>
             <div class="col-12 text-center py-5">
-                <i class="bi bi-emoji-frown display-1 text-muted"></i>
-                <p class="text-muted mt-3">Data buku belum tersedia.</p>
+                <p class="text-muted">Buku tidak ditemukan.</p>
             </div>
         <?php endif; ?>
     </div>

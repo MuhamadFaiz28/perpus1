@@ -47,16 +47,11 @@ class Buku extends BaseController
     // 3. Form Tambah Buku
     public function create()
     {
-        $kategoriModel = new KategoriModel();
-        $penulisModel = new PenulisModel();
-        $penerbitModel = new PenerbitModel();
-        $rakModel = new RakModel();
-
         $data = [
-            'kategori' => $kategoriModel->findAll(),
-            'penulis'  => $penulisModel->findAll(),
-            'penerbit' => $penerbitModel->findAll(),
-            'rak'      => $rakModel->findAll(),
+            'kategori' => (new KategoriModel())->findAll(),
+            'penulis'  => (new PenulisModel())->findAll(),
+            'penerbit' => (new PenerbitModel())->findAll(),
+            'rak'      => (new RakModel())->findAll(),
         ];
 
         return view('buku/create', $data);
@@ -148,11 +143,34 @@ class Buku extends BaseController
         return redirect()->to('/buku')->with('success', 'Data buku berhasil diperbarui!');
     }
 
-    // ==========================
-    // 📚 LOGIKA PEMINJAMAN (DINAMIS)
-    // ==========================
+    // 7. Hapus Buku
+    public function delete($id)
+    {
+        // Proteksi: Hanya Admin yang bisa hapus
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('/buku')->with('error', 'Akses ditolak!');
+        }
 
-    // Menampilkan form pilihan tanggal sebelum pinjam
+        $buku = $this->bukuModel->find($id);
+
+        if ($buku) {
+            // Hapus file cover jika ada dan bukan default
+            if (!empty($buku['cover']) && $buku['cover'] != 'default.jpg') {
+                $path = 'uploads/buku/' . $buku['cover'];
+                if (file_exists($path)) {
+                    unlink($path);
+                }
+            }
+
+            $this->bukuModel->delete($id);
+            return redirect()->to('/buku')->with('success', 'Buku berhasil dihapus!');
+        }
+
+        return redirect()->to('/buku')->with('error', 'Buku tidak ditemukan!');
+    }
+
+    // --- LOGIKA PEMINJAMAN ---
+
     public function konfirmasi_pinjam($id)
     {
         $data['buku'] = $this->bukuModel->find($id);
@@ -161,7 +179,6 @@ class Buku extends BaseController
         return view('buku/konfirmasi_pinjam', $data);
     }
 
-    // Proses simpan dengan tanggal pilihan user
     public function proses_pinjam($id_buku)
     {
         $buku = $this->bukuModel->find($id_buku);
@@ -180,7 +197,7 @@ class Buku extends BaseController
             'id_anggota'      => session()->get('id_users'),
             'id_petugas'      => session()->get('id_users'), 
             'tanggal_pinjam'  => date('Y-m-d'),
-            'tanggal_kembali' => $tgl_kembali, // Tanggal dinamis dari input user
+            'tanggal_kembali' => $tgl_kembali,
             'status'          => 'dipinjam',
             'denda'           => 0
         ]);
@@ -190,80 +207,43 @@ class Buku extends BaseController
         return redirect()->to('/buku/peminjaman')->with('success', 'Buku berhasil dipinjam!');
     }
 
-    public function kembalikan($id_peminjaman)
+    // Contoh potongan kode di Controller
+public function kembalikan($id_peminjaman)
 {
-    $pinjam = $this->peminjamanModel->find($id_peminjaman);
-    if (!$pinjam) return redirect()->back();
+    $this->db->table('tb_peminjaman')
+        ->where('id_peminjaman', $id_peminjaman)
+        ->update([
+            'status'      => 'Kembali',
+            'tgl_kembali' => date('Y-m-d') // Mencatat kapan buku dipulangkan
+        ]);
 
-    // Hitung denda jika terlambat
-    $tgl_kembali_seharusnya = new \DateTime($pinjam['tanggal_kembali']);
-    $tgl_sekarang = new \DateTime(date('Y-m-d'));
-    $denda = 0;
-
-    if ($tgl_sekarang > $tgl_kembali_seharusnya) {
-        $selisih = $tgl_sekarang->diff($tgl_kembali_seharusnya);
-        $denda = $selisih->days * 1000; // Denda 1000 per hari
-    }
-
-    // PERBAIKAN DI SINI:
-    // Pastikan nama kolom di kiri (database) sesuai dengan yang ada di gambar DB kamu
-    $this->peminjamanModel->update($id_peminjaman, [
-        'tanggal_kembali' => date('Y-m-d'), // Ganti 'tanggal_dikembalikan' jadi 'tanggal_kembali'
-        'status'          => 'kembali',
-        'denda'           => $denda
-    ]);
-
-    // Kembalikan stok buku
-    $buku = $this->bukuModel->find($pinjam['id_buku']);
-    $this->bukuModel->update($pinjam['id_buku'], ['tersedia' => $buku['tersedia'] + 1]);
-
-    return redirect()->back()->with('success', 'Buku berhasil dikembalikan. Denda: Rp ' . number_format($denda));
+    session()->setFlashdata('success', 'Buku berhasil dikembalikan dan masuk ke riwayat.');
+    return redirect()->to(base_url('buku/peminjaman')); // Arahkan ke halaman riwayat
 }
+
     public function peminjaman()
 {
-    $role = session()->get('role');
-    $id_user = session()->get('id_users');
-
-    $builder = $this->peminjamanModel
-        ->select('peminjaman.*, buku.judul, users.nama as nama_peminjam') // Tambahkan nama peminjam
-        ->join('buku', 'buku.id_buku = peminjaman.id_buku')
-        ->join('users', 'users.id = peminjaman.id_anggota'); // Join ke tabel user
-
-    // LOGIKA FILTER:
-    // Jika bukan Admin dan bukan Petugas, maka hanya tampilkan miliknya sendiri
-    if ($role !== 'admin' && $role !== 'petugas') {
-        $builder->where('id_anggota', $id_user);
-    }
-
-    $data['pinjam'] = $builder->findAll();
+    $id_user = session()->get('id_user');
+    // Pastikan tidak memfilter 'status' => 'Kembali' saja
+    $data['pinjaman'] = $this->db->table('tb_peminjaman')
+        ->join('tb_buku', 'tb_peminjaman.id_buku = tb_buku.id_buku')
+        ->where('tb_peminjaman.id_user', $id_user)
+        ->orderBy('id_peminjaman', 'DESC')
+        ->get()->getResultArray();
 
     return view('buku/peminjaman', $data);
 }
-
-public function delete($id)
+public function riwayat()
 {
-    // 1. Proteksi akses admin
-    if (session()->get('role') != 'admin') {
-        return redirect()->to('/')->with('error', 'Akses ditolak!');
-    }
-
-    $bukuModel = new \App\Models\BukuModel();
+    $id_user = session()->get('id_user');
     
-    // 2. Cari data buku untuk mendapatkan nama file cover
-    $buku = $bukuModel->find($id);
+    // Ambil data tanpa memfilter status 'Dipinjam' saja
+    $data['pinjaman'] = $this->db->table('tb_peminjaman')
+        ->join('tb_buku', 'tb_peminjaman.id_buku = tb_buku.id_buku')
+        ->where('tb_peminjaman.id_user', $id_user) 
+        ->orderBy('tb_peminjaman.id_peminjaman', 'DESC')
+        ->get()->getResultArray();
 
-    if ($buku) {
-        // 3. Hapus file cover jika ada
-        if (!empty($buku['cover']) && file_exists('uploads/buku/' . $buku['cover'])) {
-            unlink('uploads/buku/' . $buku['cover']);
-        }
-
-        // 4. Hapus data dari database
-        $bukuModel->delete($id);
-
-        return redirect()->back()->with('success', 'Buku berhasil dihapus!');
-    }
-
-    return redirect()->back()->with('error', 'Buku tidak ditemukan!');
+    return view('buku/peminjaman', $data);
 }
 }

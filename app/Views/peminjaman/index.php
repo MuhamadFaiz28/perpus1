@@ -67,13 +67,13 @@
             <table class="table align-middle m-0">
                 <thead>
                     <tr>
-                        <th class="ps-4">ID Anggota</th>
+                        <th class="ps-4">Peminjam</th>
                         <th>Informasi Buku</th>
                         <th>Tgl Pinjam</th>
-                        <th>Tgl Kembali</th>
+                        <th>Jatuh Tempo</th>
                         <th>Status</th>
                         <th class="text-center">Denda</th>
-                        <th class="text-end pe-4">Aksi</th>
+                        <th class="text-end pe-4">Aksi / Verifikasi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -98,16 +98,23 @@
                                 </span>
                             </td>
                             <td>
-                                <span class="badge bg-light text-dark border <?= (isset($p['tanggal_kembali']) && strtotime($p['tanggal_kembali']) < strtotime(date('Y-m-d')) && $p['status'] == 'dipinjam') ? 'border-danger text-danger' : '' ?>">
-                                    <?= $p['tanggal_kembali'] ? date('d M Y', strtotime($p['tanggal_kembali'])) : '-' ?>
+                                <?php 
+                                    // Proteksi Undefined Key & Logika Warna Jatuh Tempo
+                                    $jt = $p['jatuh_tempo'] ?? null; 
+                                    $is_late = ($jt && ($p['status'] ?? '') != 'Kembali' && strtotime($jt) < time());
+                                ?>
+                                <span class="badge bg-light text-dark border <?= $is_late ? 'border-danger text-danger' : '' ?>">
+                                    <?= $jt ? date('d M Y', strtotime($jt)) : '-' ?>
                                 </span>
                             </td>
                             <td>
-                                <?php if ($p['status'] == 'menunggu'): ?>
+                                <?php 
+                                $status = strtolower($p['status'] ?? '');
+                                if ($status == 'menunggu' || empty($status)): ?>
                                     <span class="badge-status bg-info text-info bg-opacity-10">
                                         <i class="fas fa-hourglass-half me-1"></i> Menunggu
                                     </span>
-                                <?php elseif ($p['status'] == 'dipinjam'): ?>
+                                <?php elseif ($status == 'pinjam' || $status == 'dipinjam'): ?>
                                     <span class="badge-status bg-warning text-warning bg-opacity-10">
                                         <i class="fas fa-clock me-1"></i> Dipinjam
                                     </span>
@@ -124,22 +131,29 @@
                             </td>
                             <td class="text-end pe-4">
                                 <div class="d-flex justify-content-end gap-2">
-                                    <?php if ($p['status'] == 'menunggu'): ?>
+                                    <?php if (empty($status) || $status == 'menunggu'): ?>
                                         <a href="<?= base_url('peminjaman/konfirmasi/' . $p['id_peminjaman']) ?>" 
                                            class="btn btn-primary btn-sm rounded-pill px-3 fw-bold shadow-sm"
-                                           onclick="return confirm('Konfirmasi peminjaman buku ini?')">
-                                            <i class="fas fa-check me-1"></i> Konfirmasi
+                                           onclick="return confirm('Setujui peminjaman buku ini?')">
+                                            <i class="fas fa-check me-1"></i> Setujui
                                         </a>
-                                    <?php elseif ($p['status'] == 'dipinjam'): ?>
+                                    <?php elseif ($status == 'pinjam' || $status == 'dipinjam'): ?>
                                         <a href="<?= base_url('peminjaman/kembalikan/' . $p['id_peminjaman']) ?>" 
-                                           class="btn btn-success btn-sm rounded-pill px-3 fw-bold shadow-sm"
+                                           class="btn btn-warning btn-sm rounded-pill px-3 fw-bold shadow-sm"
                                            onclick="return confirm('Konfirmasi pengembalian buku?')">
                                             <i class="fas fa-undo me-1"></i> Kembalikan
                                         </a>
                                     <?php else: ?>
-                                        <button class="btn btn-outline-secondary btn-sm rounded-pill px-3 fw-bold" disabled>
-                                            <i class="fas fa-check-double me-1"></i> Selesai
-                                        </button>
+                                        <?php if (($p['denda'] ?? 0) > 0): ?>
+                                            <a href="<?= base_url('peminjaman/lunas_denda/' . $p['id_peminjaman']) ?>" 
+                                               class="btn btn-success btn-sm rounded-pill px-3 fw-bold shadow-sm">
+                                                <i class="fas fa-money-bill-wave me-1"></i> Bayar Denda
+                                            </a>
+                                        <?php else: ?>
+                                            <button class="btn btn-outline-secondary btn-sm rounded-pill px-3 fw-bold" disabled>
+                                                <i class="fas fa-check-double me-1"></i> Selesai
+                                            </button>
+                                        <?php endif; ?>
                                     <?php endif; ?>
                                 </div>
                             </td>
@@ -147,7 +161,7 @@
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="7" class="text-center py-5 text-muted italic">
+                            <td colspan="7" class="text-center py-5 text-muted">
                                 <i class="fas fa-inbox fa-3x mb-3 opacity-25"></i><br>
                                 Tidak ada data peminjaman.
                             </td>
@@ -159,4 +173,4 @@
     </div>
 </div>
 
-<?= $this->endSection() ?>      
+<?= $this->endSection() ?>

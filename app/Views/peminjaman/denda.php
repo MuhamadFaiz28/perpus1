@@ -7,7 +7,7 @@
             <h3 class="fw-bold text-dark">Data Denda Anggota</h3>
             <p class="text-muted small">Total pendapatan denda: <span class="fw-bold text-success">Rp <?= number_format($total_denda ?? 0, 0, ',', '.') ?></span></p>
         </div>
-        <a href="<?= base_url('dashboard') ?>" class="btn btn-light rounded-pill px-4">Kembali</a>
+        <a href="<?= base_url('peminjaman') ?>" class="btn btn-light rounded-pill px-4 border shadow-sm">Kembali</a>
     </div>
 
     <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
@@ -24,24 +24,36 @@
                 <tbody>
                     <?php if (!empty($denda_list)) : ?>
                         <?php foreach ($denda_list as $d) : 
-                            $tgl_kembali = strtotime($d['tanggal_kembali']);
-                            $tgl_asli = strtotime($d['tanggal_pengembalian'] ?? date('Y-m-d'));
-                            $selisih = floor(($tgl_asli - $tgl_kembali) / (60 * 60 * 24));
+                            // Menggunakan jatuh_tempo sebagai pembanding (sesuai data image_9ceb2f)
+                            $jatuh_tempo = strtotime($d['jatuh_tempo'] ?? date('Y-m-d'));
+                            $tgl_kembali = strtotime($d['tanggal_pengembalian'] ?? date('Y-m-d'));
+                            
+                            // Hitung selisih hari
+                            $selisih_detik = $tgl_kembali - $jatuh_tempo;
+                            $hari = floor($selisih_detik / (60 * 60 * 24));
+                            $terlambat = ($hari > 0) ? $hari : 0;
                         ?>
                             <tr>
                                 <td class="ps-4">
-                                    <span class="fw-bold text-dark"><?= esc($d['nama_peminjam']) ?></span>
+                                    <span class="fw-bold text-dark"><?= esc($d['nama'] ?? $d['nama_peminjam'] ?? 'Anggota') ?></span>
                                 </td>
                                 <td><?= esc($d['judul']) ?></td>
-                                <td><span class="badge bg-danger bg-opacity-10 text-danger"><?= $selisih ?> Hari</span></td>
+                                <td>
+                                    <span class="badge bg-danger bg-opacity-10 text-danger">
+                                        <?= $terlambat ?> Hari
+                                    </span>
+                                </td>
                                 <td class="text-end pe-4">
-                                    <span class="fw-bold text-primary">Rp <?= number_format($d['denda'], 0, ',', '.') ?></span>
+                                    <span class="fw-bold text-primary">Rp <?= number_format($d['denda'] ?? 0, 0, ',', '.') ?></span>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
                     <?php else : ?>
                         <tr>
-                            <td colspan="4" class="text-center py-5 text-muted">Belum ada data denda tersimpan.</td>
+                            <td colspan="4" class="text-center py-5 text-muted">
+                                <i class="fas fa-info-circle mb-2"></i><br>
+                                Belum ada data denda tersimpan.
+                            </td>
                         </tr>
                     <?php endif; ?>
                 </tbody>

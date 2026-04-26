@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\PeminjamanModel;
 use App\Models\BukuModel;
+use App\Models\UsersModel; // Tambahan untuk mengambil data anggota
 
 class Peminjaman extends BaseController
 {
@@ -16,30 +17,80 @@ class Peminjaman extends BaseController
     }
 
     public function index()
+{
+    $id_user = session()->get('id') ?? session()->get('id_users');
+    
+    $builder = $this->peminjamanModel->select('peminjaman.*, buku.judul, users.nama')
+                  ->join('buku', 'buku.id_buku = peminjaman.id_buku')
+                  ->join('users', 'users.id = peminjaman.id_anggota');
+
+    // FITUR OTOMATIS: Hanya tampilkan yang BELUM kembali di halaman sirkulasi utama
+    $builder->whereIn('peminjaman.status', ['dipinjam', 'menunggu']);
+
+    if (session()->get('role') == 'anggota') {
+        $builder->where('peminjaman.id_anggota', $id_user);
+    }
+
+    $data['peminjaman'] = $builder->orderBy('id_peminjaman', 'DESC')->findAll();
+
+    return view('peminjaman/index', $data);
+}
+    // --- METHOD TAMBAHAN UNTUK FIX ERROR "METHOD NOT FOUND" ---
+    
+    public function tambah()
     {
-        $data['peminjaman'] = $this->peminjamanModel->select('peminjaman.*, buku.judul, users.nama')
-                                      ->join('buku', 'buku.id_buku = peminjaman.id_buku')
-                                      ->join('users', 'users.id = peminjaman.id_anggota')
-                                      ->orderBy('id_peminjaman', 'DESC')
-                                      ->findAll();
+        $userModel = new UsersModel();
+        $data = [
+            'title' => 'Tambah Peminjaman',
+            'buku'  => $this->bukuModel->findAll(),
+            'users' => $userModel->where('role', 'anggota')->findAll()
+        ];
 
-        return view('peminjaman/index', $data);
+        return view('peminjaman/tambah', $data);
     }
 
-    public function saya() {
-        $id_user = session()->get('id') ?? session()->get('id_users'); 
-        if (!$id_user) return redirect()->to('/login');
+    public function simpan()
+    {
+        $id_buku = $this->request->getPost('id_buku');
+        $buku = $this->bukuModel->find($id_buku);
+        $stok_sekarang = $buku['stok'] ?? $buku['tersedia'];
 
-        $data['pinjaman'] = $this->peminjamanModel->select('peminjaman.*, buku.judul, buku.cover')
-            ->join('buku', 'buku.id_buku = peminjaman.id_buku')
-            ->where('id_anggota', $id_user)
-            ->orderBy('id_peminjaman', 'DESC')
-            ->findAll();
+        if ($stok_sekarang <= 0) {
+            return redirect()->back()->with('error', 'Stok buku habis!');
+        }
 
-        return view('peminjaman/riwayat_saya', $data);
+        $this->peminjamanModel->save([
+            'id_buku'         => $id_buku,
+            'id_anggota'      => $this->request->getPost('id_anggota'),
+            'tanggal_pinjam'  => date('Y-m-d'),
+            'tanggal_kembali' => date('Y-m-d', strtotime('+7 days')),
+            'status'          => 'dipinjam', 
+            'denda'           => 0
+        ]);
+
+        // Update stok otomatis
+        $kolom_stok = isset($buku['stok']) ? 'stok' : 'tersedia';
+        $this->bukuModel->update($id_buku, [$kolom_stok => $stok_sekarang - 1]);
+
+        return redirect()->to('/peminjaman')->with('success', 'Data berhasil ditambahkan!');
     }
 
-    // DIPERBAIKI: Status awal menjadi 'menunggu' dan tidak potong stok di sini
+    // --- AKHIR METHOD TAMBAHAN ---
+
+    public function saya()
+{
+    $id_user = session()->get('id') ?? session()->get('id_users');
+    
+    // FILTER: Hanya mengambil yang sudah Kembali agar yang 'Dipinjam' tidak masuk riwayat
+    $data['pinjaman'] = $this->peminjamanModel->select('peminjaman.*, buku.judul, buku.cover')
+        ->join('buku', 'buku.id_buku = peminjaman.id_buku')
+        ->where('id_anggota', $id_user)
+        ->whereIn('status', ['Kembali', 'Selesai']) 
+        ->orderBy('id_peminjaman', 'DESC')
+        ->findAll();
+
+    return view('peminjaman/riwayat_saya', $data);
+}
     public function pinjam($id_buku) {
         $buku = $this->bukuModel->find($id_buku);
         $stok_sekarang = $buku['stok'] ?? $buku['tersedia'];
@@ -51,8 +102,8 @@ class Peminjaman extends BaseController
         $this->peminjamanModel->save([
             'id_buku'         => $id_buku,
             'id_anggota'      => session()->get('id') ?? session()->get('id_users'),
-            'tanggal_pinjam'  => null, // Diisi saat konfirmasi
-            'tanggal_kembali' => null, // Diisi saat konfirmasi
+            'tanggal_pinjam'  => null,
+            'tanggal_kembali' => null,
             'status'          => 'menunggu', 
             'denda'           => 0
         ]);
@@ -72,7 +123,6 @@ class Peminjaman extends BaseController
             return redirect()->back()->with('error', 'Gagal konfirmasi! Stok buku sedang kosong.');
         }
 
-        // Update status dan baru potong stok di sini
         $this->peminjamanModel->update($id_peminjaman, [
             'status' => 'dipinjam',
             'tanggal_pinjam' => date('Y-m-d'),
@@ -90,34 +140,21 @@ class Peminjaman extends BaseController
     {
         $db = \Config\Database::connect();
         $peminjaman = $db->table('peminjaman')->where('id_peminjaman', $id)->get()->getRowArray();
+        $tgl_kembali = date('Y-m-d');
+        
+        $jatuh_tempo = $peminjaman['jatuh_tempo'] ?? null;
+        $selisih = $jatuh_tempo ? (strtotime($tgl_kembali) - strtotime($jatuh_tempo)) / (60 * 60 * 24) : 0;
+        $terlambat = ($selisih > 0) ? $selisih : 0;
+        $denda = $terlambat * 0; 
 
-        if ($peminjaman) {
-            $tgl_kembali_seharusnya = strtotime($peminjaman['tanggal_kembali']);
-            $tgl_hari_ini = strtotime(date('Y-m-d'));
-            
-            $denda = 0;
-            if ($tgl_hari_ini > $tgl_kembali_seharusnya) {
-                $selisih_detik = $tgl_hari_ini - $tgl_kembali_seharusnya;
-                $selisih_hari = floor($selisih_detik / (60 * 60 * 24));
-                $tarif_denda = 1000; // Set tarif denda per hari di sini
-                $denda = $selisih_hari * $tarif_denda;
-            }
+        $db->table('peminjaman')->where('id_peminjaman', $id)->update([
+            'status'               => 'Kembali', 
+            'tanggal_dikembalikan' => $tgl_kembali,
+            'denda'                => $denda
+        ]);
 
-            // Update status dan denda
-            $db->table('peminjaman')->where('id_peminjaman', $id)->update([
-                'status' => 'kembali',
-                'tanggal_pengembalian' => date('Y-m-d'),
-                'denda' => $denda
-            ]);
-
-            // Kembalikan stok buku (Tambah 1 ke kolom tersedia)
-            $db->query("UPDATE buku SET tersedia = tersedia + 1 WHERE id_buku = ?", [$peminjaman['id_buku']]);
-
-            return redirect()->back()->with('success', 'Buku berhasil dikembalikan. Denda: Rp ' . number_format($denda, 0, ',', '.'));
-        }
-
-        return redirect()->back()->with('error', 'Data tidak ditemukan.');
-}
+        return redirect()->back()->with('success', 'Buku berhasil dikembalikan!');
+    }
 
     public function laporan()
     {
@@ -126,7 +163,7 @@ class Peminjaman extends BaseController
 
         $builder = $this->peminjamanModel->select('peminjaman.*, buku.judul, users.nama')
                     ->join('buku', 'buku.id_buku = peminjaman.id_buku')
-                    ->join('users', 'users.id = peminjaman.id_anggota');
+                    ->join('users', 'users.id = peminjaman.id_anggota'); // Perbaikan: id_users -> id
 
         if ($tgl_mulai && $tgl_selesai) {
             $builder->where('tanggal_pinjam >=', $tgl_mulai)
@@ -139,13 +176,14 @@ class Peminjaman extends BaseController
 
         return view('peminjaman/laporan', $data);
     }
+
     public function denda()
     {
         $db = \Config\Database::connect();
         $data['denda_list'] = $db->table('peminjaman')
             ->select('peminjaman.*, buku.judul, users.nama as nama_peminjam')
             ->join('buku', 'buku.id_buku = peminjaman.id_buku')
-            ->join('users', 'users.id = peminjaman.id_anggota')
+            ->join('users', 'users.id = peminjaman.id_anggota') // Perbaikan: id_users -> id
             ->where('denda >', 0)
             ->orderBy('id_peminjaman', 'DESC')
             ->get()
@@ -155,4 +193,53 @@ class Peminjaman extends BaseController
 
         return view('peminjaman/denda', $data);
     }
+
+    public function dataDenda()
+    {
+        $db = \Config\Database::connect();
+        $id_user = session()->get('id') ?? session()->get('id_users');
+
+        $denda = $db->table('peminjaman')
+            ->select('peminjaman.*, users.nama as nama_peminjam, buku.judul as judul_buku')
+            ->join('users', 'users.id = peminjaman.id_anggota') // Perbaikan: id_users -> id
+            ->join('buku', 'buku.id_buku = peminjaman.id_buku')
+            ->where('peminjaman.denda >', 0)
+            ->where('peminjaman.id_anggota', $id_user)
+            ->orderBy('peminjaman.id_peminjaman', 'DESC')
+            ->get()
+            ->getResultArray();
+
+        $total = $db->table('peminjaman')
+                   ->where('id_anggota', $id_user)
+                   ->selectSum('denda')->get()->getRow()->denda ?? 0;
+
+        $data = [
+            'title'            => 'Data Denda Anggota',
+            'denda'            => $denda,
+            'total_pendapatan' => $total
+        ];
+
+        return view('users/denda_anggota', $data);
+    }
+
+    public function lunas_denda($id)
+    {
+        $db = \Config\Database::connect();
+        $db->table('peminjaman')
+           ->where('id_peminjaman', $id)
+           ->update(['denda' => 0]);
+
+        return redirect()->to(base_url('peminjaman'))->with('success', 'Denda berhasil dibayar.');
+    }
+    public function hapusSemua()
+{
+    $id_user = session()->get('id') ?? session()->get('id_users');
+    
+    // Hanya menghapus riwayat milik user yang login dan statusnya sudah Kembali/Selesai
+    $this->peminjamanModel->where('id_anggota', $id_user)
+                          ->whereIn('status', ['Kembali', 'Selesai'])
+                          ->delete();
+
+    return redirect()->back()->with('success', 'Semua riwayat berhasil dibersihkan.');
+}
 }
