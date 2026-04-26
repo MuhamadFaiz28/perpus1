@@ -168,7 +168,7 @@
 
     <li class="nav-item">
         <a class="nav-link <?= url_is('buku*') ? 'active' : '' ?>" href="<?= base_url('buku') ?>">
-            <i class="bi bi-journal-bookmark-fill"></i> <span>Katalog Buku</span>
+            <i class="bi bi-journal-bookmark-fill"></i> <span>Koleksi Buku</span>
         </a>
     </li>
 

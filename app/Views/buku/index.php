@@ -58,9 +58,6 @@
                     <i class="bi bi-plus-lg"></i> Tambah Buku
                 </a>
             <?php endif; ?>
-            <a href="<?= base_url('buku/peminjaman') ?>" class="btn btn-outline-primary rounded-pill px-4">
-                <i class="bi bi-journal-bookmark"></i> Pinjaman Saya
-            </a>
         </div>
     </div>
 

@@ -17,24 +17,33 @@
                 </thead>
                 <tbody>
                     <?php if (!empty($pinjaman)): ?>
-                        <?php foreach ($pinjaman as $p): ?>
-                            <tr>
-                                <td>
-                                    <div class="fw-bold"><?= esc($p['judul']) ?></div>
-                                </td>
-                                <td><?= date('d/m/Y', strtotime($p['tgl_pinjam'])) ?></td>
-                                <td>
-                                    <?= ($p['status'] == 'Kembali') ? date('d/m/Y', strtotime($p['tgl_kembali'])) : '<span class="text-danger">Belum Kembali</span>' ?>
-                                </td>
-                                <td>
-                                    <?php if ($p['status'] == 'Kembali'): ?>
-                                        <span class="badge bg-success rounded-pill">Selesai</span>
-                                    <?php else: ?>
-                                        <span class="badge bg-warning text-dark rounded-pill">Masih Dipinjam</span>
-                                    <?php endif; ?>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
+                      <?php foreach ($pinjaman as $p): ?>
+                        <tr>
+                            <td>
+                                <div class="fw-bold"><?= esc($p['judul']) ?></div>
+                            </td>
+                            
+                            <td><?= (!empty($p['tanggal_pinjam'])) ? date('d/m/Y', strtotime($p['tanggal_pinjam'])) : '-' ?></td>
+                            
+                            <td>
+                                <?php if ($p['status'] == 'kembali'): ?>
+                                    <?= (!empty($p['tanggal_kembali'])) ? date('d/m/Y', strtotime($p['tanggal_kembali'])) : '-' ?>
+                                <?php else: ?>
+                                    <span class="text-danger">
+                                        Jatuh Tempo: <?= (!empty($p['jatuh_tempo']) && $p['jatuh_tempo'] != '0000-00-00') ? date('d/m/Y', strtotime($p['jatuh_tempo'])) : 'Belum Atur' ?>
+                                    </span>
+                                <?php endif; ?>
+                            </td>
+                            
+                            <td>
+                                <?php if ($p['status'] == 'kembali'): ?>
+                                    <span class="badge bg-success rounded-pill">Selesai</span>
+                                <?php else: ?>
+                                    <span class="badge bg-warning text-dark rounded-pill">Masih Dipinjam</span>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
                             <td colspan="4" class="text-center py-5 text-muted">
@@ -42,7 +51,7 @@
                             </td>
                         </tr>
                     <?php endif; ?>
-                    </tbody>
+                </tbody>
             </table>
         </div>
     </div>
