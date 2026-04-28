@@ -141,8 +141,8 @@
 
                 <div class="text-center mt-2">
                     <span class="text-muted small">Belum punya akun?</span><br>
-                    <a href="<?= base_url('users/create') ?>" class="text-decoration-none fw-bold small" style="color: #764ba2;">
-                         Daftar Baru Sekarang
+                    <a href="<?= base_url('daftar') ?>" class="text-decoration-none fw-bold small" style="color: #764ba2;">
+                        Daftar Baru Sekarang
                     </a>
                 </div>
                 <a href="<?= base_url('restore') ?>" class="btn btn-outline-danger btn-sm">

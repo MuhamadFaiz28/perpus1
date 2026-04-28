@@ -91,7 +91,7 @@ $routes->get('logout', 'Auth::logout');
 
 // Rute Pendaftaran
 $routes->get('daftar', 'Auth::daftar');
-$routes->get('register', 'Auth::daftar'); // Agar URL /register juga lari ke fungsi daftar
+$routes->get('create', 'Auth::daftar'); // Agar URL /create juga lari ke fungsi daftar
 $routes->post('auth/save_daftar', 'Auth::save_daftar');
 
 // Tambahkan baris ini di bawah rute 'peminjaman/saya' yang tadi
@@ -153,3 +153,14 @@ $routes->get('users', 'Users::index');
 $routes->get('anggota', 'Users::index');
 
 $routes->get('peminjaman/riwayat', 'Peminjaman::riwayat_saya');
+$routes->get('create', 'Auth::create'); // Menampilkan form
+$routes->post('proses-create', 'Auth::save_create'); // Memproses simpan data
+// UBAH DARI INI:
+$routes->get('create', 'Auth::daftar');
+
+// MENJADI INI:
+$routes->get('create', 'Auth::create');
+// Sesuaikan baris ini di Routes.php
+$routes->get('daftar', 'Auth::daftar');
+// Tambahkan baris ini
+$routes->post('proses-register', 'Auth::save_register');

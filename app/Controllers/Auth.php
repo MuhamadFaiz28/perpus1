@@ -7,27 +7,31 @@ use CodeIgniter\Controller;
 
 class Auth extends Controller
 {
+    // 1. Menampilkan Halaman Login
     public function login()
     {
         return view('auth/login');
     }
 
-    public function daftar()
+    // 2. Menampilkan Halaman Daftar
+   public function daftar()
     {
+        // Ini akan mencari file: app/Views/auth/daftar.php
         return view('auth/daftar'); 
     }
 
-    public function save_daftar()
+    // 3. Proses Simpan Pendaftaran
+    public function save_register()
     {
         $usersModel = new UsersModel();
 
-        // Validasi sederhana agar username tidak bentrok
         $username = $this->request->getPost('username');
-        $cek = $usersModel->where('username', $username)->first();
         
+        // Cek apakah username sudah ada
+        $cek = $usersModel->where('username', $username)->first();
         if ($cek) {
             session()->setFlashdata('error', 'Username sudah digunakan!');
-            return redirect()->back();
+            return redirect()->back()->withInput();
         }
 
         $data = [
@@ -41,40 +45,42 @@ class Auth extends Controller
         $usersModel->save($data);
         
         session()->setFlashdata('success', 'Pendaftaran berhasil! Silakan login.');
-        return redirect()->to('/login');
+        return redirect()->to(base_url('login'));
     }
 
+    // 4. Proses Verifikasi Login
     public function prosesLogin()
     {
         $session = session();
-        $usersModel = model('UsersModel');
+        $usersModel = new UsersModel();
 
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
 
-        $users = $usersModel->where('username', $username)->first();
+        $user = $usersModel->where('username', $username)->first();
 
-        if ($users) {
-            if (password_verify($password, $users['password'])) {
+        if ($user) {
+            if (password_verify($password, $user['password'])) {
                 $session->set([
-                    'id_users'  => $users['id'], 
-                    'nama'      => $users['nama'],
-                    'username'  => $users['username'],
-                    'role'      => $users['role'],
-                    'foto'      => $users['foto'],
+                    'id_users'  => $user['id'], 
+                    'nama'      => $user['nama'],
+                    'username'  => $user['username'],
+                    'role'      => $user['role'],
+                    'foto'      => $user['foto'],
                     'logged_in' => true
                 ]);
                 return redirect()->to('/dashboard');
             } else {
                 session()->setFlashdata('error', 'Password salah');
-                return redirect()->to('/login');
+                return redirect()->back()->withInput();
             }
         } else {
             session()->setFlashdata('error', 'Username tidak ditemukan');
-            return redirect()->to('/login');
+            return redirect()->back()->withInput();
         }
     }
 
+    // 5. Proses Logout
     public function logout()
     {
         session()->destroy();

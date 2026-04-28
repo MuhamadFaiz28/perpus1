@@ -2,7 +2,7 @@
     /* Styling Sidebar */
     .sidebar-nav {
         padding: 20px 15px;
-        background-color: #fcfcfd; /* Warna background sidebar yang lebih soft */
+        background-color: #fcfcfd;
         min-height: 100vh;
     }
 
@@ -53,7 +53,7 @@
 
     /* Menu Link Styling */
     .nav-link {
-        color: #475569; /* Slate 600 */
+        color: #475569;
         font-weight: 600;
         padding: 12px 16px !important;
         border-radius: 14px;
@@ -63,17 +63,13 @@
         align-items: center;
     }
 
-    .nav-link i, .nav-link span {
-        transition: all 0.25s ease;
-    }
-
     .nav-link i {
         font-size: 1.2rem;
         margin-right: 12px;
-        color: #94a3b8; /* Icon warna muted */
+        color: #94a3b8;
+        transition: all 0.25s ease;
     }
 
-    /* State Active & Hover */
     .nav-link:hover, .nav-link.active {
         background-color: #eff6ff;
         color: #2563eb !important;
@@ -111,7 +107,6 @@
         color: white;
     }
 
-    /* Logout Styling */
     .nav-link.text-danger {
         color: #f43f5e !important;
         margin-top: 20px;
@@ -122,7 +117,6 @@
         color: #e11d48 !important;
     }
 
-    /* Menu Divider */
     .menu-header {
         font-size: 0.7rem;
         text-transform: uppercase;
@@ -146,13 +140,14 @@
 <ul class="nav flex-column sidebar-nav">
     <li class="nav-item">
         <div class="user-profile-box mx-1">
-            <img src="<?= base_url('uploads/users/' . session()->get('foto')) ?>" 
-                 height="85" width="85" 
-                 class="rounded-circle mb-2" />
+            <?php 
+                $foto = session()->get('foto') ?: 'default.png'; 
+            ?>
+            <img src="<?= base_url('uploads/users/' . $foto) ?>" height="85" width="85" class="rounded-circle mb-2" />
             <div class="mt-2">
-                <h6 class="mb-1 fw-bold text-dark" style="letter-spacing: -0.3px;"><?= session('nama'); ?></h6>
+                <h6 class="mb-1 fw-bold text-dark" style="letter-spacing: -0.3px;"><?= session('nama') ?: 'Guest'; ?></h6>
                 <span class="user-badge">
-                    <i class="bi bi-shield-check-fill me-1"></i> <?= session('role'); ?>
+                    <i class="bi bi-shield-check-fill me-1"></i> <?= session('role') ?: 'User'; ?>
                 </span>
             </div>
         </div>
@@ -161,7 +156,7 @@
     <div class="menu-header">Utama</div>
 
     <li class="nav-item">
-        <a class="nav-link <?= url_is('/') ? 'active' : '' ?>" href="<?= base_url('/') ?>">
+        <a class="nav-link <?= url_is('dashboard*') || url_is('/') ? 'active' : '' ?>" href="<?= base_url('dashboard') ?>">
             <i class="bi bi-grid-1x2-fill"></i> <span>Dashboard</span>
         </a>
     </li>
@@ -173,12 +168,12 @@
     </li>
 
     <li class="nav-item">
-        <a href="<?= base_url('peminjaman') ?>" class="nav-link <?= (url_is('peminjaman') || url_is('peminjaman/konfirmasi*')) ? 'active' : '' ?>">
+        <a href="<?= base_url('peminjaman') ?>" class="nav-link <?= (url_is('peminjaman') && !url_is('peminjaman/riwayat*')) ? 'active' : '' ?>">
             <i class="bi bi-arrow-left-right"></i> <span>Data Peminjaman</span>
         </a>
     </li>
 
-      <li class="nav-item">
+    <li class="nav-item">
         <a href="<?= base_url('peminjaman/riwayat_saya') ?>" class="nav-link <?= url_is('peminjaman/riwayat_saya') ? 'active' : '' ?>">
             <i class="bi bi-clock-history"></i> <span>Riwayat Peminjaman</span>
         </a>
@@ -203,25 +198,25 @@
             <i class="bi bi-person-badge-fill"></i> <span>Profil Saya</span>
         </a>
     </li>
- <?php if (session()->get('role') == 'admin') : ?>
-    <li class="nav-item">
-        <a class="nav-link <?= url_is('users') ? 'active' : '' ?>" href="<?= base_url('users') ?>">
-            <i class="bi bi-people-fill"></i> <span>Data Pengguna</span>
-        </a>
-    </li>
 
-   
-    <li class="nav-item px-3">
-        <a href="<?= base_url('/backup') ?>" class="btn btn-backup">
-            <i class="bi bi-cloud-arrow-down-fill me-2"></i> Backup Database
-        </a>
-    </li>
+    <?php if (session()->get('role') == 'admin') : ?>
+        <li class="nav-item">
+            <a class="nav-link <?= url_is('users*') ? 'active' : '' ?>" href="<?= base_url('users') ?>">
+                <i class="bi bi-people-fill"></i> <span>Data Pengguna</span>
+            </a>
+        </li>
+
+        <li class="nav-item px-3">
+            <a href="<?= base_url('/backup') ?>" class="btn btn-backup">
+                <i class="bi bi-cloud-arrow-down-fill me-2"></i> Backup Database
+            </a>
+        </li>
     <?php endif; ?>
 
     <hr class="mx-3 my-4 opacity-0">
 
     <li class="nav-item">
-        <a href="<?= site_url('/logout') ?>" class="nav-link text-danger">
+        <a href="<?= base_url('/logout') ?>" class="nav-link text-danger">
             <i class="bi bi-box-arrow-right"></i> <span>Keluar Sistem</span>
         </a>
     </li>

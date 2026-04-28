@@ -127,7 +127,7 @@
                                 <i class="bi bi-people fs-4"></i>
                             </div>
                             <h6 class="text-muted fw-bold small text-uppercase">Anggota Aktif</h6>
-                            <h2 class="fw-bold text-dark mb-3"><?= $total_anggota; ?></h2>
+                           <h2 class="fw-bold text-dark mb-3"><?= $total_anggota ?? 0; ?></h2>
                             <a href="<?= base_url('anggota'); ?>" class="btn btn-sm btn-pill btn-outline-success w-100 rounded-pill">Cek Member</a>
                         </div>
                     </div>
@@ -143,62 +143,6 @@
                         <h6 class="text-muted fw-bold small text-uppercase">Status Denda</h6>
                         <h2 class="fw-bold text-dark mb-3">Rp <?= number_format($total_pendapatan ?? 0, 0, ',', '.'); ?></h2>
                         <a href="<?= base_url('peminjaman/denda'); ?>" class="btn btn-sm btn-pill btn-outline-danger w-100 rounded-pill">Cek Detail</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="card log-card shadow-sm border-0" style="border-radius: 20px;">
-                    <div class="card-header bg-white border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
-                        <h5 class="fw-bold text-dark mb-0 d-flex align-items-center">
-                            <span class="p-2 bg-primary bg-opacity-10 rounded-3 me-3">
-                                <i class="bi bi-lightning-charge text-primary"></i>
-                            </span>
-                            Aktivitas Terbaru
-                        </h5>
-                    </div>
-                    <div class="card-body p-4">
-                        <div class="table-responsive">
-                            <table class="table table-hover align-middle">
-                                <thead>
-                                    <tr>
-                                        <th class="ps-3">Waktu</th>
-                                        <th>Keterangan</th>
-                                        <th class="text-center">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php if (!empty($logs)) : ?>
-                                        <?php foreach ($logs as $l) : ?>
-                                            <tr>
-                                                <td class="ps-3 small text-secondary">
-                                                    <i class="bi bi-calendar3 me-1"></i> 
-                                                    <?= isset($l['created_at']) ? date('d M Y', strtotime($l['created_at'])) : '-'; ?>
-                                                    <br>
-                                                    <i class="bi bi-clock me-1"></i> 
-                                                    <?= isset($l['created_at']) ? date('H:i', strtotime($l['created_at'])) : '--:--'; ?>
-                                                </td>
-                                                <td>
-                                                    <span class="fw-bold text-dark"><?= $l['pesan']; ?></span>
-                                                </td>
-                                                <td class="text-center">
-                                                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3">Verified</span>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    <?php else : ?>
-                                        <tr>
-                                            <td colspan="3" class="text-center text-muted py-5">
-                                                <i class="bi bi-folder2-open fs-1 opacity-25 d-block mb-3"></i>
-                                                <p>Belum ada rekaman aktivitas terbaru.</p>
-                                            </td>
-                                        </tr>
-                                    <?php endif; ?>
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
             </div>
