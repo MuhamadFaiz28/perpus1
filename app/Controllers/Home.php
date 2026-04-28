@@ -8,43 +8,56 @@ class Home extends BaseController
     {
         $db = \Config\Database::connect();
         $today = date('Y-m-d');
+        $id_user = session()->get('id') ?? session()->get('id_user');
+        $role = session()->get('role');
 
-        // 1. Ambil Statistik Dashboard
-        // Menghitung jumlah record/judul di katalog agar sesuai dengan tampilan visual
-        $total_buku = $db->table('buku')->countAllResults(); 
-
-        $tersedia_query = $db->table('buku')->selectSum('tersedia', 'total')->get()->getRowArray();
-        $buku_tersedia = (int)($tersedia_query['total'] ?? 0);
-
-        $sedang_dipinjam = $db->table('peminjaman')->where('status', 'dipinjam')->countAllResults();
+        // 1. Statistik Dasar
+        $total_buku = $db->table('buku')->countAllResults();
         
-        $total_terlambat = $db->table('peminjaman')
-                                ->where('status', 'dipinjam')
-                                ->where('tanggal_kembali <', $today)
-                                ->countAllResults();
+        // Menghitung Anggota Aktif (hanya yang role-nya anggota)
+        $total_anggota = $db->table('users')->where('role', 'anggota')->countAllResults();
 
-        // 2. Ambil Aktivitas Terakhir
-        $aktivitas = $db->table('peminjaman')
-                        ->select('peminjaman.*, buku.judul, users.nama as nama_peminjam')
-                        ->join('buku', 'buku.id_buku = peminjaman.id_buku')
-                        ->join('users', 'users.id = peminjaman.id_anggota')
-                        ->orderBy('id_peminjaman', 'DESC')
-                        ->limit(5)
-                        ->get()
-                        ->getResultArray();
+        // Menghitung Sirkulasi Aktif (Buku yang sedang dipinjam)
+        $sirkulasi_aktif = $db->table('peminjaman')->where('status', 'dipinjam')->countAllResults();
 
-        // 3. Bungkus semua ke dalam array $data
+        // Menghitung Total Pendapatan Denda (untuk card denda)
+        $total_denda = $db->table('peminjaman')->selectSum('denda')->get()->getRowArray();
+        $total_pendapatan = (int)($total_denda['denda'] ?? 0);
+
+        // 2. Data untuk Tabel Log Aktivitas
+        $builder_logs = $db->table('peminjaman')
+                           ->select('peminjaman.*, buku.judul, users.nama as nama_peminjam')
+                           ->join('buku', 'buku.id_buku = peminjaman.id_buku')
+                           ->join('users', 'users.id = peminjaman.id_anggota');
+        
+        // Jika yang login Anggota, hanya tampilkan log miliknya sendiri
+        if ($role == 'anggota') {
+            $builder_logs->where('id_anggota', $id_user);
+        }
+
+        $logs = $builder_logs->orderBy('id_peminjaman', 'DESC')
+                             ->limit(5)
+                             ->get()
+                             ->getResultArray();
+
+        // Menyesuaikan isi pesan log (agar variabel $l['pesan'] tidak kosong)
+        foreach ($logs as &$l) {
+            $l['pesan'] = "Peminjaman buku " . $l['judul'] . " oleh " . $l['nama_peminjam'];
+            $l['status_verifikasi'] = ($l['status'] == 'menunggu') ? 'pending' : 'verified';
+        }
+
+        // 3. Siapkan Data untuk dikirim ke View
         $data = [
-            'total_buku'      => $total_buku, 
-            'buku_tersedia'   => $buku_tersedia, 
-            'sedang_dipinjam' => $sedang_dipinjam,
-            'total_terlambat' => $total_terlambat,
-            'buku'            => $db->table('buku')->orderBy('id_buku', 'DESC')->get()->getResultArray(),
-            'aktivitas'       => $aktivitas,
-            'today'           => $today 
+            'total_buku'       => $total_buku,
+            'total_anggota'    => $total_anggota,
+            'sirkulasi_aktif'  => $sirkulasi_aktif,
+            'total_pendapatan' => $total_pendapatan,
+            'logs'             => $logs,
+            'users' => $db->table('users')->get()->getResultArray(),
+            'today'            => $today
         ];
 
-        // 4. Kirim ke View Dashboard
+        // 4. Pastikan path view sesuai (tadi Anda menggunakan layouts/dashboard atau dashboard?)
         return view('layouts/dashboard', $data);
-    } 
+    }
 }

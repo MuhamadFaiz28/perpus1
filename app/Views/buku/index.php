@@ -8,6 +8,9 @@
         border-radius: 15px;
         transition: transform 0.3s ease;
         background: #fff;
+        height: 100%; /* Menyamakan tinggi card */
+        display: flex;
+        flex-direction: column;
     }
     .book-card:hover {
         transform: translateY(-5px);
@@ -61,30 +64,6 @@
         </div>
     </div>
 
-    <div class="filter-section shadow-sm">
-        <form action="<?= base_url('buku') ?>" method="get" class="row g-2">
-            <div class="col-md-7">
-                <div class="input-group">
-                    <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
-                    <input type="text" name="keyword" class="form-control border-start-0" placeholder="Cari judul atau ISBN..." value="<?= request()->getGet('keyword') ?>">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <select name="kategori" class="form-select">
-                    <option value="">Semua Kategori</option>
-                    <?php if(!empty($kategori)): foreach($kategori as $k): ?>
-                        <option value="<?= $k['id_kategori'] ?>"><?= $k['nama_kategori'] ?></option>
-                    <?php endforeach; endif; ?>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="btn btn-dark w-100">
-                    <i class="bi bi-filter"></i> Filter
-                </button>
-            </div>
-        </form>
-    </div>
-
     <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
         <?php if (!empty($buku)): foreach ($buku as $b) : ?>
             <div class="col">
@@ -114,14 +93,27 @@
                             </div>
                         </a>
                     </div>
-                    <div class="p-2">
-                        <p class="fw-bold mb-1 text-truncate" title="<?= esc($b['judul']) ?>"><?= esc($b['judul']) ?></p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <small class="text-muted">Stok: <?= $b['tersedia'] ?></small>
-                            <span class="badge rounded-pill <?= $b['tersedia'] > 0 ? 'bg-success' : 'bg-danger' ?>" style="font-size: 0.7rem;">
-                                <?= $b['tersedia'] > 0 ? 'Tersedia' : 'Habis' ?>
-                            </span>
+                    <div class="p-2 flex-grow-1 d-flex flex-column justify-content-between">
+                        <div>
+                            <p class="fw-bold mb-1 text-truncate" title="<?= esc($b['judul']) ?>"><?= esc($b['judul']) ?></p>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <small class="text-muted">Stok: <?= $b['tersedia'] ?></small>
+                                <span class="badge rounded-pill <?= $b['tersedia'] > 0 ? 'bg-success' : 'bg-danger' ?>" style="font-size: 0.7rem;">
+                                    <?= $b['tersedia'] > 0 ? 'Tersedia' : 'Habis' ?>
+                                </span>
+                            </div>
                         </div>
+
+                        <?php if (session()->get('role') == 'anggota'): ?>
+                            <div class="d-grid gap-1 mt-2">
+                                <?php if ($b['tersedia'] > 0): ?>
+                                <?php else: ?>
+                                    <button class="btn btn-light btn-sm rounded-pill fw-bold text-muted" disabled>
+                                        <i class="bi bi-x-circle me-1"></i> Stok Habis
+                                    </button>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

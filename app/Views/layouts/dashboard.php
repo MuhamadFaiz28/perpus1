@@ -56,80 +56,150 @@
     }
 </style>
 
-<div class="container py-5">
-    
-    <?php if (session()->getFlashdata('success')) : ?>
-        <div class="alert alert-success alert-dismissible fade show mb-4 rounded-4 shadow-sm" role="alert">
-            <i class="fas fa-check-circle me-2"></i> <?= session()->getFlashdata('success') ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif; ?>
-
-    <div class="hero-section p-5 mb-5 shadow-lg text-white">
-        <div class="row align-items-center">
-            <div class="col-md-8 text-center text-md-start">
-                <span class="badge bg-white bg-opacity-25 mb-3 px-3 py-2 rounded-pill">Selamat Datang di Paos28App</span>
-                <h1 class="display-5 fw-bold mb-2">Kelola Literasi dengan <br><span class="text-warning">Presisi & Efisiensi</span></h1>
-                <p class="lead opacity-75">Sistem Administrasi Perpustakaan Terpadu.</p>
-            </div>
-            <div class="col-md-4 text-md-end d-flex flex-column gap-2 mt-4 mt-md-0">
-                <?php if (session()->get('role') == 'admin'): ?>
-                    <a href="<?= base_url('buku/create') ?>" class="btn btn-warning btn-lg rounded-pill fw-bold shadow-sm">
-                        <i class="fas fa-plus-circle me-2"></i> Tambah Buku Baru
-                    </a>
-                <?php endif; ?>
-                <a href="<?= base_url('peminjaman') ?>" class="btn btn-light btn-lg rounded-pill fw-bold shadow-sm text-primary">
-                    <i class="fas fa-exchange-alt me-2"></i> Kelola Sirkulasi
-                </a>
-            </div>
-        </div>
-    </div>
-        <div class="col-lg-4">
-            <div class="card border-0 shadow-sm rounded-4 mb-4">
-                <div class="card-header bg-white border-0 py-3">
-                    <h5 class="fw-bold mb-0"><i class="fas fa-history me-2 text-primary"></i>Aktivitas</h5>
+<div class="dashboard-wrapper">
+    <div class="container-fluid px-4 pt-4">
+        
+        <?php if (session()->getFlashdata('success')) : ?>
+            <div class="alert alert-success alert-dismissible fade show border-0 shadow-sm mb-4 rounded-4" role="alert">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill fs-4 me-3"></i>
+                    <div><?= session()->getFlashdata('success'); ?></div>
                 </div>
-                <div class="card-body p-4 pt-0">
-                    <?php if (!empty($aktivitas)) : ?>
-                        <div class="timeline-dashboard">
-                            <?php foreach ($aktivitas as $ak) : ?>
-                                <div class="d-flex mb-4 position-relative">
-                                    <div class="me-3">
-                                        <?php 
-                                            $color = ($ak['status'] == 'kembali') ? 'success' : (($ak['status'] == 'dipinjam') ? 'primary' : 'warning');
-                                        ?>
-                                        <div class="bg-<?= $color ?> rounded-circle shadow-sm" style="width: 15px; height: 15px; margin-top: 5px; z-index: 2; position: relative;"></div>
-                                    </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
 
-                                    <div class="flex-grow-1">
-                                        <h6 class="mb-1 fw-bold" style="font-size: 0.85rem;">
-                                            <?= esc($ak['nama_peminjam']) ?> 
-                                            <span class="text-muted fw-normal"><?= $ak['status'] == 'kembali' ? 'mengembalikan' : 'meminjam' ?></span>
-                                            "<?= esc($ak['judul']) ?>"
-                                        </h6>
-                                        
-                                        <?php if ($ak['status'] == 'kembali' && $ak['denda'] > 0) : ?>
-                                            <div class="mb-1"><span class="badge bg-danger bg-opacity-10 text-danger" style="font-size: 0.7rem;">Denda: Rp <?= number_format($ak['denda'], 0, ',', '.') ?></span></div>
-                                        <?php endif; ?>
-
-                                        <?php if ($ak['status'] == 'dipinjam') : ?>
-                                            <a href="<?= base_url('peminjaman/kembalikan/' . $ak['id_peminjaman']) ?>" 
-                                               class="btn btn-xs btn-outline-warning py-0 px-2 rounded-pill fw-bold mb-2" style="font-size: 0.65rem;"
-                                               onclick="return confirm('Konfirmasi pengembalian buku?')">
-                                               Kembalikan
-                                            </a>
-                                        <?php endif; ?>
-
-                                        <div class="text-muted" style="font-size: 0.7rem;"><i class="far fa-clock me-1"></i> <?= date('d M Y, H:i', strtotime($ak['tanggal_pinjam'] ?? date('Y-m-d H:i'))) ?> WIB</div>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="welcome-banner p-4 shadow-sm" style="background: white; border-radius: 20px;">
+                    <div class="row align-items-center">
+                        <div class="col-md-8 d-flex align-items-center">
+                            <div class="icon-box bg-primary text-white shadow-sm mb-0 me-4 d-flex justify-content-center align-items-center" style="width: 60px; height: 60px; border-radius: 15px;">
+                                <i class="bi bi-person-badge fs-3"></i>
+                            </div>
+                            <div>
+                                <h2 class="fw-extrabold mb-1 text-dark">Hello, <?= session()->get('nama'); ?>! </h2>
+                                <p class="text-muted mb-0">Selamat datang di panel kendali <b>Jago Maca App</b>. Semangat membaca hari ini!</p>
+                            </div>
                         </div>
-                    <?php else : ?>
-                        <div class="text-center py-4 text-muted small">
-                            Belum ada aktivitas sirkulasi.
+                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                            <div class="text-muted small">Akses Terakhir: <span class="fw-bold text-dark"><?= date('H:i'); ?> WIB</span></div>
                         </div>
-                    <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <div class="col-xl-3 col-md-6">
+                <div class="card stat-card shadow-sm h-100 border-0" style="border-radius: 20px;">
+                    <div class="card-body p-4">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary mb-3 d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; border-radius: 12px;">
+                            <i class="bi bi-book-half fs-4"></i>
+                        </div>
+                        <h6 class="text-muted fw-bold small text-uppercase">Total Koleksi</h6>
+                        <h2 class="fw-bold text-dark mb-3"><?= number_format($total_buku); ?></h2>
+                        <a href="<?= base_url('buku'); ?>" class="btn btn-sm btn-pill btn-outline-primary w-100 rounded-pill">
+                            <?= (strtolower(session()->get('role')) == 'anggota') ? 'Cari Buku' : 'Kelola Buku'; ?>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <?php if (strtolower(session()->get('role')) == 'anggota') : ?>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card stat-card shadow-sm h-100 border-0" style="border-radius: 20px;">
+                        <div class="card-body p-4">
+                            <div class="icon-box bg-info bg-opacity-10 text-info mb-3 d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; border-radius: 12px;">
+                                <i class="bi bi-clock-history fs-4"></i>
+                            </div>
+                            <h6 class="text-muted fw-bold small text-uppercase">Riwayat Pinjam</h6>
+                            <h2 class="fw-bold text-dark mb-3"><?= $sirkulasi_aktif; ?></h2>
+                            <a href="<?= base_url('peminjaman/riwayat_saya'); ?>" class="btn btn-sm btn-pill btn-outline-info w-100 rounded-pill">Lihat Riwayat</a>
+                        </div>
+                    </div>
+                </div>
+            <?php else : ?>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card stat-card shadow-sm h-100 border-0" style="border-radius: 20px;">
+                        <div class="card-body p-4">
+                            <div class="icon-box bg-success bg-opacity-10 text-success mb-3 d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; border-radius: 12px;">
+                                <i class="bi bi-people fs-4"></i>
+                            </div>
+                            <h6 class="text-muted fw-bold small text-uppercase">Anggota Aktif</h6>
+                            <h2 class="fw-bold text-dark mb-3"><?= $total_anggota; ?></h2>
+                            <a href="<?= base_url('anggota'); ?>" class="btn btn-sm btn-pill btn-outline-success w-100 rounded-pill">Cek Member</a>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <div class="col-xl-3 col-md-6">
+                <div class="card stat-card shadow-sm h-100 border-0" style="border-radius: 20px;">
+                    <div class="card-body p-4">
+                        <div class="icon-box bg-danger bg-opacity-10 text-danger mb-3 d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; border-radius: 12px;">
+                            <i class="bi bi-cash-stack fs-4"></i>
+                        </div>
+                        <h6 class="text-muted fw-bold small text-uppercase">Status Denda</h6>
+                        <h2 class="fw-bold text-dark mb-3">Rp <?= number_format($total_pendapatan ?? 0, 0, ',', '.'); ?></h2>
+                        <a href="<?= base_url('peminjaman/denda'); ?>" class="btn btn-sm btn-pill btn-outline-danger w-100 rounded-pill">Cek Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card log-card shadow-sm border-0" style="border-radius: 20px;">
+                    <div class="card-header bg-white border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
+                        <h5 class="fw-bold text-dark mb-0 d-flex align-items-center">
+                            <span class="p-2 bg-primary bg-opacity-10 rounded-3 me-3">
+                                <i class="bi bi-lightning-charge text-primary"></i>
+                            </span>
+                            Aktivitas Terbaru
+                        </h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th class="ps-3">Waktu</th>
+                                        <th>Keterangan</th>
+                                        <th class="text-center">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php if (!empty($logs)) : ?>
+                                        <?php foreach ($logs as $l) : ?>
+                                            <tr>
+                                                <td class="ps-3 small text-secondary">
+                                                    <i class="bi bi-calendar3 me-1"></i> 
+                                                    <?= isset($l['created_at']) ? date('d M Y', strtotime($l['created_at'])) : '-'; ?>
+                                                    <br>
+                                                    <i class="bi bi-clock me-1"></i> 
+                                                    <?= isset($l['created_at']) ? date('H:i', strtotime($l['created_at'])) : '--:--'; ?>
+                                                </td>
+                                                <td>
+                                                    <span class="fw-bold text-dark"><?= $l['pesan']; ?></span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3">Verified</span>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php else : ?>
+                                        <tr>
+                                            <td colspan="3" class="text-center text-muted py-5">
+                                                <i class="bi bi-folder2-open fs-1 opacity-25 d-block mb-3"></i>
+                                                <p>Belum ada rekaman aktivitas terbaru.</p>
+                                            </td>
+                                        </tr>
+                                    <?php endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -143,3 +143,13 @@ $routes->get('peminjaman/riwayat_saya', 'Peminjaman::saya');
 $routes->post('peminjaman/simpan', 'Peminjaman::simpan');
 $routes->get('peminjaman/hapusSemua', 'Peminjaman::hapusSemua');
 $routes->get('buku/kembalikan/(:num)', 'Buku::kembalikan/$1');
+// Tambahkan ini di bawah route peminjaman lainnya
+$routes->get('peminjaman/pinjam/(:num)', 'Peminjaman::pinjam/$1');
+$routes->get('peminjaman/hapusSemua', 'Peminjaman::hapusSemua');
+// Hapus atau ubah rute anggota yang lama
+$routes->get('users', 'Users::index');
+
+// Jika Anda ingin URL 'localhost/anggota' tetap bisa dibuka tapi isinya data users:
+$routes->get('anggota', 'Users::index');
+
+$routes->get('peminjaman/riwayat', 'Peminjaman::riwayat_saya');

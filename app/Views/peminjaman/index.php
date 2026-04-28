@@ -57,9 +57,6 @@
             <h2 class="fw-bold m-0"><i class="fas fa-exchange-alt me-2"></i> Data Peminjaman</h2>
             <p class="m-0 opacity-75">Kelola sirkulasi buku dan status pengembalian anggota.</p>
         </div>
-        <a href="<?= base_url('peminjaman/tambah') ?>" class="btn btn-warning rounded-pill px-4 fw-bold shadow">
-            <i class="fas fa-plus me-2"></i> Tambah Pinjaman
-        </a>
     </div>
 
     <div class="table-container">
@@ -85,7 +82,7 @@
                                     <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 me-2" style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">
                                         <i class="fas fa-user-tag fa-sm"></i>
                                     </div>
-                                    <span class="fw-bold text-dark"><?= esc($p['nama'] ?? $p['id_anggota']); ?></span>
+                                    <span class="fw-bold text-dark"><?= esc($p['nama'] ?? 'Anggota'); ?></span>
                                 </div>
                             </td>
                             <td>
@@ -94,27 +91,25 @@
                             </td>
                             <td>
                                 <span class="badge bg-light text-dark border">
-                                    <?= $p['tanggal_pinjam'] ? date('d M Y', strtotime($p['tanggal_pinjam'])) : '-' ?>
+                                    <?= ($p['tanggal_pinjam'] && $p['tanggal_pinjam'] != '0000-00-00') ? date('d M Y', strtotime($p['tanggal_pinjam'])) : '-' ?>
                                 </span>
                             </td>
                             <td>
                                 <?php 
-                                    // Proteksi Undefined Key & Logika Warna Jatuh Tempo
                                     $jt = $p['jatuh_tempo'] ?? null; 
-                                    $is_late = ($jt && ($p['status'] ?? '') != 'Kembali' && strtotime($jt) < time());
+                                    $status = strtolower($p['status'] ?? '');
+                                    $is_late = ($jt && $jt != '0000-00-00' && $status != 'kembali' && strtotime($jt) < time());
                                 ?>
                                 <span class="badge bg-light text-dark border <?= $is_late ? 'border-danger text-danger' : '' ?>">
-                                    <?= $jt ? date('d M Y', strtotime($jt)) : '-' ?>
+                                    <?= ($jt && $jt != '0000-00-00') ? date('d M Y', strtotime($jt)) : '-' ?>
                                 </span>
                             </td>
                             <td>
-                                <?php 
-                                $status = strtolower($p['status'] ?? '');
-                                if ($status == 'menunggu' || empty($status)): ?>
+                                <?php if ($status == 'menunggu' || empty($status)): ?>
                                     <span class="badge-status bg-info text-info bg-opacity-10">
                                         <i class="fas fa-hourglass-half me-1"></i> Menunggu
                                     </span>
-                                <?php elseif ($status == 'pinjam' || $status == 'dipinjam'): ?>
+                                <?php elseif ($status == 'dipinjam' || $status == 'pinjam'): ?>
                                     <span class="badge-status bg-warning text-warning bg-opacity-10">
                                         <i class="fas fa-clock me-1"></i> Dipinjam
                                     </span>
@@ -125,19 +120,21 @@
                                 <?php endif; ?>
                             </td>
                             <td class="text-center">
-                                <span class="fw-bold <?= ($p['denda'] ?? 0) > 0 ? 'text-danger' : 'text-muted' ?>">
-                                    Rp <?= number_format($p['denda'] ?? 0, 0, ',', '.'); ?>
-                                </span>
+                                <?php if (($p['denda'] ?? 0) > 0): ?>
+                                    <span class="fw-bold text-danger">Rp <?= number_format($p['denda'], 0, ',', '.'); ?></span>
+                                <?php else: ?>
+                                    <span class="text-muted">-</span>
+                                <?php endif; ?>
                             </td>
                             <td class="text-end pe-4">
                                 <div class="d-flex justify-content-end gap-2">
-                                    <?php if (empty($status) || $status == 'menunggu'): ?>
+                                    <?php if ($status == 'menunggu' || empty($status)): ?>
                                         <a href="<?= base_url('peminjaman/konfirmasi/' . $p['id_peminjaman']) ?>" 
                                            class="btn btn-primary btn-sm rounded-pill px-3 fw-bold shadow-sm"
                                            onclick="return confirm('Setujui peminjaman buku ini?')">
                                             <i class="fas fa-check me-1"></i> Setujui
                                         </a>
-                                    <?php elseif ($status == 'pinjam' || $status == 'dipinjam'): ?>
+                                    <?php elseif ($status == 'dipinjam' || $status == 'pinjam'): ?>
                                         <a href="<?= base_url('peminjaman/kembalikan/' . $p['id_peminjaman']) ?>" 
                                            class="btn btn-warning btn-sm rounded-pill px-3 fw-bold shadow-sm"
                                            onclick="return confirm('Konfirmasi pengembalian buku?')">
@@ -146,8 +143,9 @@
                                     <?php else: ?>
                                         <?php if (($p['denda'] ?? 0) > 0): ?>
                                             <a href="<?= base_url('peminjaman/lunas_denda/' . $p['id_peminjaman']) ?>" 
-                                               class="btn btn-success btn-sm rounded-pill px-3 fw-bold shadow-sm">
-                                                <i class="fas fa-money-bill-wave me-1"></i> Bayar Denda
+                                               class="btn btn-success btn-sm rounded-pill px-3 fw-bold shadow-sm" 
+                                               onclick="return confirm('Apakah denda sudah dibayar lunas?')">
+                                               <i class="fas fa-money-bill-wave me-1"></i> Bayar Denda
                                             </a>
                                         <?php else: ?>
                                             <button class="btn btn-outline-secondary btn-sm rounded-pill px-3 fw-bold" disabled>

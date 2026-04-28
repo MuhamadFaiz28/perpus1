@@ -13,6 +13,7 @@ class PeminjamanModel extends Model
     protected $allowedFields = [
         'id_anggota', 'id_petugas', 'id_buku', 
         'tanggal_pinjam', 'tanggal_kembali', 
-        'tanggal_dikembalikan', 'status', 'denda'
+        'tanggal_dikembalikan', 'status',
+        'jatuh_tempo', 'denda',
     ];
 }
