@@ -64,7 +64,6 @@
                     <select name="role" class="form-select border-1">
                         <option value="">Semua Role</option>
                         <option value="admin" <?= (($_GET['role'] ?? '') == 'admin') ? 'selected' : '' ?>>Admin</option>
-                        <option value="petugas" <?= (($_GET['role'] ?? '') == 'petugas') ? 'selected' : '' ?>>Petugas</option>
                         <option value="anggota" <?= (($_GET['role'] ?? '') == 'anggota') ? 'selected' : '' ?>>Anggota</option>
                     </select>
                 </div>
@@ -144,8 +143,6 @@
                                 <td>
                                     <?php 
                                         $roleClass = 'bg-info text-dark';
-                                        if($u['role'] == 'admin') $roleClass = 'bg-danger text-white';
-                                        if($u['role'] == 'petugas') $roleClass = 'bg-warning text-dark';
                                     ?>
                                     <span class="badge badge-role <?= $roleClass ?> small">
                                         <?= strtoupper($u['role']) ?>

@@ -24,11 +24,6 @@
                             <input type="password" name="password" class="form-control rounded-pill px-3" placeholder="Min. 6 karakter" required>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label small fw-bold text-secondary">ROLE</label>
-                            <select name="role" class="form-select rounded-pill px-3">
-                                <option value="Anggota">Anggota</option>
-                                <option value="Admin">Admin</option>
-                            </select>
                         </div>
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-primary rounded-pill py-2 fw-bold shadow-sm">Simpan User</button>
